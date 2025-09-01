@@ -1,0 +1,225 @@
+---
+// Alianzas component
+---
+
+<section id="alianzas" class="py-20 bg-primary/10">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-bold text-dark text-center mb-16">Alianzas que potencian</h2>
+    
+    <!-- Grid de logos -->
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+      
+      <!-- Logo 1 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-2xl font-bold text-dark">MEDEF</div>
+        </div>
+      </div>
+      
+      <!-- Logo 2 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">TFWA</div>
+        </div>
+      </div>
+      
+      <!-- Logo 3 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">Air Liquide</div>
+        </div>
+      </div>
+      
+      <!-- Logo 4 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-2xl font-bold text-dark">TikTok</div>
+        </div>
+      </div>
+      
+      <!-- Logo 5 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-3xl font-bold text-dark">AXA</div>
+        </div>
+      </div>
+      
+      <!-- Logo 6 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">Orange</div>
+        </div>
+      </div>
+      
+      <!-- Logo 7 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">Cannes Lions</div>
+        </div>
+      </div>
+      
+      <!-- Logo 8 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">GRDF</div>
+        </div>
+      </div>
+      
+      <!-- Logo 9 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">Huawei</div>
+        </div>
+      </div>
+      
+      <!-- Logo 10 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">Chopard</div>
+        </div>
+      </div>
+      
+      <!-- Logo 11 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-2xl font-bold text-dark">DIOR</div>
+        </div>
+      </div>
+      
+      <!-- Logo 12 -->
+      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-full h-16 flex items-center justify-center">
+          <div class="text-xl font-bold text-dark">Engie</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Texto descriptivo -->
+    <div class="text-center mt-16 max-w-3xl mx-auto">
+      <p class="text-lg text-dark/80 leading-relaxed">
+        Trabajamos con las empresas más innovadoras del mundo para crear soluciones que transforman industrias y potencian el crecimiento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animación de las alianzas
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Animación de entrada de los logos con stagger
+  gsap.from('.logo-container', {
+    scale: 0,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: '#alianzas',
+      start: 'top 80%',
+      end: 'bottom 20%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+  
+  // Animación del texto descriptivo
+  gsap.from('#alianzas p', {
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.5,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#alianzas',
+      start: 'top 80%',
+      end: 'bottom 20%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+  
+  // Efecto hover con GSAP
+  const logos = document.querySelectorAll('.logo-container');
+  
+  logos.forEach(logo => {
+    logo.addEventListener('mouseenter', () => {
+      gsap.to(logo, {
+        scale: 1.1,
+        y: -10,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+      
+      // Efecto de flotación
+      gsap.to(logo, {
+        y: -5,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power2.inOut'
+      });
+    });
+    
+    logo.addEventListener('mouseleave', () => {
+      gsap.to(logo, {
+        scale: 1,
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+      
+      // Detener la flotación
+      gsap.killTweensOf(logo);
+    });
+  });
+  
+  // Animación de rotación sutil en hover
+  logos.forEach(logo => {
+    logo.addEventListener('mouseenter', () => {
+      gsap.to(logo, {
+        rotation: 5,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+    
+    logo.addEventListener('mouseleave', () => {
+      gsap.to(logo, {
+        rotation: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+  });
+</script>
+
+<style>
+  .logo-container {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .logo-container:hover {
+    border-color: rgba(6, 43, 237, 0.3);
+    box-shadow: 0 10px 25px rgba(6, 43, 237, 0.15);
+  }
+  
+  .logo-container:hover > div {
+    transform: scale(1.05);
+  }
+  
+  .logo-container > div {
+    transition: transform 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-container {
+      padding: 1rem;
+    }
+    
+    .logo-container > div {
+      height: 3rem;
+    }
+  }
+</style>

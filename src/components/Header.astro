@@ -1,0 +1,141 @@
+---
+// Header component
+---
+
+<header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="logo-container">
+      <h1 class="text-2xl font-bold text-dark">LandingAstro</h1>
+    </div>
+    
+    <!-- Menú de navegación -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#identidad" class="text-dark hover:text-secondary transition-colors">Identidad</a>
+      <a href="#servicios" class="text-dark hover:text-secondary transition-colors">Servicios</a>
+      <a href="#soluciones" class="text-dark hover:text-secondary transition-colors">Soluciones</a>
+      <a href="#alianzas" class="text-dark hover:text-secondary transition-colors">Alianzas</a>
+      <a href="#equipo" class="text-dark hover:text-secondary transition-colors">Equipo</a>
+      <a href="#contacto" class="text-dark hover:text-secondary transition-colors">Contacto</a>
+    </nav>
+    
+    <!-- Botón de menú móvil -->
+    <button class="md:hidden menu-toggle" aria-label="Abrir menú">
+      <div class="w-6 h-6 flex flex-col justify-center items-center">
+        <span class="block w-5 h-0.5 bg-dark mb-1 transition-all"></span>
+        <span class="block w-5 h-0.5 bg-dark mb-1 transition-all"></span>
+        <span class="block w-5 h-0.5 bg-dark transition-all"></span>
+      </div>
+    </button>
+  </div>
+</header>
+
+<!-- Círculo animado inicial -->
+<div class="initial-circle fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary rounded-full z-50 flex items-center justify-center">
+  <span class="text-white font-bold text-lg">Loading...</span>
+</div>
+
+<script>
+  // Animación inicial del círculo
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Timeline para la animación inicial
+  const initialTimeline = gsap.timeline();
+  
+  initialTimeline
+    .from('.initial-circle', {
+      scale: 0,
+      duration: 1,
+      ease: 'back.out(1.7)'
+    })
+    .to('.initial-circle', {
+      scale: 0.8,
+      duration: 0.5,
+      ease: 'power2.out'
+    })
+    .to('.initial-circle', {
+      x: 'calc(50vw - 2rem)',
+      y: '-50vh',
+      scale: 0.3,
+      duration: 1,
+      ease: 'power2.inOut'
+    })
+    .to('.initial-circle', {
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.out'
+    }, '-=0.1');
+  
+  // Animación del header
+  gsap.from('header', {
+    y: -100,
+    opacity: 0,
+    duration: 1,
+    delay: 2,
+    ease: 'power2.out'
+  });
+  
+  // Animación del logo
+  gsap.from('.logo-container', {
+    x: -50,
+    opacity: 0,
+    duration: 0.8,
+    delay: 2.5,
+    ease: 'power2.out'
+  });
+  
+  // Animación de los enlaces de navegación
+  gsap.from('nav a', {
+    y: -20,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    delay: 2.8,
+    ease: 'power2.out'
+  });
+  
+  // Toggle del menú móvil
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  
+  menuToggle?.addEventListener('click', () => {
+    nav?.classList.toggle('flex');
+    nav?.classList.toggle('hidden');
+    
+    // Animación de las líneas del menú
+    const spans = menuToggle.querySelectorAll('span');
+    spans.forEach((span, index) => {
+      if (nav?.classList.contains('flex')) {
+        if (index === 0) {
+          span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+        } else if (index === 1) {
+          span.style.opacity = '0';
+        } else if (index === 2) {
+          span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        }
+      } else {
+        span.style.transform = 'none';
+        span.style.opacity = '1';
+      }
+    });
+  });
+</script>
+
+<style>
+  .initial-circle {
+    pointer-events: none;
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>

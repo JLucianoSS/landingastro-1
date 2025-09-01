@@ -1,0 +1,150 @@
+---
+// Hero component
+---
+
+<section class="hero-section relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-white to-primary overflow-hidden">
+  <!-- Elementos de fondo decorativos -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="floating-shape shape-1 absolute top-20 left-20 w-32 h-32 bg-secondary/10 rounded-full"></div>
+    <div class="floating-shape shape-2 absolute top-40 right-32 w-24 h-24 bg-dark/5 rounded-full"></div>
+    <div class="floating-shape shape-3 absolute bottom-32 left-1/4 w-20 h-20 bg-secondary/15 rounded-full"></div>
+    <div class="floating-shape shape-4 absolute bottom-20 right-20 w-28 h-28 bg-dark/8 rounded-full"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 text-center relative z-10">
+    <!-- Título principal -->
+    <h1 class="hero-title text-6xl md:text-8xl font-bold text-dark mb-6">
+      <span class="hero-word word-1">Driven</span>
+      <span class="hero-word word-2">to</span>
+      <span class="hero-word word-3">grow,</span>
+      <span class="hero-word word-4">together</span>
+    </h1>
+    
+    <!-- Subtítulo -->
+    <p class="hero-subtitle text-xl md:text-2xl text-dark/80 mb-8 max-w-3xl mx-auto">
+      Construimos el futuro digital con soluciones innovadoras y tecnología de vanguardia
+    </p>
+    
+    <!-- Botones de acción -->
+    <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <button class="btn-primary px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-dark transition-all duration-300 transform hover:scale-105">
+        Descubre más
+      </button>
+      <button class="btn-secondary px-8 py-4 border-2 border-secondary text-secondary rounded-full font-semibold text-lg hover:bg-secondary hover:text-white transition-all duration-300 transform hover:scale-105">
+        Contáctanos
+      </button>
+    </div>
+  </div>
+  
+  <!-- Indicador de scroll -->
+  <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div class="w-6 h-10 border-2 border-dark rounded-full flex justify-center">
+      <div class="scroll-dot w-1 h-3 bg-dark rounded-full mt-2 animate-bounce"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animación del hero
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Timeline principal del hero
+  const heroTimeline = gsap.timeline();
+  
+  // Animación de las formas flotantes
+  gsap.to('.floating-shape', {
+    y: -20,
+    rotation: 360,
+    duration: 6,
+    repeat: -1,
+    ease: 'none',
+    stagger: 1
+  });
+  
+  // Animación del título con stagger
+  heroTimeline
+    .from('.hero-word', {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'power2.out'
+    })
+    .from('.hero-subtitle', {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.5')
+    .from('.hero-buttons', {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .from('.scroll-indicator', {
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.2');
+  
+  // Parallax en scroll
+  gsap.to('.floating-shape', {
+    yPercent: -50,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero-section',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+  
+  // Animación del indicador de scroll
+  gsap.to('.scroll-dot', {
+    y: 12,
+    duration: 1.5,
+    repeat: -1,
+    ease: 'power2.inOut'
+  });
+</script>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, #EAEAEA 0%, #FFFFFF 50%, #EAEAEA 100%);
+  }
+  
+  .floating-shape {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .shape-1 { animation-delay: 0s; }
+  .shape-2 { animation-delay: 1.5s; }
+  .shape-3 { animation-delay: 3s; }
+  .shape-4 { animation-delay: 4.5s; }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 10px 25px rgba(6, 43, 237, 0.3);
+  }
+  
+  .btn-secondary:hover {
+    box-shadow: 0 10px 25px rgba(5, 8, 53, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+  }
+</style>
