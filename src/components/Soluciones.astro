@@ -2,295 +2,1072 @@
 // Soluciones component
 ---
 
-<section id="soluciones" class="py-20 bg-white relative overflow-hidden">
+<section
+  id="soluciones"
+  class="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden"
+>
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl md:text-5xl font-bold text-dark text-center mb-16">Ecosistema de Soluciones</h2>
-    
-    <!-- Contenedor del ecosistema -->
-    <div class="ecosistema-container relative w-full max-w-4xl mx-auto">
-      
-      <!-- Círculo central -->
-      <div class="centro-ecosistema absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-br from-secondary to-dark rounded-full flex items-center justify-center z-10">
-        <div class="text-center text-white">
-          <h3 class="text-xl font-bold mb-2">Ecosistema</h3>
-          <p class="text-sm opacity-90">de Soluciones</p>
+    <!-- Título y subtítulo de la sección -->
+    <div class="text-center mb-40">
+      <h2
+        class="soluciones-titulo text-4xl md:text-5xl font-bold text-dark mb-6"
+      >
+        Ecosistema de Soluciones
+      </h2>
+      <p
+        class="soluciones-subtitulo text-xl text-dark/70 max-w-3xl mx-auto leading-relaxed"
+      >
+        Conectamos todas las piezas de tu transformación digital donde creamos
+        valor a través de soluciones integradas que potencian el crecimiento de
+        tu organización
+      </p>
+    </div>
+    <div class="ecosystem-wrapper relative w-full max-w-6xl mx-auto h-[700px]">
+      <!-- Partículas de fondo -->
+      <div
+        class="bg-particle absolute w-1 h-1 bg-secondary/20 rounded-full"
+        style="top: 10%; left: 15%;"
+      >
+      </div>
+      <div
+        class="bg-particle absolute w-1 h-1 bg-secondary/20 rounded-full"
+        style="top: 20%; right: 20%;"
+      >
+      </div>
+      <div
+        class="bg-particle absolute w-1 h-1 bg-secondary/20 rounded-full"
+        style="bottom: 30%; left: 25%;"
+      >
+      </div>
+      <div
+        class="bg-particle absolute w-1 h-1 bg-secondary/20 rounded-full"
+        style="bottom: 15%; right: 30%;"
+      >
+      </div>
+
+      <!-- SVG para líneas de conexión -->
+      <svg
+        class="connection-svg absolute inset-0 w-full h-full pointer-events-none z-10"
+        viewBox="0 0 800 600"
+      >
+        <defs>
+          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#e2e8f0;stop-opacity:1"></stop>
+            <stop offset="100%" style="stop-color:#062BED;stop-opacity:0.8"
+            ></stop>
+          </linearGradient>
+        </defs>
+
+        <!-- Líneas que llegan EXACTAMENTE a cada card -->
+        <!-- Seguridad -> Centro -->
+        <path
+          class="connection-line line-1"
+          d="M400 80 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- Cloud -> Centro -->
+        <path
+          class="connection-line line-2"
+          d="M850 140 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- IA/ML -> Centro -->
+        <path
+          class="connection-line line-3"
+          d="M700 450 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- DevOps -> Centro -->
+        <path
+          class="connection-line line-4"
+          d="M400 480 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- Data -> Centro -->
+        <path
+          class="connection-line line-5"
+          d="M100 440 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- IoT -> Centro -->
+        <path
+          class="connection-line line-6"
+          d="M100 170 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- Protección Avanzada -> Centro -->
+        <path
+          class="connection-line line-7"
+          d="M800 290 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- Tecnologías Nueva Generación -> Centro -->
+        <path
+          class="connection-line line-8"
+          d="M10 280 L400 250"
+          stroke="#e2e8f0"
+          stroke-width="2"
+          fill="none"></path>
+
+        <!-- Punto central (enchufe) -->
+        <circle
+          class="connection-dot center-dot"
+          cx="400"
+          cy="250"
+          r="6"
+          fill="#062BED"></circle>
+
+        <!-- Puntos de conexión -->
+        <circle
+          class="connection-dot dot-1"
+          cx="400"
+          cy="80"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-2"
+          cx="580"
+          cy="140"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-3"
+          cx="580"
+          cy="360"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-4"
+          cx="400"
+          cy="480"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-5"
+          cx="220"
+          cy="360"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-6"
+          cx="220"
+          cy="140"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-7"
+          cx="580"
+          cy="190"
+          r="4"
+          fill="#e2e8f0"></circle>
+        <circle
+          class="connection-dot dot-8"
+          cx="220"
+          cy="190"
+          r="4"
+          fill="#e2e8f0"></circle>
+      </svg>
+
+      <!-- Card central con logo - Diseño profesional -->
+      <div
+        class="center-card absolute w-48 h-48 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center z-20 shadow-lg border border-white/30"
+        style="top: 42%; left: 50%; transform: translate(-50%, -50%);"
+      >
+        <div class="text-center">
+          <!-- Logo Imperia -->
+          <img
+            src="/images/logo-scroll.png"
+            alt="Imperia"
+            class="w-32 h-16 mx-auto object-contain"
+          />
         </div>
       </div>
-      
-      <!-- Elementos del ecosistema -->
-      <div class="elementos-ecosistema">
-        
-        <!-- Elemento 1: Seguridad -->
-        <div class="elemento elemento-1 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">Seguridad</h4>
-            <p class="text-sm text-dark/70">Protección integral</p>
+
+      <!-- Tarjetas de soluciones - Mejor alineamiento del texto -->
+      <!-- 1. Seguridad (arriba centro) -->
+      <div
+        class="solution-card card-1 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="top: -80px; left: 39%; transform: translateX(-50%);"
+        data-connection="1"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              ></path>
+            </svg>
           </div>
-          <div class="linea-conexion"></div>
+          <h4 class="font-bold text-dark text-base">
+            Protección de la Experiencia Digital
+          </h4>
         </div>
-        
-        <!-- Elemento 2: Cloud -->
-        <div class="elemento elemento-2 absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-dark rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">Cloud</h4>
-            <p class="text-sm text-dark/70">Infraestructura escalable</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
-        <!-- Elemento 3: IA/ML -->
-        <div class="elemento elemento-3 absolute bottom-1/4 right-0 transform translate-x-1/2 translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">IA/ML</h4>
-            <p class="text-sm text-dark/70">Inteligencia artificial</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
-        <!-- Elemento 4: DevOps -->
-        <div class="elemento elemento-4 absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-dark rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">DevOps</h4>
-            <p class="text-sm text-dark/70">Automatización</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
-        <!-- Elemento 5: Data -->
-        <div class="elemento elemento-5 absolute bottom-1/4 left-0 transform -translate-x-1/2 translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">Data</h4>
-            <p class="text-sm text-dark/70">Analytics avanzado</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
-        <!-- Elemento 6: IoT -->
-        <div class="elemento elemento-6 absolute top-1/4 left-0 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-dark rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">IoT</h4>
-            <p class="text-sm text-dark/70">Conectividad total</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
-        <!-- Elemento 7: Blockchain -->
-        <div class="elemento elemento-7 absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">Blockchain</h4>
-            <p class="text-sm text-dark/70">Tecnología descentralizada</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
-        <!-- Elemento 8: API -->
-        <div class="elemento elemento-8 absolute top-1/3 right-1/3 transform translate-x-1/2 -translate-y-1/2">
-          <div class="elemento-card bg-white p-6 rounded-2xl shadow-lg border-2 border-transparent hover:border-secondary transition-all duration-300">
-            <div class="w-12 h-12 bg-dark rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h4 class="font-bold text-dark mb-2">API</h4>
-            <p class="text-sm text-dark/70">Integración flexible</p>
-          </div>
-          <div class="linea-conexion"></div>
-        </div>
-        
       </div>
-      
+
+      <!-- 2. Cloud (arriba derecha) -->
+      <div
+        class="solution-card card-2 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="top: 30px; right: 20px;"
+        data-connection="2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">Conectividad Avanzada</h4>
+        </div>
+      </div>
+
+      <!-- 3. IA/ML (abajo derecha) -->
+      <div
+        class="solution-card card-3 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="bottom: 60px; right: 20px;"
+        data-connection="3"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">
+            Cloud & Plataformas Digitales
+          </h4>
+        </div>
+      </div>
+
+      <!-- 4. DevOps (abajo centro) -->
+      <div
+        class="solution-card card-4 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="bottom: -20px; left: 40%; transform: translateX(-50%);"
+        data-connection="4"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">Data Center</h4>
+        </div>
+      </div>
+
+      <!-- 5. Data (abajo izquierda) -->
+      <div
+        class="solution-card card-5 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="bottom: 60px; left: 20px;"
+        data-connection="5"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">
+            Gobierno, Riesgo y Cumplimiento
+          </h4>
+        </div>
+      </div>
+
+      <!-- 6. IoT (arriba izquierda) -->
+      <div
+        class="solution-card card-6 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="top: 30px; left: 20px;"
+        data-connection="6"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">
+            Confianza Digital y Protección de Identidades
+          </h4>
+        </div>
+      </div>
+
+      <!-- 7. Protección Avanzada Contra Amenazas (nueva posición) -->
+      <div
+        class="solution-card card-7 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="top: 250px; right: -80px;"
+        data-connection="7"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">
+            Protección Avanzada Contra Amenazas
+          </h4>
+        </div>
+      </div>
+
+      <!-- 8. Tecnologías de Nueva Generación (nueva posición) -->
+      <div
+        class="solution-card card-8 absolute w-64 h-40 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30"
+        style="top: 250px; left: -80px;"
+        data-connection="8"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-3 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h4 class="font-bold text-dark text-base">
+            Tecnologías de Nueva Generación
+          </h4>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Animación del ecosistema de soluciones
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Animación del centro
-  gsap.from('.centro-ecosistema', {
-    scale: 0,
-    rotation: 360,
-    duration: 1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '#soluciones',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
+  // 🌐 ECOSISTEMA DE SOLUCIONES CON ANIMACIONES DE ENTRADA
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("🌐 Ecosistema de Soluciones iniciado");
+
+    // Animaciones de entrada para título y subtítulo
+    if (typeof window.gsap !== "undefined" && window.gsapReady) {
+      // Animación del título
+      window.gsap.fromTo(
+        ".soluciones-titulo",
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".soluciones-titulo",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
+
+      // Animación del subtítulo
+      window.gsap.fromTo(
+        ".soluciones-subtitulo",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".soluciones-subtitulo",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
     }
-  });
-  
-  // Animación de los elementos con stagger
-  gsap.from('.elemento', {
-    scale: 0,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '#soluciones',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
+
+    // Elementos para animación
+    const cards = document.querySelectorAll(
+      ".solution-card"
+    ) as NodeListOf<HTMLElement>;
+    const connectionLines = document.querySelectorAll(
+      ".connection-line"
+    ) as NodeListOf<SVGPathElement>;
+    const connectionDots = document.querySelectorAll(
+      ".connection-dot"
+    ) as NodeListOf<SVGCircleElement>;
+    const particles = document.querySelectorAll(
+      ".bg-particle"
+    ) as NodeListOf<HTMLElement>;
+    const centerCard = document.querySelector(".center-card") as HTMLElement;
+    const section = document.getElementById("soluciones");
+
+    // Estado de animación
+    let animationsActivated = false;
+
+    // Función para verificar si elemento está en viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      return rect.top < windowHeight * 0.8 && rect.bottom > 0;
     }
-  });
-  
-  // Animación de las líneas de conexión
-  gsap.from('.linea-conexion', {
-    scaleX: 0,
-    duration: 1,
-    delay: 0.5,
-    stagger: 0.1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '#soluciones',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
+
+    // Función para activar animaciones de entrada
+    function activateEntryAnimations() {
+      if (animationsActivated) return;
+
+      console.log("🎯 ¡SECCIÓN SOLUCIONES DETECTADA! Activando ecosistema...");
+      animationsActivated = true;
+
+      // Animación del círculo central
+      centerCard.style.opacity = "0";
+      centerCard.style.transform = "translate(-50%, -50%) scale(0.5)";
+
+      setTimeout(() => {
+        centerCard.style.transition =
+          "all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+        centerCard.style.opacity = "1";
+        centerCard.style.transform = "translate(-50%, -50%) scale(1)";
+      }, 100);
+
+      // Animación de las cards con stagger elegante
+      cards.forEach((card, index) => {
+        card.style.opacity = "0";
+        card.style.transform = "scale(0.8) translateY(30px) rotate(10deg)";
+
+        setTimeout(
+          () => {
+            card.style.transition =
+              "all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            card.style.opacity = "1";
+            card.style.transform = "scale(1) translateY(0) rotate(0deg)";
+            console.log(`✅ Card ${index + 1} animada`);
+          },
+          300 + index * 200
+        );
+      });
+
+      // Animación de las líneas con efecto avanzado
+      setTimeout(() => {
+        connectionLines.forEach((line, index) => {
+          line.style.opacity = "0";
+          line.style.strokeDasharray = "500";
+          line.style.strokeDashoffset = "500";
+
+          setTimeout(
+            () => {
+              line.style.transition =
+                "all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+              line.style.opacity = "1";
+              line.style.strokeDashoffset = "0";
+              line.classList.add("visible");
+              console.log(`✨ Línea ${index + 1} con animación avanzada`);
+            },
+            800 + index * 150
+          );
+        });
+      }, 600);
+
+      // Animación de los puntos de conexión
+      setTimeout(() => {
+        connectionDots.forEach((dot, index) => {
+          dot.style.opacity = "0";
+          dot.style.transform = "scale(0)";
+
+          setTimeout(
+            () => {
+              dot.style.transition =
+                "all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
+              dot.style.opacity = "1";
+              dot.style.transform = "scale(1)";
+              dot.classList.add("visible");
+              console.log(`🔗 Punto ${index + 1} conectado`);
+            },
+            1000 + index * 100
+          );
+        });
+      }, 800);
+
+      // Animación de las partículas
+      particles.forEach((particle, index) => {
+        particle.style.opacity = "0";
+        particle.style.transform = "scale(0)";
+
+        setTimeout(
+          () => {
+            particle.style.transition = "all 0.8s ease-out";
+            particle.style.opacity = "1";
+            particle.style.transform = "scale(1)";
+          },
+          1200 + index * 100
+        );
+      });
     }
-  });
-  
-  // Efecto hover en los elementos
-  const elementos = document.querySelectorAll('.elemento');
-  
-  elementos.forEach(elemento => {
-    elemento.addEventListener('mouseenter', () => {
-      gsap.to(elemento, {
-        scale: 1.1,
-        duration: 0.3,
-        ease: 'power2.out'
+
+    // Verificar al hacer scroll
+    function checkScroll() {
+      if (section && isInViewport(section)) {
+        activateEntryAnimations();
+      }
+    }
+
+    // Event listeners
+    window.addEventListener("scroll", checkScroll);
+
+    // Verificar al cargar la página
+    if (section && isInViewport(section)) {
+      activateEntryAnimations();
+    }
+
+    // Fallback CSS para título y subtítulo
+    function checkAndAnimateTitles() {
+      const titulo = document.querySelector(".soluciones-titulo");
+      const subtitulo = document.querySelector(".soluciones-subtitulo");
+
+      if (titulo && subtitulo && !titulo.classList.contains("animate")) {
+        if (isInViewport(titulo)) {
+          setTimeout(() => {
+            titulo.classList.add("animate");
+          }, 100);
+
+          setTimeout(() => {
+            subtitulo.classList.add("animate");
+          }, 300);
+        }
+      }
+    }
+
+    // Verificar títulos al hacer scroll
+    window.addEventListener("scroll", checkAndAnimateTitles);
+    checkAndAnimateTitles();
+
+    // Efectos hover con GSAP (si está disponible)
+    if (typeof window.gsap !== "undefined") {
+      // Efectos hover para las tarjetas
+      cards.forEach((card, index) => {
+        const connectionIndex = index + 1;
+
+        card.addEventListener("mouseenter", () => {
+          // Escalar tarjeta
+          window.gsap.to(card, {
+            scale: 1.08,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+
+          // Efecto de electricidad en la línea de esta card
+          window.gsap.to(`.line-${connectionIndex}`, {
+            stroke: "#062BED",
+            strokeWidth: 4,
+            duration: 0.3,
+          });
+
+          // Efecto en el punto de conexión
+          window.gsap.to(`.dot-${connectionIndex}`, {
+            fill: "#062BED",
+            r: 8,
+            duration: 0.3,
+          });
+        });
+
+        card.addEventListener("mouseleave", () => {
+          // Restaurar tarjeta
+          window.gsap.to(card, {
+            scale: 1,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+
+          // Restaurar la línea de esta card
+          window.gsap.to(`.line-${connectionIndex}`, {
+            stroke: "#e2e8f0",
+            strokeWidth: 2,
+            duration: 0.3,
+          });
+
+          // Restaurar punto
+          window.gsap.to(`.dot-${connectionIndex}`, {
+            fill: "#e2e8f0",
+            r: 4,
+            duration: 0.3,
+          });
+        });
       });
-      
-      // Resaltar la línea de conexión
-      const linea = elemento.querySelector('.linea-conexion');
-      gsap.to(linea, {
-        backgroundColor: '#062BED',
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-    
-    elemento.addEventListener('mouseleave', () => {
-      gsap.to(elemento, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-      
-      // Restaurar la línea de conexión
-      const linea = elemento.querySelector('.linea-conexion');
-      gsap.to(linea, {
-        backgroundColor: '#EAEAEA',
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-  });
-  
-  // Animación continua del centro
-  gsap.to('.centro-ecosistema', {
-    rotation: 360,
-    duration: 20,
-    repeat: -1,
-    ease: 'none'
+    }
+
+    console.log(
+      "🎉 Ecosistema de Soluciones configurado - Animaciones de entrada listas"
+    );
   });
 </script>
 
 <style>
-  .ecosistema-container {
-    height: 600px;
-    position: relative;
+  /* 🌐 ECOSISTEMA DE SOLUCIONES - ESTILOS ELEGANTES Y ANIMACIONES */
+
+  /* Estado inicial para animaciones de entrada */
+  .soluciones-titulo {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
   }
-  
-  .centro-ecosistema {
-    box-shadow: 0 20px 40px rgba(6, 43, 237, 0.2);
+
+  .soluciones-subtitulo {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .elemento {
+
+  /* Animaciones CSS fallback */
+  .soluciones-titulo.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .soluciones-subtitulo.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Estado inicial para animaciones de entrada */
+  .solution-card {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px) rotate(10deg);
+  }
+
+  .connection-line {
+    opacity: 0;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+  }
+
+  .connection-dot {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .bg-particle {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* Animación avanzada de las líneas con múltiples efectos */
+  .connection-line.visible {
+    animation: advancedFlow 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 1px rgba(156, 163, 175, 0.2));
     transition: all 0.3s ease;
   }
-  
-  .elemento-card {
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* Efecto de flujo avanzado con múltiples estados */
+  @keyframes advancedFlow {
+    0% {
+      stroke: #d1d5db;
+      stroke-width: 1.5;
+      opacity: 0.6;
+      stroke-dasharray: 5, 5;
+      filter: drop-shadow(0 0 1px rgba(156, 163, 175, 0.2));
+    }
+    15% {
+      stroke: #9ca3af;
+      stroke-width: 2.5;
+      opacity: 1;
+      stroke-dasharray: 8, 2;
+      filter: drop-shadow(0 0 2px rgba(156, 163, 175, 0.4));
+    }
+    30% {
+      stroke: #6b7280;
+      stroke-width: 2;
+      opacity: 0.9;
+      stroke-dasharray: 3, 7;
+      filter: drop-shadow(0 0 1px rgba(156, 163, 175, 0.3));
+    }
+    45% {
+      stroke: #9ca3af;
+      stroke-width: 2.5;
+      opacity: 1;
+      stroke-dasharray: 6, 4;
+      filter: drop-shadow(0 0 2px rgba(156, 163, 175, 0.4));
+    }
+    60% {
+      stroke: #d1d5db;
+      stroke-width: 1.5;
+      opacity: 0.8;
+      stroke-dasharray: 4, 6;
+      filter: drop-shadow(0 0 1px rgba(156, 163, 175, 0.2));
+    }
+    75% {
+      stroke: #9ca3af;
+      stroke-width: 2;
+      opacity: 0.9;
+      stroke-dasharray: 7, 3;
+      filter: drop-shadow(0 0 1px rgba(156, 163, 175, 0.3));
+    }
+    100% {
+      stroke: #d1d5db;
+      stroke-width: 1.5;
+      opacity: 0.6;
+      stroke-dasharray: 5, 5;
+      filter: drop-shadow(0 0 1px rgba(156, 163, 175, 0.2));
+    }
   }
-  
-  .elemento-card:hover {
-    border-color: rgba(6, 43, 237, 0.3);
-    box-shadow: 0 10px 25px rgba(6, 43, 237, 0.2);
+
+  /* Variaciones de timing para cada línea */
+  .line-1.visible {
+    animation-delay: 0s;
   }
-  
-  .linea-conexion {
+  .line-2.visible {
+    animation-delay: -1s;
+  }
+  .line-3.visible {
+    animation-delay: -2s;
+  }
+  .line-4.visible {
+    animation-delay: -3s;
+  }
+  .line-5.visible {
+    animation-delay: -4s;
+  }
+  .line-6.visible {
+    animation-delay: -5s;
+  }
+
+  /* Efecto de ondulación adicional para líneas horizontales */
+  .line-1.visible,
+  .line-4.visible {
+    animation:
+      advancedFlow 6s ease-in-out infinite,
+      waveEffect 8s ease-in-out infinite;
+  }
+
+  /* Efecto de ondulación para líneas diagonales */
+  .line-2.visible,
+  .line-3.visible,
+  .line-5.visible,
+  .line-6.visible {
+    animation:
+      advancedFlow 6s ease-in-out infinite,
+      diagonalWave 7s ease-in-out infinite;
+  }
+
+  /* Efecto de onda horizontal */
+  @keyframes waveEffect {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    25% {
+      transform: translateY(-1px);
+    }
+    75% {
+      transform: translateY(1px);
+    }
+  }
+
+  /* Efecto de onda diagonal */
+  @keyframes diagonalWave {
+    0%,
+    100% {
+      transform: translateX(0px) translateY(0px);
+    }
+    25% {
+      transform: translateX(-1px) translateY(-1px);
+    }
+    75% {
+      transform: translateX(1px) translateY(1px);
+    }
+  }
+
+  /* Efecto de energía que fluye a través de las líneas */
+  .connection-line.visible::before {
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 100px;
-    background: #EAEAEA;
-    transform-origin: top center;
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(156, 163, 175, 0.1),
+      transparent
+    );
+    animation: energyFlow 4s linear infinite;
+    pointer-events: none;
   }
-  
-  .elemento-1 .linea-conexion { transform: translate(-50%, -50%) rotate(0deg); }
-  .elemento-2 .linea-conexion { transform: translate(-50%, -50%) rotate(45deg); }
-  .elemento-3 .linea-conexion { transform: translate(-50%, -50%) rotate(90deg); }
-  .elemento-4 .linea-conexion { transform: translate(-50%, -50%) rotate(135deg); }
-  .elemento-5 .linea-conexion { transform: translate(-50%, -50%) rotate(180deg); }
-  .elemento-6 .linea-conexion { transform: translate(-50%, -50%) rotate(225deg); }
-  .elemento-7 .linea-conexion { transform: translate(-50%, -50%) rotate(270deg); }
-  .elemento-8 .linea-conexion { transform: translate(-50%, -50%) rotate(315deg); }
-  
+
+  @keyframes energyFlow {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Efecto de brillo sutil en hover */
+  .connection-line.visible:hover {
+    filter: drop-shadow(0 0 3px rgba(156, 163, 175, 0.6));
+    transition: filter 0.3s ease;
+  }
+
+  /* Efecto de pulso y brillo para puntos de conexión */
+  .connection-dot.visible {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 2px rgba(6, 43, 237, 0.3));
+    }
+    50% {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 6px rgba(6, 43, 237, 0.6));
+    }
+    100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 2px rgba(6, 43, 237, 0.3));
+    }
+  }
+
+  /* Animación constante de las partículas */
+  .bg-particle {
+    animation: floatParticle 8s ease-in-out infinite;
+  }
+
+  @keyframes floatParticle {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translateY(-15px) translateX(10px);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-5px) translateX(-5px);
+      opacity: 0.4;
+    }
+    75% {
+      transform: translateY(10px) translateX(15px);
+      opacity: 0.7;
+    }
+  }
+
+  /* Efectos hover mejorados - Colores de marca */
+  .solution-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Card central con logo - Diseño profesional */
+  .center-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .center-card:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    background: rgba(255, 255, 255, 1);
+  }
+
+  /* Mejoras en las cards de soluciones - Efectos de marca */
+  .solution-card {
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .solution-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-6px) scale(1.03);
+  }
+
+  /* Responsive mejorado */
   @media (max-width: 768px) {
-    .ecosistema-container {
-      height: 400px;
+    .ecosystem-wrapper {
+      height: 750px !important;
     }
-    
-    .elemento-card {
-      padding: 1rem;
+
+    .solution-card {
+      width: 200px !important;
+      height: 220px !important;
+      padding: 1rem !important;
+      padding-bottom: 1.5rem !important;
     }
-    
-    .elemento-card h4 {
-      font-size: 0.875rem;
+
+    .solution-card .flex {
+      margin-bottom: 0.75rem !important;
     }
-    
-    .elemento-card p {
-      font-size: 0.75rem;
+
+    .solution-card .w-12 {
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+      margin-right: 0.75rem !important;
+    }
+
+    .solution-card h4 {
+      font-size: 0.95rem !important;
+    }
+
+    .solution-card p {
+      font-size: 0.8rem !important;
+      line-height: 1.4 !important;
+    }
+
+    .card-1 {
+      top: 40px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    .card-2 {
+      top: 120px !important;
+      right: 20px !important;
+    }
+    .card-3 {
+      bottom: 120px !important;
+      right: 20px !important;
+    }
+    .card-4 {
+      bottom: 40px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    .card-5 {
+      bottom: 120px !important;
+      left: 20px !important;
+    }
+    .card-6 {
+      top: 120px !important;
+      left: 20px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ecosystem-wrapper {
+      height: 650px !important;
+    }
+
+    .solution-card {
+      width: 180px !important;
+      height: 200px !important;
+      padding: 0.875rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+
+    .solution-card .w-12 {
+      width: 2rem !important;
+      height: 2rem !important;
+    }
+
+    .solution-card h4 {
+      font-size: 0.875rem !important;
+    }
+
+    .solution-card p {
+      font-size: 0.75rem !important;
     }
   }
 </style>

@@ -1,225 +1,443 @@
 ---
-// Alianzas component
+// Componente Alianzas - Carrusel Infinito Simple y Funcional
 ---
 
-<section id="alianzas" class="py-20 bg-primary/10">
+<section id="alianzas" class="py-20 bg-primary/5">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl md:text-5xl font-bold text-dark text-center mb-16">Alianzas que potencian</h2>
-    
-    <!-- Grid de logos -->
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
-      
-      <!-- Logo 1 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-2xl font-bold text-dark">MEDEF</div>
+    <h2
+      class="alianzas-titulo text-4xl md:text-5xl font-bold text-dark text-center mb-16"
+    >
+      Alianzas que potencian
+    </h2>
+
+    <!-- 🎭 CARRUSEL INFINITO SIMPLE -->
+    <div class="carousel-container">
+      <!-- Fila Superior - Izquierda → Derecha -->
+      <div class="carousel-track" id="track-1">
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/Microsoft_Azure-Logo.wine.png"
+            alt="Microsoft Azure"
+          />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/Amazon_Web_Services-Logo.wine.png"
+            alt="Amazon Web Services"
+          />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/Google_Cloud_Platform-Logo.wine.png"
+            alt="Google Cloud Platform"
+          />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/Palo-Alto-Logo-1.png"
+            alt="Palo Alto Networks"
+          />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/Fortinet-Logo.wine.png" alt="Fortinet" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/Sophos-Logo.wine.png" alt="Sophos" />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/Kaspersky_Lab-Logo.wine.png"
+            alt="Kaspersky"
+          />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/tenable-logo.png" alt="Tenable" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/logo-sonicwall.png" alt="SonicWall" />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/LogoHillstoneNetworks-1.webp"
+            alt="Hillstone Networks"
+          />
         </div>
       </div>
-      
-      <!-- Logo 2 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">TFWA</div>
+
+      <!-- Fila Inferior - Derecha ← Izquierda -->
+      <div class="carousel-track reverse" id="track-2">
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/dell-logo-png_seeklogo-227313.png"
+            alt="Dell"
+          />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/lenovo-logo-png_seeklogo-267132.png"
+            alt="Lenovo"
+          />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/Huawei-Logo.wine.png" alt="Huawei" />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/Juniper_Networks-Logo.wine.png"
+            alt="Juniper Networks"
+          />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/ARUBA.png" alt="Aruba" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/citrix-logo-black-1.png" alt="Citrix" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/Nutanix-Logo.wine.png" alt="Nutanix" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/Alianzas/viewtinet-logo.webp" alt="Viewtinet" />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/tm_horizontal-logo_cmyk_colour.png"
+            alt="TM"
+          />
+        </div>
+        <div class="logo-item">
+          <img
+            src="/images/Alianzas/logo-transparent-blogpost-launch.png"
+            alt="Partner"
+          />
         </div>
       </div>
-      
-      <!-- Logo 3 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">Air Liquide</div>
-        </div>
-      </div>
-      
-      <!-- Logo 4 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-2xl font-bold text-dark">TikTok</div>
-        </div>
-      </div>
-      
-      <!-- Logo 5 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-3xl font-bold text-dark">AXA</div>
-        </div>
-      </div>
-      
-      <!-- Logo 6 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">Orange</div>
-        </div>
-      </div>
-      
-      <!-- Logo 7 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">Cannes Lions</div>
-        </div>
-      </div>
-      
-      <!-- Logo 8 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">GRDF</div>
-        </div>
-      </div>
-      
-      <!-- Logo 9 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">Huawei</div>
-        </div>
-      </div>
-      
-      <!-- Logo 10 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">Chopard</div>
-        </div>
-      </div>
-      
-      <!-- Logo 11 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-2xl font-bold text-dark">DIOR</div>
-        </div>
-      </div>
-      
-      <!-- Logo 12 -->
-      <div class="logo-container bg-white rounded-full p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="w-full h-16 flex items-center justify-center">
-          <div class="text-xl font-bold text-dark">Engie</div>
-        </div>
-      </div>
-      
     </div>
-    
+
     <!-- Texto descriptivo -->
-    <div class="text-center mt-16 max-w-3xl mx-auto">
+    <div class="text-center mt-16 max-w-3xl mx-auto fade-in-description">
       <p class="text-lg text-dark/80 leading-relaxed">
-        Trabajamos con las empresas más innovadoras del mundo para crear soluciones que transforman industrias y potencian el crecimiento.
+        Trabajamos con las empresas más innovadoras del mundo para crear
+        soluciones tecnológicas que transforman industrias y potencian el
+        crecimiento empresarial.
       </p>
     </div>
   </div>
 </section>
 
-<script>
-  // Animación de las alianzas
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Animación de entrada de los logos con stagger
-  gsap.from('.logo-container', {
-    scale: 0,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '#alianzas',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  // Animación del texto descriptivo
-  gsap.from('#alianzas p', {
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    delay: 0.5,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '#alianzas',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  // Efecto hover con GSAP
-  const logos = document.querySelectorAll('.logo-container');
-  
-  logos.forEach(logo => {
-    logo.addEventListener('mouseenter', () => {
-      gsap.to(logo, {
-        scale: 1.1,
-        y: -10,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-      
-      // Efecto de flotación
-      gsap.to(logo, {
-        y: -5,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power2.inOut'
-      });
-    });
-    
-    logo.addEventListener('mouseleave', () => {
-      gsap.to(logo, {
-        scale: 1,
-        y: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-      
-      // Detener la flotación
-      gsap.killTweensOf(logo);
-    });
-  });
-  
-  // Animación de rotación sutil en hover
-  logos.forEach(logo => {
-    logo.addEventListener('mouseenter', () => {
-      gsap.to(logo, {
-        rotation: 5,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-    
-    logo.addEventListener('mouseleave', () => {
-      gsap.to(logo, {
-        rotation: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-  });
-</script>
-
 <style>
-  .logo-container {
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+  /* 🎭 CARRUSEL INFINITO SIMPLE Y FUNCIONAL */
+
+  /* Animaciones de entrada elegantes - Inicialmente ocultos */
+  /* Estado inicial para animaciones de entrada */
+  .alianzas-titulo {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Animaciones CSS fallback */
+  .alianzas-titulo.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .fade-in-description {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.15s ease-out; /* SÚPER RÁPIDO */
+  }
+
+  .fade-in-description.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .carousel-track.reverse {
+    margin-top: 3rem;
+  }
+
+  .carousel-track.animate {
+    opacity: 1;
+    animation: scroll-right 100s linear infinite; /* MÁS LENTO */
+  }
+
+  .carousel-track.reverse.animate {
+    opacity: 1;
+    animation: scroll-left 120s linear infinite; /* MÁS LENTO */
+  }
+
+  .logo-item {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #050835;
+    box-shadow:
+      0 10px 30px rgba(6, 43, 237, 0.1),
+      0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(6, 43, 237, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.2;
+    padding: 20px;
+  }
+
+  .logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.7);
     transition: all 0.3s ease;
   }
-  
-  .logo-container:hover {
-    border-color: rgba(6, 43, 237, 0.3);
-    box-shadow: 0 10px 25px rgba(6, 43, 237, 0.15);
+
+  /* Logos específicos más grandes */
+  .logo-item img[alt="Google Cloud Platform"] {
+    transform: scale(1.3);
   }
-  
-  .logo-container:hover > div {
-    transform: scale(1.05);
+
+  .logo-item img[alt="Tenable"] {
+    transform: scale(1.4);
   }
-  
-  .logo-container > div {
-    transition: transform 0.3s ease;
+
+  .logo-item img[alt="Viewtinet"] {
+    transform: scale(1.3);
   }
-  
-  @media (max-width: 768px) {
-    .logo-container {
-      padding: 1rem;
+
+  .logo-item:hover img {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  .logo-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:
+      0 20px 50px rgba(6, 43, 237, 0.15),
+      0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Animaciones del carrusel - Loop infinito perfecto */
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(0) translateY(10px);
+      opacity: 0;
     }
-    
-    .logo-container > div {
-      height: 3rem;
+    1.5% {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(-50%) translateY(10px);
+      opacity: 0;
+    }
+    1.5% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .logo-item {
+      width: 120px;
+      height: 120px;
+      font-size: 0.9rem;
+    }
+
+    .carousel-track {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-item {
+      width: 100px;
+      height: 100px;
+      font-size: 0.8rem;
+    }
+
+    .carousel-track {
+      gap: 1rem;
     }
   }
 </style>
+
+<script>
+  // 🎠 CARRUSEL INFINITO PERFECTO CON SCROLL TRIGGER
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("🎭 Carrusel Alianzas iniciado - Scroll trigger activado");
+
+    // Animaciones de entrada para título
+    if (typeof window.gsap !== "undefined" && window.gsapReady) {
+      // Animación del título
+      window.gsap.fromTo(
+        ".alianzas-titulo",
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".alianzas-titulo",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
+    }
+
+    // Fallback CSS para título
+    function checkAndAnimateTitle() {
+      const titulo = document.querySelector(".alianzas-titulo");
+
+      if (titulo && !titulo.classList.contains("animate")) {
+        if (isInViewport(titulo)) {
+          setTimeout(() => {
+            titulo.classList.add("animate");
+          }, 100);
+        }
+      }
+    }
+
+    // Verificar título al hacer scroll
+    window.addEventListener("scroll", checkAndAnimateTitle);
+    checkAndAnimateTitle();
+
+    // Elementos para animación
+    const title = document.querySelector(".fade-in-title");
+    const description = document.querySelector(".fade-in-description");
+    const track1 = document.getElementById("track-1");
+    const track2 = document.getElementById("track-2");
+
+    // Función para verificar si elemento está en viewport (más específica)
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      // Se activa cuando la sección está en el centro de la pantalla
+      return (
+        rect.top < windowHeight * 0.6 && // 60% de la pantalla
+        rect.bottom > windowHeight * 0.4 // 40% de la pantalla
+      );
+    }
+
+    // Función para activar animaciones
+    function activateAnimations() {
+      console.log("🎯 ¡SECCIÓN ALIANZAS DETECTADA! Activando animaciones...");
+
+      if (title && !title.classList.contains("visible")) {
+        title.classList.add("visible");
+        console.log("✨ Título animado");
+      }
+
+      if (track1 && !track1.classList.contains("animate")) {
+        // Duplicar contenido para loop infinito perfecto
+        const content1 = track1.innerHTML;
+        track1.innerHTML = content1 + content1 + content1 + content1 + content1; // 5 copias
+        track1.classList.add("animate");
+        console.log("✅ Track 1 - Loop infinito perfecto activado");
+      }
+
+      if (track2 && !track2.classList.contains("animate")) {
+        // Duplicar contenido para loop infinito perfecto
+        const content2 = track2.innerHTML;
+        track2.innerHTML = content2 + content2 + content2 + content2 + content2; // 5 copias
+        track2.classList.add("animate");
+        console.log("✅ Track 2 - Loop infinito perfecto activado");
+      }
+
+      if (description && !description.classList.contains("visible")) {
+        setTimeout(() => {
+          description.classList.add("visible");
+          console.log("✨ Descripción animada");
+        }, 150); /* SÚPER RÁPIDO */
+      }
+    }
+
+    // Verificar al cargar y al hacer scroll
+    function checkScroll() {
+      const section = document.getElementById("alianzas");
+      if (section && isInViewport(section)) {
+        activateAnimations();
+      }
+    }
+
+    // Event listeners - SOLO scroll
+    window.addEventListener("scroll", checkScroll);
+    // window.addEventListener("load", checkScroll); // NO activar al cargar
+
+    // Solo verificar al hacer scroll - NO al cargar
+    // setTimeout(() => {
+    //   checkScroll();
+    // }, 100);
+
+    // NO fallback automático - solo debe activarse al hacer scroll
+    // setTimeout(() => {
+    //   if (
+    //     track1 &&
+    //     track2 &&
+    //     (!track1.classList.contains("animate") ||
+    //       !track2.classList.contains("animate"))
+    //   ) {
+    //     console.log("🔄 Fallback: Activando animaciones manualmente");
+    //     activateAnimations();
+    //   }
+    // }, 2000);
+
+    console.log(
+      "🎉 Sistema de scroll trigger activado - Loop infinito perfecto"
+    );
+  });
+</script>

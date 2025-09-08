@@ -1,177 +1,820 @@
 ---
-// Identidad component
+// Identidad component - Rediseño moderno con cards impactantes y GSAP avanzado
 ---
 
-<section id="identidad" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
+<section id="identidad" class="py-24 bg-white relative overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Título de la sección -->
+    <div class="text-center mb-16">
+      <h2
+        class="identidad-titulo text-5xl font-bold text-dark mb-4 tracking-tight"
+      >
+        Nuestra Identidad
+      </h2>
+      <p class="identidad-subtitulo text-xl text-dark/70 max-w-2xl mx-auto">
+        Los pilares que definen nuestra cultura y nos impulsan hacia la
+        excelencia
+      </p>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      <!-- Lo que nos impulsa -->
-      <div class="identidad-block block-1 bg-primary/30 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="icon-container mb-6">
-          <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
+      <!-- Card 1: Lo que nos impulsa -->
+      <div
+        class="identidad-card card-1 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
+      >
+        <!-- Imagen de la card -->
+        <div class="card-image h-48 relative overflow-hidden">
+          <img
+            src="/images/identidad/lo-que-nos-impulsa.png"
+            alt="Lo que nos impulsa"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
           </div>
         </div>
-        <h3 class="text-2xl font-bold text-dark mb-4">Lo que nos impulsa</h3>
-        <p class="text-dark/80 leading-relaxed">
-          Más de 15 años de experiencia en el sector tecnológico, combinados con un compromiso inquebrantable con la seguridad y la innovación.
-        </p>
+
+        <!-- Badge -->
+        <div
+          class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+        >
+          EXPERIENCIA
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-dark mb-3 tracking-wide">
+            Lo que nos impulsa
+          </h3>
+          <p class="text-dark/70 leading-relaxed text-sm">
+            Más de 15 años de experiencia en el sector tecnológico, combinados
+            con un compromiso inquebrantable con la seguridad y la innovación.
+          </p>
+        </div>
       </div>
-      
-      <!-- Propósito -->
-      <div class="identidad-block block-2 bg-secondary/10 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="icon-container mb-6">
-          <div class="w-16 h-16 bg-dark rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>
+
+      <!-- Card 2: Propósito -->
+      <div
+        class="identidad-card card-2 bg-gray-50 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
+      >
+        <!-- Imagen de la card -->
+        <div class="card-image h-48 relative overflow-hidden">
+          <img
+            src="/images/identidad/proposito.png"
+            alt="Propósito"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
+              </svg>
+            </div>
           </div>
         </div>
-        <h3 class="text-2xl font-bold text-dark mb-4">Propósito</h3>
-        <p class="text-dark/80 leading-relaxed">
-          Buscamos la excelencia en cada proyecto, impulsando la innovación y manteniendo un compromiso firme con nuestros clientes y valores.
-        </p>
+
+        <!-- Badge -->
+        <div
+          class="absolute top-4 right-4 bg-dark text-white px-3 py-1 rounded-full text-sm font-semibold"
+        >
+          INNOVACIÓN
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-dark mb-3 tracking-wide">
+            Propósito
+          </h3>
+          <p class="text-dark/70 leading-relaxed text-sm">
+            Buscamos la excelencia en cada proyecto, impulsando la innovación y
+            manteniendo un compromiso firme con nuestros clientes y valores.
+          </p>
+        </div>
       </div>
-      
-      <!-- Valores -->
-      <div class="identidad-block block-3 bg-primary/20 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="icon-container mb-6">
-          <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
+
+      <!-- Card 3: Valores -->
+      <div
+        class="identidad-card card-3 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
+      >
+        <!-- Imagen de la card -->
+        <div class="card-image h-48 relative overflow-hidden">
+          <img
+            src="/images/identidad/valores.png"
+            alt="Valores"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+            </div>
           </div>
         </div>
-        <h3 class="text-2xl font-bold text-dark mb-4">Valores</h3>
-        <ul class="text-dark/80 space-y-2">
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            Enfoque en el cliente
-          </li>
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            Respeto
-          </li>
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            Mejora continua
-          </li>
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            Compromiso con la excelencia
-          </li>
-        </ul>
-      </div>
-      
-      <!-- Certificaciones -->
-      <div class="identidad-block block-4 bg-dark/5 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-        <div class="icon-container mb-6">
-          <div class="w-16 h-16 bg-dark rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-            </svg>
+
+        <!-- Badge -->
+        <div
+          class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+        >
+          VALORES
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-dark mb-4 tracking-wide">
+            Valores
+          </h3>
+          <div class="space-y-3">
+            <div class="flex items-center">
+              <div
+                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-dark/80 text-sm">Enfoque en el cliente</span>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <span class="text-dark/80 text-sm">Respeto</span>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <span class="text-dark/80 text-sm">Mejora continua</span>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <span class="text-dark/80 text-sm"
+                >Compromiso con la excelencia</span
+              >
+            </div>
           </div>
         </div>
-        <h3 class="text-2xl font-bold text-dark mb-4">Certificaciones</h3>
-        <ul class="text-dark/80 space-y-2">
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            ISO 9001
-          </li>
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            ISO 27001
-          </li>
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            ISO 37001
-          </li>
-          <li class="flex items-center">
-            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
-            FIRST
-          </li>
-        </ul>
       </div>
-      
+
+      <!-- Card 4: Certificaciones -->
+      <div
+        class="identidad-card card-4 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
+      >
+        <!-- Imagen de la card -->
+        <div class="card-image h-48 relative overflow-hidden">
+          <img
+            src="/images/identidad/certificaciones.png"
+            alt="Certificaciones"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge -->
+        <div
+          class="absolute top-4 right-4 bg-dark text-white px-3 py-1 rounded-full text-sm font-semibold"
+        >
+          ISO
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-dark mb-4 tracking-wide">
+            Certificaciones
+          </h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
+              <span class="text-secondary font-bold text-sm">ISO 9001</span>
+            </div>
+            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
+              <span class="text-secondary font-bold text-sm">ISO 27001</span>
+            </div>
+            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
+              <span class="text-secondary font-bold text-sm">ISO 37001</span>
+            </div>
+            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
+              <span class="text-secondary font-bold text-sm">FIRST</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Animación de los bloques de identidad
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Animación de entrada con stagger y rotación
-  gsap.from('.identidad-block', {
-    y: 100,
-    opacity: 0,
-    rotation: 5,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '#identidad',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
+  // Función para animar cards con CSS puro (fallback)
+  function animateIdentidadCards() {
+    // Función para verificar si elemento está en viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      return rect.top < windowHeight * 0.8 && rect.bottom > 0;
     }
-  });
-  
-  // Animación de los iconos
-  gsap.from('.icon-container', {
-    scale: 0,
-    rotation: 180,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '#identidad',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
+
+    // Función para activar animaciones cuando llegues a la sección
+    function checkAndAnimate() {
+      const titulo = document.querySelector(".identidad-titulo");
+      const subtitulo = document.querySelector(".identidad-subtitulo");
+
+      if (titulo && subtitulo && !titulo.classList.contains("animate")) {
+        if (isInViewport(titulo)) {
+          setTimeout(() => {
+            titulo.classList.add("animate");
+          }, 100);
+
+          setTimeout(() => {
+            subtitulo.classList.add("animate");
+          }, 300);
+        }
+      }
     }
-  });
-  
-  // Efecto hover con GSAP
-  const blocks = document.querySelectorAll('.identidad-block');
-  
-  blocks.forEach(block => {
-    block.addEventListener('mouseenter', () => {
-      gsap.to(block, {
-        scale: 1.02,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
+
+    // Verificar al hacer scroll
+    window.addEventListener("scroll", checkAndAnimate);
+
+    // Verificar al cargar la página
+    checkAndAnimate();
+
+    const cards = document.querySelectorAll(".identidad-card");
+
+    // Configurar estados iniciales
+    cards.forEach((card) => {
+      card.style.transform = "translateY(50px)";
+      card.style.opacity = "0";
+      card.style.transition = "all 0.8s ease-out";
     });
-    
-    block.addEventListener('mouseleave', () => {
-      gsap.to(block, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.out'
+
+    // Función para verificar si un elemento está en viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+          (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    // Función para animar elementos cuando entran en viewport
+    function animateOnScroll() {
+      cards.forEach((card, index) => {
+        if (isInViewport(card) && card.style.opacity === "0") {
+          setTimeout(() => {
+            card.style.transform = "translateY(0)";
+            card.style.opacity = "1";
+          }, index * 150);
+        }
       });
-    });
-  });
+    }
+
+    // Escuchar scroll
+    window.addEventListener("scroll", animateOnScroll);
+
+    // Ejecutar una vez al cargar
+    setTimeout(animateOnScroll, 500);
+  }
+
+  // Función principal de inicialización con GSAP avanzado
+  function initIdentidadAnimations() {
+    // Intentar usar GSAP si está disponible
+    if (typeof gsap !== "undefined" && window.gsapReady) {
+      console.log("🎬 Usando GSAP avanzado para animaciones de Identidad");
+
+      // Timeline principal para la sección
+      const mainTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#identidad",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+          once: true, // Solo se ejecuta una vez
+        },
+      });
+
+      // ScrollTrigger específico para título y subtítulo
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animación del título
+      gsap.fromTo(
+        ".identidad-titulo",
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".identidad-titulo",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
+
+      // Animación del subtítulo
+      gsap.fromTo(
+        ".identidad-subtitulo",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".identidad-subtitulo",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
+
+      // 2. Animación de las cards con efectos 3D
+      mainTimeline.from(
+        ".identidad-card",
+        {
+          y: 100,
+          opacity: 0,
+          rotationX: 45,
+          transformOrigin: "center bottom",
+          duration: 0.8,
+          stagger: {
+            amount: 0.3,
+            from: "start",
+            ease: "power2.out",
+          },
+          ease: "power3.out",
+        },
+        "-=0.2"
+      );
+
+      // 3. Animación de las imágenes con parallax
+      mainTimeline.from(
+        ".card-image",
+        {
+          scale: 1.3,
+          y: 50,
+          duration: 1.0,
+          stagger: 0.05,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      );
+
+      // 4. Animación de los badges con efecto de entrada dinámico
+      mainTimeline.from(
+        ".identidad-card .absolute",
+        {
+          scale: 0,
+          rotation: 180,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+        },
+        "-=0.3"
+      );
+
+      // 5. Animación de revelado de texto
+      mainTimeline.from(
+        ".identidad-card h3",
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.05,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      );
+
+      mainTimeline.from(
+        ".identidad-card p",
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "power2.out",
+        },
+        "-=0.1"
+      );
+
+      // 6. Animación de los íconos de valores
+      mainTimeline.from(
+        ".identidad-card .w-6",
+        {
+          scale: 0,
+          rotation: 360,
+          duration: 0.5,
+          stagger: 0.03,
+          ease: "back.out(1.7)",
+        },
+        "-=0.1"
+      );
+
+      // 7. Animación de los badges de certificaciones
+      mainTimeline.from(
+        ".identidad-card .bg-secondary\\/10",
+        {
+          scale: 0,
+          y: 20,
+          duration: 0.4,
+          stagger: 0.03,
+          ease: "power2.out",
+        },
+        "-=0.05"
+      );
+
+      // Efectos hover magnéticos avanzados
+      const cards = document.querySelectorAll(".identidad-card");
+
+      cards.forEach((card, index) => {
+        // Efecto magnético en hover
+        card.addEventListener("mouseenter", () => {
+          // Animación principal de la card
+          gsap.to(card, {
+            y: -30,
+            scale: 1.03,
+            rotationY: 5,
+            rotationX: 5,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+
+          // Animación de la imagen con parallax
+          gsap.to(card.querySelector(".card-image"), {
+            scale: 1.1,
+            y: -10,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+
+          // Animación del badge
+          gsap.to(card.querySelector(".absolute"), {
+            scale: 1.2,
+            rotation: 5,
+            duration: 0.4,
+            ease: "back.out(1.7)",
+          });
+
+          // Animación de los íconos (solo en la card de valores)
+          if (index === 2) {
+            gsap.to(card.querySelectorAll(".w-6"), {
+              scale: 1.2,
+              rotation: 10,
+              duration: 0.3,
+              stagger: 0.05,
+              ease: "power2.out",
+            });
+          }
+
+          // Animación de los badges de certificaciones
+          if (index === 3) {
+            gsap.to(card.querySelectorAll(".bg-secondary\\/10"), {
+              scale: 1.1,
+              y: -5,
+              duration: 0.3,
+              stagger: 0.05,
+              ease: "power2.out",
+            });
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          // Reset de todas las animaciones
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            rotationY: 0,
+            rotationX: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+
+          gsap.to(card.querySelector(".card-image"), {
+            scale: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+
+          gsap.to(card.querySelector(".absolute"), {
+            scale: 1,
+            rotation: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+
+          if (index === 2) {
+            gsap.to(card.querySelectorAll(".w-6"), {
+              scale: 1,
+              rotation: 0,
+              duration: 0.3,
+              stagger: 0.05,
+              ease: "power2.out",
+            });
+          }
+
+          if (index === 3) {
+            gsap.to(card.querySelectorAll(".bg-secondary\\/10"), {
+              scale: 1,
+              y: 0,
+              duration: 0.3,
+              stagger: 0.05,
+              ease: "power2.out",
+            });
+          }
+        });
+
+        // Efecto de seguimiento del mouse (magnetic effect)
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          gsap.to(card, {
+            rotationY: x * 0.1,
+            rotationX: -y * 0.1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      });
+
+      // Efecto parallax en scroll para las imágenes
+      gsap.utils.toArray(".card-image").forEach((image, index) => {
+        gsap.to(image, {
+          yPercent: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      });
+
+      // Animación de pulso en los badges
+      gsap.to(".identidad-card .absolute", {
+        scale: 1.05,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power2.inOut",
+        stagger: 0.5,
+      });
+    } else {
+      console.log("🎨 Usando CSS puro para animaciones de Identidad");
+      animateIdentidadCards();
+    }
+  }
+
+  // Iniciar animaciones cuando GSAP esté listo o después de un timeout
+  if (window.gsapReady) {
+    initIdentidadAnimations();
+  } else {
+    window.addEventListener("gsapReady", initIdentidadAnimations);
+
+    // Fallback: si después de 2 segundos GSAP no está disponible
+    setTimeout(() => {
+      if (!window.gsapReady) {
+        initIdentidadAnimations();
+      }
+    }, 2000);
+  }
 </script>
 
 <style>
-  .identidad-block {
+  /* Estado inicial para animaciones de entrada */
+  .identidad-titulo {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  .identidad-subtitulo {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Animaciones CSS fallback */
+  .identidad-titulo.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .identidad-subtitulo.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .identidad-card {
+    position: relative;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
   }
-  
-  .identidad-block:hover {
-    border-color: rgba(6, 43, 237, 0.3);
+
+  .identidad-card:hover {
+    border-color: rgba(6, 43, 237, 0.2);
   }
-  
-  .icon-container {
+
+  .card-image {
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+  }
+
+  .identidad-card:hover .card-image {
+    transform: scale(1.05);
+  }
+
+  /* Efectos de gradiente en hover */
+  .identidad-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(6, 43, 237, 0.05) 0%,
+      rgba(5, 8, 53, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 1.5rem;
+    pointer-events: none;
+  }
+
+  .identidad-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Animación de los badges */
+  .identidad-card .absolute {
     transition: all 0.3s ease;
   }
-  
-  .identidad-block:hover .icon-container {
+
+  .identidad-card:hover .absolute {
     transform: scale(1.1);
+  }
+
+  /* Efectos de sombra mejorados */
+  .identidad-card {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .identidad-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mejoras para las transformaciones 3D */
+  .identidad-card {
+    will-change: transform;
+  }
+
+  /* Efectos de partículas sutiles */
+  .identidad-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(6, 43, 237, 0.03) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 1.5rem;
+    pointer-events: none;
+  }
+
+  .identidad-card:hover::after {
+    opacity: 1;
   }
 </style>

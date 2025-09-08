@@ -2,149 +2,445 @@
 // Hero component
 ---
 
-<section class="hero-section relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-white to-primary overflow-hidden">
-  <!-- Elementos de fondo decorativos -->
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="floating-shape shape-1 absolute top-20 left-20 w-32 h-32 bg-secondary/10 rounded-full"></div>
-    <div class="floating-shape shape-2 absolute top-40 right-32 w-24 h-24 bg-dark/5 rounded-full"></div>
-    <div class="floating-shape shape-3 absolute bottom-32 left-1/4 w-20 h-20 bg-secondary/15 rounded-full"></div>
-    <div class="floating-shape shape-4 absolute bottom-20 right-20 w-28 h-28 bg-dark/8 rounded-full"></div>
+<section
+  class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
+>
+  <!-- Video de fondo -->
+  <div class="absolute inset-0 w-full h-full">
+    <video
+      class="hero-video w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="/videos/hero-background.mp4" type="video/mp4" />
+      <!-- Fallback para navegadores que no soportan video -->
+      <div
+        class="w-full h-full bg-gradient-to-br from-primary via-white to-primary"
+      >
+      </div>
+    </video>
+
+    <!-- Overlay oscuro para mejor legibilidad -->
+    <div class="hero-overlay absolute inset-0 bg-black/70"></div>
   </div>
-  
-  <div class="container mx-auto px-4 text-center relative z-10">
-    <!-- Título principal -->
-    <h1 class="hero-title text-6xl md:text-8xl font-bold text-dark mb-6">
-      <span class="hero-word word-1">Driven</span>
-      <span class="hero-word word-2">to</span>
-      <span class="hero-word word-3">grow,</span>
-      <span class="hero-word word-4">together</span>
+
+  <div class="container mx-auto px-4 pt-24 text-center relative z-20">
+    <!-- Título principal rotativo -->
+    <h1 class="hero-title text-6xl md:text-8xl font-bold text-white mb-6">
+      <div
+        class="rotating-title-container relative h-24 md:h-32 overflow-hidden"
+      >
+        <div class="rotating-titles absolute inset-0">
+          <!-- Título 1 -->
+          <div
+            class="rotating-title title-1 absolute inset-0 flex items-center justify-center gap-4"
+          >
+            <span
+              class="hero-word word-1"
+              style="opacity: 0; transform: translateY(50px);">Protección</span
+            >
+            <span
+              class="hero-word word-2"
+              style="opacity: 0; transform: translateY(50px);">inteligente</span
+            >
+          </div>
+
+          <!-- Título 2 -->
+          <div
+            class="rotating-title title-2 absolute inset-0 flex items-center justify-center gap-4"
+          >
+            <span
+              class="hero-word word-1"
+              style="opacity: 0; transform: translateY(50px);">Excelencia</span
+            >
+            <span
+              class="hero-word word-2"
+              style="opacity: 0; transform: translateY(50px);">tecnológica</span
+            >
+          </div>
+
+          <!-- Título 3 -->
+          <div
+            class="rotating-title title-3 absolute inset-0 flex items-center justify-center gap-4"
+          >
+            <span
+              class="hero-word word-1"
+              style="opacity: 0; transform: translateY(50px);">Innovación</span
+            >
+            <span
+              class="hero-word word-2"
+              style="opacity: 0; transform: translateY(50px);">segura</span
+            >
+          </div>
+        </div>
+      </div>
     </h1>
-    
+
     <!-- Subtítulo -->
-    <p class="hero-subtitle text-xl md:text-2xl text-dark/80 mb-8 max-w-3xl mx-auto">
-      Construimos el futuro digital con soluciones innovadoras y tecnología de vanguardia
+    <p
+      class="hero-subtitle text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto"
+      style="opacity: 0; transform: translateY(30px);"
+    >
+      Construimos el futuro digital con soluciones innovadoras y tecnología de
+      vanguardia
     </p>
-    
+
     <!-- Botones de acción -->
-    <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <button class="btn-primary px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-dark transition-all duration-300 transform hover:scale-105">
-        Descubre más
+    <div
+      class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center"
+      style="opacity: 0; transform: translateY(20px);"
+    >
+      <button
+        class="btn-primary px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-white hover:text-secondary transition-all duration-300 transform hover:scale-105"
+      >
+        Nuestros servicios
       </button>
-      <button class="btn-secondary px-8 py-4 border-2 border-secondary text-secondary rounded-full font-semibold text-lg hover:bg-secondary hover:text-white transition-all duration-300 transform hover:scale-105">
+      <button
+        class="btn-secondary px-8 py-4 border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white hover:text-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
+      >
         Contáctanos
       </button>
     </div>
   </div>
-  
+
   <!-- Indicador de scroll -->
-  <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
-    <div class="w-6 h-10 border-2 border-dark rounded-full flex justify-center">
-      <div class="scroll-dot w-1 h-3 bg-dark rounded-full mt-2 animate-bounce"></div>
+  <div
+    class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+    style="opacity: 0; transform: translate(-50%, 20px);"
+  >
+    <div
+      class="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+    >
+      <div class="scroll-dot w-1 h-3 bg-white rounded-full mt-2 animate-bounce">
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Animación del hero
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Timeline principal del hero
-  const heroTimeline = gsap.timeline();
-  
-  // Animación de las formas flotantes
-  gsap.to('.floating-shape', {
-    y: -20,
-    rotation: 360,
-    duration: 6,
-    repeat: -1,
-    ease: 'none',
-    stagger: 1
-  });
-  
-  // Animación del título con stagger
-  heroTimeline
-    .from('.hero-word', {
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power2.out'
-    })
-    .from('.hero-subtitle', {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out'
-    }, '-=0.5')
-    .from('.hero-buttons', {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out'
-    }, '-=0.3')
-    .from('.scroll-indicator', {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power2.out'
-    }, '-=0.2');
-  
-  // Parallax en scroll
-  gsap.to('.floating-shape', {
-    yPercent: -50,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero-section',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
+  // Variables globales para el título rotativo
+  let currentTitleIndex = 0;
+  let isAnimating = false;
+  const titles = [
+    { words: ["Protección", "inteligente"] },
+    { words: ["Excelencia", "tecnológica"] },
+    { words: ["Innovación", "segura"] },
+  ];
+
+  // Función para animar el título rotativo
+  function animateRotatingTitle() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const currentTitle = document.querySelector(
+      `.title-${currentTitleIndex + 1}`
+    );
+    const nextTitleIndex = (currentTitleIndex + 1) % titles.length;
+    const nextTitle = document.querySelector(`.title-${nextTitleIndex + 1}`);
+
+    if (currentTitle && nextTitle) {
+      // Animar salida del título actual
+      const currentWords = currentTitle.querySelectorAll(".hero-word");
+      currentWords.forEach((word, index) => {
+        setTimeout(() => {
+          word.style.transform = "translateY(-50px)";
+          word.style.opacity = "0";
+        }, index * 100);
+      });
+
+      // Después de la animación de salida, cambiar al siguiente título
+      setTimeout(() => {
+        // Ocultar título actual
+        currentTitle.style.display = "none";
+
+        // Mostrar y animar siguiente título
+        nextTitle.style.display = "flex";
+        const nextWords = nextTitle.querySelectorAll(".hero-word");
+
+        // Resetear estado inicial
+        nextWords.forEach((word) => {
+          word.style.transform = "translateY(50px)";
+          word.style.opacity = "0";
+        });
+
+        // Animar entrada
+        nextWords.forEach((word, index) => {
+          setTimeout(() => {
+            word.style.transform = "translateY(0)";
+            word.style.opacity = "1";
+          }, index * 150);
+        });
+
+        currentTitleIndex = nextTitleIndex;
+        isAnimating = false;
+      }, 500);
     }
-  });
-  
-  // Animación del indicador de scroll
-  gsap.to('.scroll-dot', {
-    y: 12,
-    duration: 1.5,
-    repeat: -1,
-    ease: 'power2.inOut'
-  });
+  }
+
+  // Función para animar elementos del hero con CSS puro
+  function animateHeroElements() {
+    const subtitle = document.querySelector(".hero-subtitle");
+    const buttons = document.querySelector(".hero-buttons");
+    const scrollIndicator = document.querySelector(".scroll-indicator");
+
+    // Animar primer título
+    const firstTitle = document.querySelector(".title-1");
+    if (firstTitle) {
+      firstTitle.style.display = "flex";
+      const words = firstTitle.querySelectorAll(".hero-word");
+      words.forEach((word, index) => {
+        setTimeout(
+          () => {
+            word.style.transform = "translateY(0)";
+            word.style.opacity = "1";
+          },
+          300 + index * 250
+        );
+      });
+    }
+
+    // Ocultar otros títulos
+    for (let i = 2; i <= 3; i++) {
+      const title = document.querySelector(`.title-${i}`);
+      if (title) {
+        title.style.display = "none";
+      }
+    }
+
+    if (subtitle) {
+      subtitle.style.transform = "translateY(50px)";
+      subtitle.style.opacity = "0";
+      subtitle.style.transition = "all 1.2s ease-out";
+    }
+
+    if (buttons) {
+      buttons.style.transform = "translateY(50px)";
+      buttons.style.opacity = "0";
+      buttons.style.transition = "all 1.0s ease-out";
+    }
+
+    if (scrollIndicator) {
+      scrollIndicator.style.transform = "translateY(30px)";
+      scrollIndicator.style.opacity = "0";
+      scrollIndicator.style.transition = "all 0.8s ease-out";
+    }
+
+    // Animar otros elementos con timing más elegante
+    setTimeout(() => {
+      if (subtitle) {
+        subtitle.style.transform = "translateY(0)";
+        subtitle.style.opacity = "1";
+      }
+    }, 1400);
+
+    setTimeout(() => {
+      if (buttons) {
+        buttons.style.transform = "translateY(0)";
+        buttons.style.opacity = "1";
+      }
+    }, 1800);
+
+    setTimeout(() => {
+      if (scrollIndicator) {
+        scrollIndicator.style.transform = "translateY(0)";
+        scrollIndicator.style.opacity = "1";
+      }
+    }, 2200);
+
+    // Iniciar rotación de títulos después de 4 segundos
+    setTimeout(() => {
+      setInterval(animateRotatingTitle, 4000);
+    }, 4000);
+  }
+
+  // Formas flotantes eliminadas
+
+  // Función principal de inicialización
+  function initHeroAnimations() {
+    // Intentar usar GSAP si está disponible
+    if (typeof gsap !== "undefined" && window.gsapReady) {
+      console.log("🎬 Usando GSAP para animaciones del Hero");
+
+      // Timeline principal del hero
+      const heroTimeline = gsap.timeline();
+
+      // Formas flotantes eliminadas
+
+      // Animación del primer título con stagger más lento y elegante
+      const firstTitle = document.querySelector(".title-1");
+      if (firstTitle) {
+        firstTitle.style.display = "flex";
+        const firstWords = firstTitle.querySelectorAll(".hero-word");
+
+        heroTimeline
+          .from(firstWords, {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            stagger: 0.25,
+            ease: "power2.out",
+          })
+          .from(
+            ".hero-subtitle",
+            {
+              y: 50,
+              opacity: 0,
+              duration: 1.2,
+              ease: "power2.out",
+            },
+            "-=0.8"
+          );
+      }
+
+      // Ocultar otros títulos
+      for (let i = 2; i <= 3; i++) {
+        const title = document.querySelector(`.title-${i}`);
+        if (title) {
+          title.style.display = "none";
+        }
+      }
+
+      // Continuar con el timeline
+      heroTimeline
+        .from(
+          ".hero-buttons",
+          {
+            y: 50,
+            opacity: 0,
+            duration: 1.0,
+            ease: "power2.out",
+          },
+          "-=0.6"
+        )
+        .from(
+          ".scroll-indicator",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        );
+
+      // Iniciar rotación de títulos después de 4 segundos
+      setTimeout(() => {
+        setInterval(animateRotatingTitle, 4000);
+      }, 4000);
+
+      // Parallax eliminado - formas flotantes removidas
+
+      // Animación del indicador de scroll
+      gsap.to(".scroll-dot", {
+        y: 12,
+        duration: 1.5,
+        repeat: -1,
+        ease: "power2.inOut",
+      });
+    } else {
+      console.log("🎨 Usando CSS puro para animaciones del Hero");
+      animateHeroElements();
+    }
+  }
+
+  // Iniciar animaciones cuando GSAP esté listo o después de que termine el loader
+  function startHeroAnimations() {
+    // MÁXIMA VELOCIDAD - Hero aparece súper rápido (0.9s)
+    setTimeout(() => {
+      if (window.gsapReady && typeof gsap !== "undefined") {
+        initHeroAnimations();
+      } else {
+        // Fallback con CSS inmediato
+        setTimeout(initHeroAnimations, 20);
+      }
+    }, 900);
+  }
+
+  // Verificar si GSAP ya está listo
+  if (window.gsapReady) {
+    startHeroAnimations();
+  } else {
+    // Escuchar cuando GSAP esté listo
+    window.addEventListener("gsapReady", startHeroAnimations);
+
+    // Fallback: si GSAP no carga, usar CSS - MÁXIMA VELOCIDAD
+    setTimeout(startHeroAnimations, 1100);
+  }
 </script>
 
 <style>
   .hero-section {
-    background: linear-gradient(135deg, #EAEAEA 0%, #FFFFFF 50%, #EAEAEA 100%);
+    background: linear-gradient(135deg, #eaeaea 0%, #ffffff 50%, #eaeaea 100%);
   }
-  
-  .floating-shape {
-    animation: float 6s ease-in-out infinite;
+
+  /* Estilos para el video de fondo */
+  .hero-video {
+    object-fit: cover;
+    object-position: center;
   }
-  
-  .shape-1 { animation-delay: 0s; }
-  .shape-2 { animation-delay: 1.5s; }
-  .shape-3 { animation-delay: 3s; }
-  .shape-4 { animation-delay: 4.5s; }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
+
+  /* Estilos para el título rotativo */
+  .rotating-title-container {
+    perspective: 1000px;
   }
-  
+
+  .rotating-title {
+    transition: all 0.6s ease-in-out;
+  }
+
+  .hero-word {
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+  }
+
+  /* Espaciado mejorado para las palabras */
+  .rotating-title .hero-word:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .rotating-title .hero-word:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  /* Formas flotantes eliminadas */
+
+  /* Efectos hover para botones */
   .btn-primary:hover {
-    box-shadow: 0 10px 25px rgba(6, 43, 237, 0.3);
+    /* Sin sombra para mejor visibilidad sobre fondo oscuro */
   }
-  
+
   .btn-secondary:hover {
-    box-shadow: 0 10px 25px rgba(5, 8, 53, 0.2);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
   }
-  
+
+  /* Responsive */
   @media (max-width: 768px) {
     .hero-title {
       font-size: 3rem;
       line-height: 1.2;
     }
-    
+
     .hero-subtitle {
       font-size: 1.125rem;
     }
+
+    .rotating-title-container {
+      height: 6rem;
+    }
+  }
+
+  /* Mejoras para el overlay */
+  .hero-overlay {
+    backdrop-filter: blur(1px);
+  }
+
+  /* Animación suave para el scroll indicator */
+  .scroll-indicator {
+    transition: all 0.3s ease;
   }
 </style>
