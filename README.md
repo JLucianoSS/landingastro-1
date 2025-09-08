@@ -147,3 +147,4 @@ Para soporte técnico o consultas:
 ---
 
 **Desarrollado con ❤️ usando Astro, Tailwind CSS y GSAP**
+# landingastro
