@@ -5,25 +5,39 @@
 <section
   class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
 >
-  <!-- Video de fondo -->
+  <!-- Carrusel de imágenes de fondo -->
   <div class="absolute inset-0 w-full h-full">
-    <video
-      class="hero-video w-full h-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-    >
-      <source src="/videos/hero-background.mp4" type="video/mp4" />
-      <!-- Fallback para navegadores que no soportan video -->
-      <div
-        class="w-full h-full bg-gradient-to-br from-primary via-white to-primary"
-      >
+    <div class="hero-carousel w-full h-full relative overflow-hidden">
+      <!-- Imagen 1 -->
+      <div class="hero-slide slide-1 absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 ease-in-out">
+        <img
+          src="/images/Hero/hero1.webp"
+          alt="Hero background 1"
+          class="w-full h-full object-cover"
+        />
       </div>
-    </video>
+      
+      <!-- Imagen 2 -->
+      <div class="hero-slide slide-2 absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+        <img
+          src="/images/Hero/hero2.webp"
+          alt="Hero background 2"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      
+      <!-- Imagen 3 -->
+      <div class="hero-slide slide-3 absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+        <img
+          src="/images/Hero/hero3.webp"
+          alt="Hero background 3"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
 
     <!-- Overlay oscuro para mejor legibilidad -->
-    <div class="hero-overlay absolute inset-0 bg-black/70"></div>
+    <div class="hero-overlay absolute inset-0 bg-black/70 z-10"></div>
   </div>
 
   <div class="container mx-auto px-4 pt-24 text-center relative z-20">
@@ -129,6 +143,13 @@
     { words: ["Innovación", "segura"] },
   ];
 
+  // Variables globales para el carrusel de imágenes
+  let currentSlideIndex = 0;
+  let isSlideAnimating = false;
+  let slides;
+  let totalSlides;
+  let imageCarouselInterval;
+
   // Función para animar el título rotativo
   function animateRotatingTitle() {
     if (isAnimating) return;
@@ -176,6 +197,76 @@
         currentTitleIndex = nextTitleIndex;
         isAnimating = false;
       }, 500);
+    }
+  }
+
+  // Función para animar el carrusel de imágenes
+  function animateImageCarousel() {
+    if (isSlideAnimating || totalSlides <= 1) return;
+    isSlideAnimating = true;
+
+    // Calcular siguiente slide
+    const nextSlideIndex = (currentSlideIndex + 1) % totalSlides;
+    const currentSlide = slides[currentSlideIndex];
+    const nextSlide = slides[nextSlideIndex];
+
+    if (currentSlide && nextSlide) {
+      // Preparar la siguiente imagen (opacidad 0 pero visible)
+      nextSlide.style.opacity = '0';
+      nextSlide.style.zIndex = '2';
+      currentSlide.style.zIndex = '1';
+
+      // Animar el crossfade
+      let startTime = null;
+      const duration = 1000; // 1 segundo para la transición
+
+      function crossfade(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - (startTime || 0)) / duration, 1);
+        
+        // Easing suave
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        
+        // Actualizar opacidades
+        currentSlide.style.opacity = 1 - easeProgress;
+        nextSlide.style.opacity = easeProgress;
+        
+        if (progress < 1) {
+          requestAnimationFrame(crossfade);
+        } else {
+          // Transición completada
+          currentSlide.style.zIndex = '0';
+          nextSlide.style.zIndex = '1';
+          currentSlideIndex = nextSlideIndex;
+          isSlideAnimating = false;
+        }
+      }
+
+      requestAnimationFrame(crossfade);
+    }
+  }
+
+  // Función para reiniciar el temporizador del carrusel
+  function resetImageCarouselTimer() {
+    // Limpiar el intervalo anterior si existe
+    if (imageCarouselInterval) {
+      clearInterval(imageCarouselInterval);
+    }
+    
+    // Crear un nuevo intervalo
+    imageCarouselInterval = setInterval(animateImageCarousel, 5000); // 5 segundos
+  }
+
+  // Función para manejar el click en el hero
+  function handleHeroClick(event) {
+    // Verificar si el click fue en texto o botones
+    const clickedElement = event.target;
+    const isTextElement = clickedElement.closest('.hero-title, .hero-subtitle, .hero-buttons, .scroll-indicator');
+    
+    // Si no es un elemento de texto o botón, cambiar imagen y reiniciar temporizador
+    if (!isTextElement) {
+      animateImageCarousel();
+      resetImageCarouselTimer(); // Reiniciar el temporizador después del click
     }
   }
 
@@ -253,12 +344,32 @@
     setTimeout(() => {
       setInterval(animateRotatingTitle, 4000);
     }, 4000);
+
+    // Iniciar carrusel de imágenes después de 3 segundos
+    setTimeout(() => {
+      resetImageCarouselTimer(); // Usar la función para inicializar el temporizador
+    }, 3000);
   }
 
   // Formas flotantes eliminadas
 
   // Función principal de inicialización
   function initHeroAnimations() {
+    // Inicializar variables del carrusel
+    slides = document.querySelectorAll('.hero-slide');
+    totalSlides = slides.length;
+
+    // Asegurar que la primera imagen tenga el z-index correcto (por debajo del overlay)
+    if (slides.length > 0) {
+      slides[0].style.zIndex = '1';
+    }
+
+    // Añadir event listener para click en el hero
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      heroSection.addEventListener('click', handleHeroClick);
+    }
+
     // Intentar usar GSAP si está disponible
     if (typeof gsap !== "undefined" && window.gsapReady) {
       console.log("🎬 Usando GSAP para animaciones del Hero");
@@ -330,6 +441,11 @@
         setInterval(animateRotatingTitle, 4000);
       }, 4000);
 
+      // Iniciar carrusel de imágenes después de 3 segundos
+      setTimeout(() => {
+        resetImageCarouselTimer(); // Usar la función para inicializar el temporizador
+      }, 3000);
+
       // Parallax eliminado - formas flotantes removidas
 
       // Animación del indicador de scroll
@@ -375,10 +491,25 @@
     background: linear-gradient(135deg, #eaeaea 0%, #ffffff 50%, #eaeaea 100%);
   }
 
-  /* Estilos para el video de fondo */
-  .hero-video {
+  /* Estilos para el carrusel de imágenes */
+  .hero-carousel {
+    position: relative;
+  }
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-slide img {
     object-fit: cover;
     object-position: center;
+    width: 100%;
+    height: 100%;
   }
 
   /* Estilos para el título rotativo */
@@ -437,6 +568,7 @@
   /* Mejoras para el overlay */
   .hero-overlay {
     backdrop-filter: blur(1px);
+    z-index: 10;
   }
 
   /* Animación suave para el scroll indicator */
