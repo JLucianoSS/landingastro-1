@@ -1,8 +1,8 @@
 ---
-// Identidad component - Rediseño moderno con cards impactantes y GSAP avanzado
+// Identidad component - Sistema de tabs con filtros automáticos y animaciones GSAP
 ---
 
-<section id="identidad" class="py-24 bg-white relative overflow-hidden">
+<section id="identidad" class="py-24 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     <!-- Título de la sección -->
     <div class="text-center mb-16">
@@ -17,286 +17,252 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Card 1: Lo que nos impulsa -->
-      <div
-        class="identidad-card card-1 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
-      >
-        <!-- Imagen de la card -->
-        <div class="card-image h-48 relative overflow-hidden">
-          <img
-            src="/images/identidad/lo-que-nos-impulsa.png"
-            alt="Lo que nos impulsa"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/20"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
+    <!-- Tab Navigation -->
+    <div class="identidad-tabs-container mb-12">
+      <div class="flex justify-center">
+        <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-2 shadow-xl border border-white/20">
+          <nav class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1" role="tablist">
+            <!-- Tab 1: Lo que nos impulsa -->
+            <button
+              class="identidad-tab tab-1 active flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 relative group"
+              data-tab="impulsa"
+              role="tab"
+              aria-selected="true"
             >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
+              <div class="tab-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <span class="font-semibold text-sm uppercase tracking-wide">IMPULSA</span>
+            </button>
 
-        <!-- Badge -->
-        <div
-          class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
-        >
-          EXPERIENCIA
-        </div>
+            <!-- Tab 2: Propósito -->
+            <button
+              class="identidad-tab tab-2 flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 relative group"
+              data-tab="proposito"
+              role="tab"
+              aria-selected="false"
+            >
+              <div class="tab-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <span class="font-semibold text-sm uppercase tracking-wide">PROPÓSITO</span>
+            </button>
 
-        <!-- Contenido -->
-        <div class="p-8">
-          <h3 class="text-2xl font-bold text-dark mb-3 tracking-wide">
-            Lo que nos impulsa
-          </h3>
-          <p class="text-dark/70 leading-relaxed text-sm">
-            Más de 15 años de experiencia en el sector tecnológico, combinados
-            con un compromiso inquebrantable con la seguridad y la innovación.
-          </p>
+            <!-- Tab 3: Valores -->
+            <button
+              class="identidad-tab tab-3 flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 relative group"
+              data-tab="valores"
+              role="tab"
+              aria-selected="false"
+            >
+              <div class="tab-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <span class="font-semibold text-sm uppercase tracking-wide">VALORES</span>
+            </button>
+
+            <!-- Tab 4: Certificaciones -->
+            <button
+              class="identidad-tab tab-4 flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 relative group"
+              data-tab="certificaciones"
+              role="tab"
+              aria-selected="false"
+            >
+              <div class="tab-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                </svg>
+              </div>
+              <span class="font-semibold text-sm uppercase tracking-wide">CERTIFICACIONES</span>
+            </button>
+          </nav>
         </div>
       </div>
+    </div>
 
-      <!-- Card 2: Propósito -->
-      <div
-        class="identidad-card card-2 bg-gray-50 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
-      >
-        <!-- Imagen de la card -->
-        <div class="card-image h-48 relative overflow-hidden">
-          <img
-            src="/images/identidad/proposito.png"
-            alt="Propósito"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/20"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Badge -->
-        <div
-          class="absolute top-4 right-4 bg-dark text-white px-3 py-1 rounded-full text-sm font-semibold"
-        >
-          INNOVACIÓN
-        </div>
-
-        <!-- Contenido -->
-        <div class="p-8">
-          <h3 class="text-2xl font-bold text-dark mb-3 tracking-wide">
-            Propósito
-          </h3>
-          <p class="text-dark/70 leading-relaxed text-sm">
-            Buscamos la excelencia en cada proyecto, impulsando la innovación y
-            manteniendo un compromiso firme con nuestros clientes y valores.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3: Valores -->
-      <div
-        class="identidad-card card-3 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
-      >
-        <!-- Imagen de la card -->
-        <div class="card-image h-48 relative overflow-hidden">
-          <img
-            src="/images/identidad/valores.png"
-            alt="Valores"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/20"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Badge -->
-        <div
-          class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
-        >
-          VALORES
-        </div>
-
-        <!-- Contenido -->
-        <div class="p-8">
-          <h3 class="text-2xl font-bold text-dark mb-4 tracking-wide">
-            Valores
-          </h3>
-          <div class="space-y-3">
-            <div class="flex items-center">
-              <div
-                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-3 h-3 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  ></path>
-                </svg>
+    <!-- Tab Content -->
+    <div class="identidad-content-container">
+      <!-- Content 1: Lo que nos impulsa -->
+      <div class="identidad-content content-impulsa active" data-content="impulsa">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
+            <div class="grid md:grid-cols-2 gap-0">
+              <div class="content-image h-96 relative overflow-hidden">
+                <img
+                  src="/images/identidad/lo-que-nos-impulsa.png"
+                  alt="Lo que nos impulsa"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20"></div>
+                <div class="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  EXPERIENCIA
+                </div>
               </div>
-              <span class="text-dark/80 text-sm">Enfoque en el cliente</span>
-            </div>
-            <div class="flex items-center">
-              <div
-                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-3 h-3 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                    clip-rule="evenodd"></path>
-                </svg>
+              <div class="p-12 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-dark mb-6 tracking-wide">
+                  Lo que nos impulsa
+                </h3>
+                <p class="text-dark/70 leading-relaxed text-lg mb-6">
+                  Más de 15 años de experiencia en el sector tecnológico, combinados
+                  con un compromiso inquebrantable con la seguridad y la innovación.
+                </p>
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-secondary font-semibold">Innovación constante</span>
+                </div>
               </div>
-              <span class="text-dark/80 text-sm">Respeto</span>
-            </div>
-            <div class="flex items-center">
-              <div
-                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-3 h-3 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <span class="text-dark/80 text-sm">Mejora continua</span>
-            </div>
-            <div class="flex items-center">
-              <div
-                class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-3 h-3 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <span class="text-dark/80 text-sm"
-                >Compromiso con la excelencia</span
-              >
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Card 4: Certificaciones -->
-      <div
-        class="identidad-card card-4 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-6 overflow-hidden group"
-      >
-        <!-- Imagen de la card -->
-        <div class="card-image h-48 relative overflow-hidden">
-          <img
-            src="/images/identidad/certificaciones.png"
-            alt="Certificaciones"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/20"></div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                ></path>
-              </svg>
+      <!-- Content 2: Propósito -->
+      <div class="identidad-content content-proposito" data-content="proposito">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
+            <div class="grid md:grid-cols-2 gap-0">
+              <div class="content-image h-96 relative overflow-hidden">
+                <img
+                  src="/images/identidad/proposito.png"
+                  alt="Propósito"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+                <div class="absolute top-4 right-4 bg-dark text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  INNOVACIÓN
+                </div>
+              </div>
+              <div class="p-12 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-dark mb-6 tracking-wide">
+                  Propósito
+                </h3>
+                <p class="text-dark/70 leading-relaxed text-lg mb-6">
+                  Buscamos la excelencia en cada proyecto, impulsando la innovación y
+                  manteniendo un compromiso firme con nuestros clientes y valores.
+                </p>
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-dark/10 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-dark font-semibold">Excelencia en cada proyecto</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Badge -->
-        <div
-          class="absolute top-4 right-4 bg-dark text-white px-3 py-1 rounded-full text-sm font-semibold"
-        >
-          ISO
+      <!-- Content 3: Valores -->
+      <div class="identidad-content content-valores" data-content="valores">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
+            <div class="grid md:grid-cols-2 gap-0">
+              <div class="content-image h-96 relative overflow-hidden">
+                <img
+                  src="/images/identidad/valores.png"
+                  alt="Valores"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-600/20 to-purple-600/20"></div>
+                <div class="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  VALORES
+                </div>
+              </div>
+              <div class="p-12 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-dark mb-6 tracking-wide">
+                  Valores
+                </h3>
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                      </svg>
+                    </div>
+                    <span class="text-dark/80">Enfoque en el cliente</span>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-dark/80">Respeto</span>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-dark/80">Mejora continua</span>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-dark/80">Compromiso con la excelencia</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Contenido -->
-        <div class="p-8">
-          <h3 class="text-2xl font-bold text-dark mb-4 tracking-wide">
-            Certificaciones
-          </h3>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
-              <span class="text-secondary font-bold text-sm">ISO 9001</span>
-            </div>
-            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
-              <span class="text-secondary font-bold text-sm">ISO 27001</span>
-            </div>
-            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
-              <span class="text-secondary font-bold text-sm">ISO 37001</span>
-            </div>
-            <div class="bg-secondary/10 rounded-xl px-3 py-2 text-center">
-              <span class="text-secondary font-bold text-sm">FIRST</span>
+      <!-- Content 4: Certificaciones -->
+      <div class="identidad-content content-certificaciones" data-content="certificaciones">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
+            <div class="grid md:grid-cols-2 gap-0">
+              <div class="content-image h-96 relative overflow-hidden">
+                <img
+                  src="/images/identidad/certificaciones.png"
+                  alt="Certificaciones"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-green-600/20 to-blue-600/20"></div>
+                <div class="absolute top-4 right-4 bg-dark text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  ISO
+                </div>
+              </div>
+              <div class="px-12 py-10 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-dark mb-6 tracking-wide">
+                  Certificaciones
+                </h3>
+                <p class="text-dark/70 leading-relaxed text-lg mb-8">
+                  Contamos con las certificaciones más importantes del sector que garantizan
+                  la calidad y seguridad de nuestros servicios.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-secondary/10 rounded-xl px-4 py-3 text-center hover:bg-secondary/20 transition-colors">
+                    <span class="text-secondary font-bold">ISO 9001</span>
+                  </div>
+                  <div class="bg-secondary/10 rounded-xl px-4 py-3 text-center hover:bg-secondary/20 transition-colors">
+                    <span class="text-secondary font-bold">ISO 27001</span>
+                  </div>
+                  <div class="bg-secondary/10 rounded-xl px-4 py-3 text-center hover:bg-secondary/20 transition-colors">
+                    <span class="text-secondary font-bold">ISO 37001</span>
+                  </div>
+                  <div class="bg-secondary/10 rounded-xl px-4 py-3 text-center hover:bg-secondary/20 transition-colors">
+                    <span class="text-secondary font-bold">FIRST</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -306,102 +272,250 @@
 </section>
 
 <script>
-  // Función para animar cards con CSS puro (fallback)
-  function animateIdentidadCards() {
-    // Función para verificar si elemento está en viewport
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      const windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-      return rect.top < windowHeight * 0.8 && rect.bottom > 0;
-    }
-
-    // Función para activar animaciones cuando llegues a la sección
-    function checkAndAnimate() {
-      const titulo = document.querySelector(".identidad-titulo");
-      const subtitulo = document.querySelector(".identidad-subtitulo");
-
-      if (titulo && subtitulo && !titulo.classList.contains("animate")) {
-        if (isInViewport(titulo)) {
-          setTimeout(() => {
-            titulo.classList.add("animate");
-          }, 100);
-
-          setTimeout(() => {
-            subtitulo.classList.add("animate");
-          }, 300);
-        }
-      }
-    }
-
-    // Verificar al hacer scroll
-    window.addEventListener("scroll", checkAndAnimate);
-
-    // Verificar al cargar la página
-    checkAndAnimate();
-
-    const cards = document.querySelectorAll(".identidad-card");
-
-    // Configurar estados iniciales
-    cards.forEach((card) => {
-      card.style.transform = "translateY(50px)";
-      card.style.opacity = "0";
-      card.style.transition = "all 0.8s ease-out";
-    });
-
-    // Función para verificar si un elemento está en viewport
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <=
-          (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <=
-          (window.innerWidth || document.documentElement.clientWidth)
-      );
-    }
-
-    // Función para animar elementos cuando entran en viewport
-    function animateOnScroll() {
-      cards.forEach((card, index) => {
-        if (isInViewport(card) && card.style.opacity === "0") {
-          setTimeout(() => {
-            card.style.transform = "translateY(0)";
-            card.style.opacity = "1";
-          }, index * 150);
-        }
-      });
-    }
-
-    // Escuchar scroll
-    window.addEventListener("scroll", animateOnScroll);
-
-    // Ejecutar una vez al cargar
-    setTimeout(animateOnScroll, 500);
+  // Declaraciones de tipos para GSAP
+  declare const gsap: any;
+  declare const ScrollTrigger: any;
+  
+  // Extender la interfaz Window
+  interface Window {
+    gsapReady: boolean;
   }
 
-  // Función principal de inicialización con GSAP avanzado
-  function initIdentidadAnimations() {
-    // Intentar usar GSAP si está disponible
-    if (typeof gsap !== "undefined" && window.gsapReady) {
-      console.log("🎬 Usando GSAP avanzado para animaciones de Identidad");
+  // Variables globales para el sistema de tabs
+  let currentTabIndex = 0;
+  let autoRotateInterval: number | null = null;
+  let isUserInteracting = false;
+  const tabData = [
+    { id: 'impulsa', name: 'IMPULSA', icon: 'lightning' },
+    { id: 'proposito', name: 'PROPÓSITO', icon: 'lightbulb' },
+    { id: 'valores', name: 'VALORES', icon: 'heart' },
+    { id: 'certificaciones', name: 'CERTIFICACIONES', icon: 'shield' }
+  ];
 
-      // Timeline principal para la sección
-      const mainTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#identidad",
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-          once: true, // Solo se ejecuta una vez
-        },
+  // Función para verificar si elemento está en viewport (igual que Soluciones)
+  function isInViewport(element: Element): boolean {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    return rect.top < windowHeight * 0.8 && rect.bottom > 0;
+  }
+
+  // Función removida - título y subtítulo ya visibles por defecto
+
+  // Función para cambiar tab con animaciones mejoradas
+  function switchTab(targetIndex: number, useGSAP: boolean = true): void {
+    const tabs = document.querySelectorAll('.identidad-tab');
+    const contents = document.querySelectorAll('.identidad-content');
+    
+    if (targetIndex < 0 || targetIndex >= tabs.length) return;
+
+    // Animaciones con GSAP si está disponible
+    if (useGSAP && typeof gsap !== "undefined") {
+      // Primero animar la salida del contenido actual
+      const currentContent = document.querySelector('.identidad-content.active');
+      if (currentContent) {
+        gsap.to(currentContent, {
+          opacity: 0,
+          y: -30,
+          scale: 0.95,
+          duration: 0.3,
+          ease: "power2.in",
+          onComplete: () => {
+            // Remover clase active de todos los tabs y contenidos
+            tabs.forEach(tab => {
+              tab.classList.remove('active');
+              tab.setAttribute('aria-selected', 'false');
+            });
+            
+            contents.forEach(content => {
+              content.classList.remove('active');
+            });
+
+            // Añadir clase active al tab y contenido seleccionado
+            tabs[targetIndex].classList.add('active');
+            tabs[targetIndex].setAttribute('aria-selected', 'true');
+            contents[targetIndex].classList.add('active');
+
+            currentTabIndex = targetIndex;
+
+            // Animación de entrada del nuevo contenido
+            gsap.fromTo(contents[targetIndex], 
+              {
+                opacity: 0,
+                y: 50,
+                scale: 0.9,
+                rotationY: 15
+              },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotationY: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                delay: 0.1
+              }
+            );
+
+            // Animación del tab activo con efecto bounce
+            gsap.fromTo(tabs[targetIndex],
+              {
+                scale: 0.9,
+                y: -5
+              },
+              {
+                scale: 1,
+                y: 0,
+                duration: 0.4,
+                ease: "back.out(1.7)",
+                delay: 0.2
+              }
+            );
+          }
+        });
+      } else {
+        // Si no hay contenido activo, hacer el cambio directamente
+        tabs.forEach(tab => {
+          tab.classList.remove('active');
+          tab.setAttribute('aria-selected', 'false');
+        });
+        
+        contents.forEach(content => {
+          content.classList.remove('active');
+        });
+
+        tabs[targetIndex].classList.add('active');
+        tabs[targetIndex].setAttribute('aria-selected', 'true');
+        contents[targetIndex].classList.add('active');
+
+        currentTabIndex = targetIndex;
+
+        // Animación de entrada del contenido
+        gsap.fromTo(contents[targetIndex], 
+          {
+            opacity: 0,
+            y: 50,
+            scale: 0.9,
+            rotationY: 15
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotationY: 0,
+            duration: 0.6,
+            ease: "power3.out"
+          }
+        );
+
+        // Animación del tab activo
+        gsap.fromTo(tabs[targetIndex],
+          {
+            scale: 0.9,
+            y: -5
+          },
+          {
+            scale: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "back.out(1.7)"
+          }
+        );
+      }
+    } else {
+      // Fallback sin GSAP
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+        tab.setAttribute('aria-selected', 'false');
+      });
+      
+      contents.forEach(content => {
+        content.classList.remove('active');
       });
 
-      // ScrollTrigger específico para título y subtítulo
+      tabs[targetIndex].classList.add('active');
+      tabs[targetIndex].setAttribute('aria-selected', 'true');
+      contents[targetIndex].classList.add('active');
+
+      currentTabIndex = targetIndex;
+    }
+  }
+
+  // Función para rotación automática
+  function startAutoRotate(): void {
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
+    
+    autoRotateInterval = setInterval(() => {
+      if (!isUserInteracting) {
+        const nextIndex = (currentTabIndex + 1) % tabData.length;
+        switchTab(nextIndex);
+      }
+    }, 4000); // Cambiar cada 4 segundos
+  }
+
+  // Función para detener rotación automática
+  function stopAutoRotate(): void {
+    if (autoRotateInterval) {
+      clearInterval(autoRotateInterval);
+      autoRotateInterval = null;
+    }
+  }
+
+  // Función para inicializar el sistema de tabs
+  function initTabsSystem(): void {
+    const tabs = document.querySelectorAll('.identidad-tab');
+    const contents = document.querySelectorAll('.identidad-content');
+
+    // Event listeners para tabs
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        isUserInteracting = true;
+        stopAutoRotate();
+        switchTab(index);
+        
+        // Reiniciar auto-rotación después de 10 segundos de inactividad
+        setTimeout(() => {
+          isUserInteracting = false;
+          startAutoRotate();
+        }, 10000);
+      });
+
+      // Efectos hover
+      tab.addEventListener('mouseenter', () => {
+        if (typeof gsap !== "undefined") {
+          gsap.to(tab, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+
+      tab.addEventListener('mouseleave', () => {
+        if (typeof gsap !== "undefined") {
+          gsap.to(tab, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+    });
+
+    // Iniciar rotación automática
+    startAutoRotate();
+  }
+
+
+  // Función principal de inicialización con GSAP avanzado
+  function initIdentidadAnimations(): void {
+    // Intentar usar GSAP si está disponible
+    if (typeof gsap !== "undefined" && (window as any).gsapReady) {
+      console.log("🎬 Usando GSAP avanzado para animaciones de Identidad");
+
+      // ScrollTrigger para otros elementos
       gsap.registerPlugin(ScrollTrigger);
 
-      // Animación del título
+      // Animación de entrada del título (igual que Soluciones)
       gsap.fromTo(
         ".identidad-titulo",
         {
@@ -425,7 +539,7 @@
         }
       );
 
-      // Animación del subtítulo
+      // Animación de entrada del subtítulo (igual que Soluciones)
       gsap.fromTo(
         ".identidad-subtitulo",
         {
@@ -447,234 +561,51 @@
         }
       );
 
-      // 2. Animación de las cards con efectos 3D
-      mainTimeline.from(
-        ".identidad-card",
+      // Animación de entrada de los tabs
+      gsap.fromTo(
+        ".identidad-tabs-container",
         {
-          y: 100,
           opacity: 0,
-          rotationX: 45,
-          transformOrigin: "center bottom",
-          duration: 0.8,
-          stagger: {
-            amount: 0.3,
-            from: "start",
-            ease: "power2.out",
-          },
-          ease: "power3.out",
-        },
-        "-=0.2"
-      );
-
-      // 3. Animación de las imágenes con parallax
-      mainTimeline.from(
-        ".card-image",
-        {
-          scale: 1.3,
-          y: 50,
-          duration: 1.0,
-          stagger: 0.05,
-          ease: "power2.out",
-        },
-        "-=0.5"
-      );
-
-      // 4. Animación de los badges con efecto de entrada dinámico
-      mainTimeline.from(
-        ".identidad-card .absolute",
-        {
-          scale: 0,
-          rotation: 180,
-          duration: 0.4,
-          stagger: 0.05,
-          ease: "back.out(1.7)",
-        },
-        "-=0.3"
-      );
-
-      // 5. Animación de revelado de texto
-      mainTimeline.from(
-        ".identidad-card h3",
-        {
           y: 30,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.05,
-          ease: "power2.out",
         },
-        "-=0.2"
-      );
-
-      mainTimeline.from(
-        ".identidad-card p",
         {
-          y: 20,
-          opacity: 0,
-          duration: 0.4,
-          stagger: 0.05,
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
           ease: "power2.out",
-        },
-        "-=0.1"
-      );
-
-      // 6. Animación de los íconos de valores
-      mainTimeline.from(
-        ".identidad-card .w-6",
-        {
-          scale: 0,
-          rotation: 360,
-          duration: 0.5,
-          stagger: 0.03,
-          ease: "back.out(1.7)",
-        },
-        "-=0.1"
-      );
-
-      // 7. Animación de los badges de certificaciones
-      mainTimeline.from(
-        ".identidad-card .bg-secondary\\/10",
-        {
-          scale: 0,
-          y: 20,
-          duration: 0.4,
-          stagger: 0.03,
-          ease: "power2.out",
-        },
-        "-=0.05"
-      );
-
-      // Efectos hover magnéticos avanzados
-      const cards = document.querySelectorAll(".identidad-card");
-
-      cards.forEach((card, index) => {
-        // Efecto magnético en hover
-        card.addEventListener("mouseenter", () => {
-          // Animación principal de la card
-          gsap.to(card, {
-            y: -30,
-            scale: 1.03,
-            rotationY: 5,
-            rotationX: 5,
-            duration: 0.6,
-            ease: "power2.out",
-          });
-
-          // Animación de la imagen con parallax
-          gsap.to(card.querySelector(".card-image"), {
-            scale: 1.1,
-            y: -10,
-            duration: 0.6,
-            ease: "power2.out",
-          });
-
-          // Animación del badge
-          gsap.to(card.querySelector(".absolute"), {
-            scale: 1.2,
-            rotation: 5,
-            duration: 0.4,
-            ease: "back.out(1.7)",
-          });
-
-          // Animación de los íconos (solo en la card de valores)
-          if (index === 2) {
-            gsap.to(card.querySelectorAll(".w-6"), {
-              scale: 1.2,
-              rotation: 10,
-              duration: 0.3,
-              stagger: 0.05,
-              ease: "power2.out",
-            });
-          }
-
-          // Animación de los badges de certificaciones
-          if (index === 3) {
-            gsap.to(card.querySelectorAll(".bg-secondary\\/10"), {
-              scale: 1.1,
-              y: -5,
-              duration: 0.3,
-              stagger: 0.05,
-              ease: "power2.out",
-            });
-          }
-        });
-
-        card.addEventListener("mouseleave", () => {
-          // Reset de todas las animaciones
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            rotationY: 0,
-            rotationX: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          });
-
-          gsap.to(card.querySelector(".card-image"), {
-            scale: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          });
-
-          gsap.to(card.querySelector(".absolute"), {
-            scale: 1,
-            rotation: 0,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-
-          if (index === 2) {
-            gsap.to(card.querySelectorAll(".w-6"), {
-              scale: 1,
-              rotation: 0,
-              duration: 0.3,
-              stagger: 0.05,
-              ease: "power2.out",
-            });
-          }
-
-          if (index === 3) {
-            gsap.to(card.querySelectorAll(".bg-secondary\\/10"), {
-              scale: 1,
-              y: 0,
-              duration: 0.3,
-              stagger: 0.05,
-              ease: "power2.out",
-            });
-          }
-        });
-
-        // Efecto de seguimiento del mouse (magnetic effect)
-        card.addEventListener("mousemove", (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-
-          gsap.to(card, {
-            rotationY: x * 0.1,
-            rotationX: -y * 0.1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
-
-      // Efecto parallax en scroll para las imágenes
-      gsap.utils.toArray(".card-image").forEach((image, index) => {
-        gsap.to(image, {
-          yPercent: -50,
-          ease: "none",
           scrollTrigger: {
-            trigger: image,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
+            trigger: ".identidad-tabs-container",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+            once: true,
           },
+        }
+      );
+
+      // Contenido inicial ya visible - sin animación de opacidad
+
+      // Efectos hover para las imágenes de contenido
+      document.querySelectorAll('.content-image').forEach(image => {
+        image.addEventListener('mouseenter', () => {
+          gsap.to(image, {
+            scale: 1.05,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        });
+
+        image.addEventListener('mouseleave', () => {
+          gsap.to(image, {
+            scale: 1,
+            duration: 0.6,
+            ease: "power2.out"
+          });
         });
       });
 
       // Animación de pulso en los badges
-      gsap.to(".identidad-card .absolute", {
+      gsap.to(".identidad-content .absolute", {
         scale: 1.05,
         duration: 2,
         repeat: -1,
@@ -682,29 +613,59 @@
         ease: "power2.inOut",
         stagger: 0.5,
       });
+
     } else {
       console.log("🎨 Usando CSS puro para animaciones de Identidad");
-      animateIdentidadCards();
     }
+
+    // Inicializar sistema de tabs
+    initTabsSystem();
+
+    // Fallback CSS para título y subtítulo (igual que Soluciones)
+    function checkAndAnimateTitles() {
+      const titulo = document.querySelector(".identidad-titulo") as HTMLElement;
+      const subtitulo = document.querySelector(".identidad-subtitulo") as HTMLElement;
+
+      if (titulo && subtitulo && !titulo.classList.contains("animate")) {
+        if (isInViewport(titulo)) {
+          setTimeout(() => {
+            titulo.classList.add("animate");
+          }, 100);
+
+          setTimeout(() => {
+            subtitulo.classList.add("animate");
+          }, 300);
+        }
+      }
+    }
+
+    // Verificar títulos al hacer scroll
+    window.addEventListener("scroll", checkAndAnimateTitles);
+    checkAndAnimateTitles();
   }
 
   // Iniciar animaciones cuando GSAP esté listo o después de un timeout
-  if (window.gsapReady) {
+  if ((window as any).gsapReady) {
     initIdentidadAnimations();
   } else {
     window.addEventListener("gsapReady", initIdentidadAnimations);
 
     // Fallback: si después de 2 segundos GSAP no está disponible
     setTimeout(() => {
-      if (!window.gsapReady) {
+      if (!(window as any).gsapReady) {
         initIdentidadAnimations();
       }
     }, 2000);
   }
+
+  // Limpiar intervalos al salir de la página
+  window.addEventListener('beforeunload', () => {
+    stopAutoRotate();
+  });
 </script>
 
 <style>
-  /* Estado inicial para animaciones de entrada */
+  /* Estado inicial para animaciones de entrada (igual que Soluciones) */
   .identidad-titulo {
     opacity: 0;
     transform: translateY(50px) scale(0.9);
@@ -715,7 +676,7 @@
     transform: translateY(30px);
   }
 
-  /* Animaciones CSS fallback */
+  /* Animaciones CSS fallback (igual que Soluciones) */
   .identidad-titulo.animate {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -728,29 +689,95 @@
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .identidad-card {
+  /* Estilos para el sistema de tabs */
+  .identidad-tab {
     position: relative;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #6b7280;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  .identidad-tab::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .identidad-tab.active {
+    color: #1f2937;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+  }
+
+  .identidad-tab.active::before {
+    width: 80%;
+  }
+
+  .identidad-tab:hover {
+    color: #374151;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(59, 130, 246, 0.05));
+  }
+
+  .identidad-tab:hover::before {
+    width: 60%;
+  }
+
+  .tab-icon {
+    transition: all 0.3s ease;
+  }
+
+  .identidad-tab.active .tab-icon {
+    color: #8b5cf6;
+    transform: scale(1.1);
+  }
+
+  .identidad-tab:hover .tab-icon {
+    color: #6366f1;
+    transform: scale(1.05);
+  }
+
+  /* Estilos para el contenido de tabs con transiciones mejoradas */
+  .identidad-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
     transform-style: preserve-3d;
     perspective: 1000px;
   }
 
-  .identidad-card:hover {
-    border-color: rgba(6, 43, 237, 0.2);
+  .identidad-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .card-image {
+  /* Efectos para las imágenes de contenido */
+  .content-image {
+    position: relative;
+    overflow: hidden;
     transition: all 0.4s ease;
-    transform-style: preserve-3d;
   }
 
-  .identidad-card:hover .card-image {
+  .content-image img {
+    transition: all 0.6s ease;
+  }
+
+  .content-image:hover img {
     transform: scale(1.05);
   }
 
-  /* Efectos de gradiente en hover */
-  .identidad-card::before {
+  /* Efectos de gradiente en las imágenes */
+  .content-image::after {
     content: "";
     position: absolute;
     top: 0;
@@ -759,62 +786,143 @@
     bottom: 0;
     background: linear-gradient(
       135deg,
-      rgba(6, 43, 237, 0.05) 0%,
-      rgba(5, 8, 53, 0.05) 100%
+      rgba(139, 92, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0.1) 100%
     );
     opacity: 0;
     transition: opacity 0.4s ease;
-    border-radius: 1.5rem;
     pointer-events: none;
   }
 
-  .identidad-card:hover::before {
+  .content-image:hover::after {
     opacity: 1;
   }
 
   /* Animación de los badges */
-  .identidad-card .absolute {
+  .identidad-content .absolute {
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Efectos de sombra mejorados para el contenido (igual que Soluciones) */
+  .identidad-content .bg-white {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .identidad-content .bg-white:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Efectos adicionales para transiciones suaves */
+  .identidad-content .bg-white {
+    will-change: transform, opacity, box-shadow;
+  }
+
+  /* Mejoras para las transformaciones 3D en las tarjetas */
+  .identidad-content .bg-white {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  /* Efectos para los elementos de valores */
+  .identidad-content .w-8 {
     transition: all 0.3s ease;
   }
 
-  .identidad-card:hover .absolute {
-    transform: scale(1.1);
+  .identidad-content .w-8:hover {
+    transform: scale(1.1) rotate(5deg);
   }
 
-  /* Efectos de sombra mejorados */
-  .identidad-card {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* Efectos para los badges de certificaciones */
+  .identidad-content .bg-secondary\/10 {
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
 
-  .identidad-card:hover {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  .identidad-content .bg-secondary\/10:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
   }
+
+  /* Responsive design para tabs */
+  @media (max-width: 640px) {
+    .identidad-tabs-container .bg-white\/80 {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 320px;
+    }
+    
+    .identidad-tab {
+      padding: 0.75rem 1rem;
+      width: 100%;
+      justify-content: flex-start;
+    }
+    
+    .identidad-tab span {
+      font-size: 0.75rem;
+    }
+    
+    .tab-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    
+    .identidad-tab::before {
+      width: 0;
+      height: 0;
+    }
+    
+    .identidad-tab.active::before {
+      width: 0;
+      height: 0;
+    }
+    
+    .identidad-tab:hover::before {
+      width: 0;
+      height: 0;
+    }
+    
+    /* Reducir tamaño de imágenes en mobile */
+    .identidad-content .content-image {
+      height: 200px;
+    }
+  }
+
 
   /* Mejoras para las transformaciones 3D */
-  .identidad-card {
-    will-change: transform;
+  .identidad-tab {
+    transform-style: preserve-3d;
+    perspective: 1000px;
   }
 
-  /* Efectos de partículas sutiles */
-  .identidad-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(6, 43, 237, 0.03) 0%,
-      transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    border-radius: 1.5rem;
-    pointer-events: none;
+  /* Efectos de glassmorphism para el contenedor de tabs */
+  .identidad-tabs-container .bg-white\/80 {
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
-  .identidad-card:hover::after {
-    opacity: 1;
+  /* Contenedor de contenido sin efectos adicionales */
+  .identidad-content-container {
+    position: relative;
   }
 </style>
+
+
