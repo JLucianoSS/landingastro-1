@@ -2,7 +2,7 @@
 // Identidad component - Sistema de tabs con filtros automáticos y animaciones GSAP
 ---
 
-<section id="identidad" class="py-24 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
+<section id="identidad" class="py-24 bg-gradient-to-r from-blue-50 to-white relative overflow-hidden">
   <div class="container mx-auto px-4 relative z-10">
     <!-- Título de la sección -->
     <div class="text-center mb-16">
@@ -18,10 +18,11 @@
     </div>
 
     <!-- Tab Navigation -->
-    <div class="identidad-tabs-container mb-12">
-      <div class="flex justify-center">
+    <div class="identidad-tabs-container md:mb-12">
+      <!-- Desktop Navigation -->
+      <div class="hidden sm:flex justify-center">
         <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-2 shadow-xl border border-white/20">
-          <nav class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1" role="tablist">
+          <nav class="flex space-x-1" role="tablist">
             <!-- Tab 1: Lo que nos impulsa -->
             <button
               class="identidad-tab tab-1 active flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-300 relative group"
@@ -82,6 +83,75 @@
               <span class="font-semibold text-sm uppercase tracking-wide">CERTIFICACIONES</span>
             </button>
           </nav>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="sm:hidden">
+        <div class="mobile-tabs-wrapper relative">
+          <div class="mobile-tabs-scroll overflow-x-auto scrollbar-hide" id="mobileTabsScroll">
+            <nav class="mobile-tabs-nav flex space-x-2" role="tablist" id="mobileTabsNav">
+              <!-- Tab 1: Lo que nos impulsa -->
+              <button
+                class="mobile-tab tab-1 active flex-shrink-0 flex items-center space-x-1 px-3 py-2 rounded-xl transition-all duration-300 relative group"
+                data-tab="impulsa"
+                role="tab"
+                aria-selected="true"
+              >
+                <div class="tab-icon">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <span class="font-semibold text-xs uppercase tracking-wide">IMPULSA</span>
+              </button>
+
+              <!-- Tab 2: Propósito -->
+              <button
+                class="mobile-tab tab-2 flex-shrink-0 flex items-center space-x-1 px-3 py-2 rounded-xl transition-all duration-300 relative group"
+                data-tab="proposito"
+                role="tab"
+                aria-selected="false"
+              >
+                <div class="tab-icon">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+                </div>
+                <span class="font-semibold text-xs uppercase tracking-wide">PROPÓSITO</span>
+              </button>
+
+              <!-- Tab 3: Valores -->
+              <button
+                class="mobile-tab tab-3 flex-shrink-0 flex items-center space-x-1 px-3 py-2 rounded-xl transition-all duration-300 relative group"
+                data-tab="valores"
+                role="tab"
+                aria-selected="false"
+              >
+                <div class="tab-icon">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </div>
+                <span class="font-semibold text-xs uppercase tracking-wide">VALORES</span>
+              </button>
+
+              <!-- Tab 4: Certificaciones -->
+              <button
+                class="mobile-tab tab-4 flex-shrink-0 flex items-center space-x-1 px-3 py-2 rounded-xl transition-all duration-300 relative group"
+                data-tab="certificaciones"
+                role="tab"
+                aria-selected="false"
+              >
+                <div class="tab-icon">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                  </svg>
+                </div>
+                <span class="font-semibold text-xs uppercase tracking-wide">CERTIFICACIONES</span>
+              </button>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
@@ -304,6 +374,7 @@
   // Función para cambiar tab con animaciones mejoradas
   function switchTab(targetIndex: number, useGSAP: boolean = true): void {
     const tabs = document.querySelectorAll('.identidad-tab');
+    const mobileTabs = document.querySelectorAll('.mobile-tab');
     const contents = document.querySelectorAll('.identidad-content');
     
     if (targetIndex < 0 || targetIndex >= tabs.length) return;
@@ -326,6 +397,11 @@
               tab.setAttribute('aria-selected', 'false');
             });
             
+            mobileTabs.forEach(tab => {
+              tab.classList.remove('active');
+              tab.setAttribute('aria-selected', 'false');
+            });
+            
             contents.forEach(content => {
               content.classList.remove('active');
             });
@@ -333,6 +409,8 @@
             // Añadir clase active al tab y contenido seleccionado
             tabs[targetIndex].classList.add('active');
             tabs[targetIndex].setAttribute('aria-selected', 'true');
+            mobileTabs[targetIndex].classList.add('active');
+            mobileTabs[targetIndex].setAttribute('aria-selected', 'true');
             contents[targetIndex].classList.add('active');
 
             currentTabIndex = targetIndex;
@@ -367,7 +445,13 @@
                 y: 0,
                 duration: 0.4,
                 ease: "back.out(1.7)",
-                delay: 0.2
+                delay: 0.2,
+                onComplete: () => {
+                  // Centrar tab en mobile después de la animación
+                  setTimeout(() => {
+                    centerActiveTab();
+                  }, 100);
+                }
               }
             );
           }
@@ -379,12 +463,19 @@
           tab.setAttribute('aria-selected', 'false');
         });
         
+        mobileTabs.forEach(tab => {
+          tab.classList.remove('active');
+          tab.setAttribute('aria-selected', 'false');
+        });
+        
         contents.forEach(content => {
           content.classList.remove('active');
         });
 
         tabs[targetIndex].classList.add('active');
         tabs[targetIndex].setAttribute('aria-selected', 'true');
+        mobileTabs[targetIndex].classList.add('active');
+        mobileTabs[targetIndex].setAttribute('aria-selected', 'true');
         contents[targetIndex].classList.add('active');
 
         currentTabIndex = targetIndex;
@@ -417,7 +508,13 @@
             scale: 1,
             y: 0,
             duration: 0.4,
-            ease: "back.out(1.7)"
+            ease: "back.out(1.7)",
+            onComplete: () => {
+              // Centrar tab en mobile después de la animación
+              setTimeout(() => {
+                centerActiveTab();
+              }, 100);
+            }
           }
         );
       }
@@ -428,15 +525,27 @@
         tab.setAttribute('aria-selected', 'false');
       });
       
+      mobileTabs.forEach(tab => {
+        tab.classList.remove('active');
+        tab.setAttribute('aria-selected', 'false');
+      });
+      
       contents.forEach(content => {
         content.classList.remove('active');
       });
 
       tabs[targetIndex].classList.add('active');
       tabs[targetIndex].setAttribute('aria-selected', 'true');
+      mobileTabs[targetIndex].classList.add('active');
+      mobileTabs[targetIndex].setAttribute('aria-selected', 'true');
       contents[targetIndex].classList.add('active');
 
       currentTabIndex = targetIndex;
+      
+      // Centrar tab en mobile para el caso sin GSAP
+      setTimeout(() => {
+        centerActiveTab();
+      }, 100);
     }
   }
 
@@ -460,12 +569,37 @@
     }
   }
 
+  // Función para centrar el tab activo en mobile
+  function centerActiveTab(): void {
+    const mobileScroll = document.getElementById('mobileTabsScroll');
+    const activeTab = document.querySelector('.mobile-tab.active');
+    
+    if (mobileScroll && activeTab) {
+      const scrollContainer = mobileScroll;
+      const tabRect = activeTab.getBoundingClientRect();
+      const containerRect = scrollContainer.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      const tabCenter = tabRect.left + tabRect.width / 2;
+      const scrollLeft = scrollContainer.scrollLeft + (tabCenter - containerCenter);
+      
+      // Asegurar que el scroll no sea negativo
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const finalScrollLeft = Math.max(0, Math.min(scrollLeft, maxScroll));
+      
+      scrollContainer.scrollTo({
+        left: finalScrollLeft,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   // Función para inicializar el sistema de tabs
   function initTabsSystem(): void {
     const tabs = document.querySelectorAll('.identidad-tab');
+    const mobileTabs = document.querySelectorAll('.mobile-tab');
     const contents = document.querySelectorAll('.identidad-content');
 
-    // Event listeners para tabs
+    // Event listeners para tabs de desktop
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', () => {
         isUserInteracting = true;
@@ -501,8 +635,107 @@
       });
     });
 
+    // Event listeners para tabs de mobile
+    mobileTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        isUserInteracting = true;
+        stopAutoRotate();
+        switchTab(index);
+        
+        // Centrar el tab activo en mobile
+        setTimeout(() => {
+          centerActiveTab();
+        }, 100);
+        
+        // Reiniciar auto-rotación después de 10 segundos de inactividad
+        setTimeout(() => {
+          isUserInteracting = false;
+          startAutoRotate();
+        }, 10000);
+      });
+
+      // Efectos hover para mobile
+      tab.addEventListener('mouseenter', () => {
+        if (typeof gsap !== "undefined") {
+          gsap.to(tab, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+
+      tab.addEventListener('mouseleave', () => {
+        if (typeof gsap !== "undefined") {
+          gsap.to(tab, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+    });
+
     // Iniciar rotación automática
     startAutoRotate();
+    
+    // Centrar tab inicial en mobile
+    setTimeout(() => {
+      centerActiveTab();
+    }, 500);
+
+    // Agregar soporte para swipe en mobile
+    let startX = 0;
+    let startY = 0;
+    let isScrolling = false;
+
+    const mobileScroll = document.getElementById('mobileTabsScroll');
+    if (mobileScroll) {
+      mobileScroll.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isScrolling = false;
+      });
+
+      mobileScroll.addEventListener('touchmove', (e) => {
+        if (!startX || !startY) return;
+
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = Math.abs(startX - currentX);
+        const diffY = Math.abs(startY - currentY);
+
+        if (diffX > diffY) {
+          isScrolling = true;
+        }
+      });
+
+      mobileScroll.addEventListener('touchend', (e) => {
+        if (!startX || !startY || !isScrolling) return;
+
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        const threshold = 50;
+
+        if (Math.abs(diffX) > threshold) {
+          if (diffX > 0) {
+            // Swipe izquierda - siguiente tab
+            const nextIndex = (currentTabIndex + 1) % tabData.length;
+            switchTab(nextIndex);
+            setTimeout(() => centerActiveTab(), 100);
+          } else {
+            // Swipe derecha - tab anterior
+            const prevIndex = currentTabIndex === 0 ? tabData.length - 1 : currentTabIndex - 1;
+            switchTab(prevIndex);
+            setTimeout(() => centerActiveTab(), 100);
+          }
+        }
+
+        startX = 0;
+        startY = 0;
+        isScrolling = false;
+      });
+    }
   }
 
 
@@ -911,6 +1144,99 @@
     box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
   }
 
+  /* Estilos para navegación móvil horizontal */
+  .mobile-tabs-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .mobile-tabs-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 24px;
+  }
+
+  .mobile-tabs-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-tabs-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: max-content;
+    min-width: 100%;
+    padding: 12px 0;
+  }
+
+  .mobile-tab {
+    position: relative;
+    color: #6b7280;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    will-change: transform;
+    min-width: 90px;
+    max-width: none;
+    flex: 0 0 auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+  }
+
+  .mobile-tab::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #062bed, #3b82f6);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-tab.active {
+    color: #050835;
+    background: linear-gradient(135deg, rgba(6, 43, 237, 0.15), rgba(59, 130, 255, 0.15));
+    border-color: rgba(6, 43, 237, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(6, 43, 237, 0.2);
+  }
+
+  .mobile-tab.active::before {
+    width: 80%;
+  }
+
+  .mobile-tab:hover {
+    color: #050835;
+    background: linear-gradient(135deg, rgba(6, 43, 237, 0.1), rgba(59, 130, 255, 0.1));
+    transform: scale(1.02);
+  }
+
+  .mobile-tab:hover::before {
+    width: 60%;
+  }
+
+  .mobile-tab .tab-icon {
+    transition: all 0.3s ease;
+  }
+
+  .mobile-tab.active .tab-icon {
+    color: #062bed;
+    transform: scale(1.1);
+  }
+
+  .mobile-tab:hover .tab-icon {
+    color: #062bed;
+    transform: scale(1.05);
+  }
+
   /* Responsive design para tabs */
   @media (max-width: 640px) {
     .identidad-tabs-container .bg-white\/80 {
@@ -952,6 +1278,37 @@
     /* Reducir tamaño de imágenes en mobile */
     .identidad-content .content-image {
       height: 200px;
+    }
+
+    /* Ajustes adicionales para mobile tabs */
+    .mobile-tab {
+      min-width: 80px;
+      max-width: none;
+      padding: 0.5rem 0.75rem;
+      white-space: nowrap;
+    }
+
+    .mobile-tab span {
+      font-size: 0.65rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .mobile-tab .tab-icon svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    .mobile-tabs-nav {
+      gap: 0.5rem;
+    }
+
+    .mobile-tabs-scroll {
+      padding: 0 18px;
+    }
+
+    .mobile-tabs-nav {
+      padding: 30px 0;
     }
   }
 
