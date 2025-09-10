@@ -1,4 +1,5 @@
 ---
+import "../styles/fonts.css";
 export interface Props {
   title: string;
   description?: string;
@@ -58,7 +59,7 @@ const { title, description = "Driven to grow, together" } = Astro.props;
       window.addEventListener("load", checkGSAP);
     </script>
   </head>
-  <body class="font-body bg-white text-dark">
+  <body class="font-avant bg-white text-dark">
     <slot />
   </body>
 </html>

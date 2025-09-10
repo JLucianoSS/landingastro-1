@@ -1,0 +1,44 @@
+/* AvantGarde */
+@font-face {
+    font-family: "AvantGarde";
+    src: url("/fonts/AvantGardeLT-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "AvantGarde";
+    src: url("/fonts/AvantGarde LT Medium Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  /* Stolzl Display */
+  @font-face {
+    font-family: "Stolzl Display";
+    src: url("/fonts/StolzlDisplay-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Stolzl Display";
+    src: url("/fonts/StolzlDisplay-Normal.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Stolzl Display";
+    src: url("/fonts/StolzlDisplay-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Stolzl Display";
+    src: url("/fonts/StolzlDisplay-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+

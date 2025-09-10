@@ -31,13 +31,33 @@
     </div>
 
     <!-- Menú desplegable para desktop -->
-    <div class="hidden md:block">
+    <div class="hidden md:block flex items-center space-x-4">
+      <!-- Botón Únete -->
+      <button
+        class="btn-unete inline-flex items-center px-6 py-3 bg-white text-dark rounded-full font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg"
+        style="opacity: 0; transform: translateY(-20px);"
+      >
+        <span class="font-stolzl">Únete al equipo</span>
+        <svg
+              class="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+      </button>
+      
       <button
         class="menu-trigger relative group"
         style="opacity: 0; transform: translateY(-20px);"
       >
         <div
-          class="menu-circle w-28 h-28 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+          class="font-stolzl menu-circle w-28 h-28 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
           style="background-color: #062BED;"
         >
           <span class="menu-text text-white font-medium text-base tracking-wide"
@@ -99,13 +119,14 @@
     </div>
 
     <!-- Botón de menú móvil -->
-    <div class="md:hidden">
+    <div class="md:hidden flex items-center space-x-4">
+      
       <button
         class="menu-trigger-mobile relative group"
         aria-label="Abrir menú"
       >
         <div
-          class="menu-circle-mobile w-28 h-28 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+          class="font-stolzl menu-circle-mobile w-28 h-28 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
           style="background-color: #062BED;"
         >
           <span
@@ -534,11 +555,19 @@
         ease: "power2.out",
       });
 
-      gsap.to(".menu-trigger", {
+      gsap.to(".btn-unete", {
         y: 0,
         opacity: 1,
         duration: 0.15,
         delay: 0.9,
+        ease: "power2.out",
+      });
+
+      gsap.to(".menu-trigger", {
+        y: 0,
+        opacity: 1,
+        duration: 0.15,
+        delay: 0.95,
         ease: "power2.out",
       });
 
@@ -581,6 +610,7 @@
         delay: 0.95,
         ease: "power2.out",
       });
+
     } else {
       console.log("🎨 Usando CSS puro para animaciones del header");
 
@@ -588,6 +618,7 @@
       const header = document.querySelector("header");
       const logo = document.querySelector(".logo-container");
       const menuTrigger = document.querySelector(".menu-trigger");
+      const btnUnete = document.querySelector(".btn-unete");
 
       if (header) {
         header.style.transform = "translateY(-100px)";
@@ -604,6 +635,11 @@
         menuTrigger.style.opacity = "0";
       }
 
+      if (btnUnete) {
+        btnUnete.style.transform = "translateY(-20px)";
+        btnUnete.style.opacity = "0";
+      }
+
       const menuCircleElement = document.querySelector(".menu-circle");
       if (menuCircleElement) {
         menuCircleElement.style.opacity = "0";
@@ -612,6 +648,15 @@
 
       // Solo animar el header - MÁXIMA VELOCIDAD
       setTimeout(animateHeader, 800);
+
+      // Animar el botón Únete por separado - MÁXIMA VELOCIDAD
+      setTimeout(() => {
+        if (btnUnete) {
+          btnUnete.style.transition = "all 0.15s ease-out";
+          btnUnete.style.opacity = "1";
+          btnUnete.style.transform = "translateY(0)";
+        }
+      }, 900);
 
       // Animar el menú por separado - MÁXIMA VELOCIDAD
       setTimeout(() => {
@@ -854,6 +899,7 @@
     const logoScroll = document.querySelector(".logo-scroll");
     const menuCircle = document.querySelector(".menu-circle");
     const menuCircleMobile = document.querySelector(".menu-circle-mobile");
+    const btnUnete = document.querySelector(".btn-unete");
 
     if (header && headerContainer) {
       if (currentScrollY > 100) {
@@ -880,6 +926,15 @@
         if (menuCircleMobile) {
           menuCircleMobile.style.transform = "scale(0.8)";
         }
+
+        // Cambiar el color del botón Únete cuando se hace scroll
+        if (btnUnete) {
+          btnUnete.style.backgroundColor = "#050835";
+          btnUnete.style.color = "white";
+          // Agregar clase para hover oscuro
+          btnUnete.classList.add("btn-unete-scrolled");
+          btnUnete.classList.remove("btn-unete-normal");
+        }
       } else {
         // En la parte superior, mantener transparente y altura normal
         header.style.backgroundColor = "transparent";
@@ -903,6 +958,15 @@
         }
         if (menuCircleMobile) {
           menuCircleMobile.style.transform = "scale(1)";
+        }
+
+        // Restaurar el color original del botón Únete cuando está en la parte superior
+        if (btnUnete) {
+          btnUnete.style.backgroundColor = "white";
+          btnUnete.style.color = "#1a1a1a";
+          // Agregar clase para hover normal
+          btnUnete.classList.add("btn-unete-normal");
+          btnUnete.classList.remove("btn-unete-scrolled");
         }
       }
     }
@@ -1019,6 +1083,16 @@
                 menuTrigger.style.opacity = "1";
                 menuTrigger.style.transform = "translateY(0)";
               }
+
+              // Mostrar el botón Únete
+              const btnUnete = document.querySelector(".btn-unete");
+              if (btnUnete) {
+                btnUnete.style.transition = "all 0.3s ease-out";
+                btnUnete.style.opacity = "1";
+                btnUnete.style.transform = "translateY(0)";
+                // Establecer clase inicial para hover normal
+                btnUnete.classList.add("btn-unete-normal");
+              }
             }, 200);
 
             // Permitir scroll y mostrar contenido
@@ -1102,6 +1176,27 @@
   .menu-text,
   .menu-text-mobile {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Estilos para el botón Únete */
+  .btn-unete {
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Hover cuando el botón es blanco (estado normal) */
+  .btn-unete-normal:hover {
+    background-color: #062bed !important;
+    color: white !important;
+    transform: scale(1.05);
+  }
+
+  /* Hover cuando el botón es oscuro (estado scrolled) */
+  .btn-unete-scrolled:hover {
+    background-color: #ffffff !important;
+    color: #062bed !important;
+    transform: scale(1.05);
   }
 
   /* Mejorar la experiencia de scroll */

@@ -9,8 +9,8 @@ export default {
         dark: '#050835',
       },
       fontFamily: {
-        'display': ['Stolzl Display', 'sans-serif'],
-        'body': ['Inter', 'sans-serif'],
+        avant: ["AvantGarde", "sans-serif"],
+        stolzl: ["Stolzl Display", "sans-serif"],
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',
