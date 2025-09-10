@@ -583,7 +583,27 @@
         }
       );
 
-      // Contenido inicial ya visible - sin animación de opacidad
+      // Animación de entrada para el contenido de tabs (fade-up)
+      gsap.fromTo(
+        ".identidad-content.active",
+        {
+          opacity: 0,
+          y: 80
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".identidad-content-container",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
 
       // Efectos hover para las imágenes de contenido
       document.querySelectorAll('.content-image').forEach(image => {
@@ -621,12 +641,14 @@
     // Inicializar sistema de tabs
     initTabsSystem();
 
-    // Fallback CSS para título y subtítulo (igual que Soluciones)
+    // Fallback CSS para título, subtítulo, tabs y contenido (igual que Soluciones)
     function checkAndAnimateTitles() {
       const titulo = document.querySelector(".identidad-titulo") as HTMLElement;
       const subtitulo = document.querySelector(".identidad-subtitulo") as HTMLElement;
+      const tabsContainer = document.querySelector(".identidad-tabs-container") as HTMLElement;
+      const contentContainer = document.querySelector(".identidad-content-container") as HTMLElement;
 
-      if (titulo && subtitulo && !titulo.classList.contains("animate")) {
+      if (titulo && subtitulo && tabsContainer && contentContainer && !titulo.classList.contains("animate")) {
         if (isInViewport(titulo)) {
           setTimeout(() => {
             titulo.classList.add("animate");
@@ -635,6 +657,14 @@
           setTimeout(() => {
             subtitulo.classList.add("animate");
           }, 300);
+
+          setTimeout(() => {
+            tabsContainer.classList.add("animate");
+          }, 500);
+
+          setTimeout(() => {
+            contentContainer.classList.add("animate");
+          }, 700);
         }
       }
     }
@@ -676,6 +706,16 @@
     transform: translateY(30px);
   }
 
+  .identidad-tabs-container {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .identidad-content-container {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
   /* Animaciones CSS fallback (igual que Soluciones) */
   .identidad-titulo.animate {
     opacity: 1;
@@ -687,6 +727,18 @@
     opacity: 1;
     transform: translateY(0);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .identidad-tabs-container.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .identidad-content-container.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   /* Estilos para el sistema de tabs */
@@ -707,15 +759,15 @@
     left: 50%;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    background: linear-gradient(90deg, #062bed, #3b82f6);
     border-radius: 2px;
     transform: translateX(-50%);
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .identidad-tab.active {
-    color: #1f2937;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    color: #050835;
+    background: linear-gradient(135deg, rgba(6, 43, 237, 0.1), rgba(59, 130, 255, 0.1));
   }
 
   .identidad-tab.active::before {
@@ -723,8 +775,8 @@
   }
 
   .identidad-tab:hover {
-    color: #374151;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(59, 130, 246, 0.05));
+    color: #050835;
+    background: linear-gradient(135deg, rgba(6, 43, 237, 0.05), rgba(59, 130, 255, 0.05));
   }
 
   .identidad-tab:hover::before {
@@ -736,12 +788,12 @@
   }
 
   .identidad-tab.active .tab-icon {
-    color: #8b5cf6;
+    color: #062bed;
     transform: scale(1.1);
   }
 
   .identidad-tab:hover .tab-icon {
-    color: #6366f1;
+    color: #062bed;
     transform: scale(1.05);
   }
 
