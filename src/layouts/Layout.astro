@@ -1,5 +1,7 @@
 ---
 import "../styles/fonts.css";
+import 'aos/dist/aos.css';
+
 export interface Props {
   title: string;
   description?: string;
@@ -66,3 +68,11 @@ const { title, description = "Driven to grow, together" } = Astro.props;
     background: #050835;
   }
 </style>
+
+<script>
+	import AOS from 'aos';
+	AOS.init({
+	  duration: 900,
+	  once: true // Anima solo una vez
+	});
+</script>
