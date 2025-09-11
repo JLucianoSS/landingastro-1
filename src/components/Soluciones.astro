@@ -8,7 +8,7 @@
 >
   <div class="container mx-auto px-4">
     <!-- Título y subtítulo de la sección -->
-    <div class="text-center mb-40">
+    <div class="text-center md:mb-40">
       <h2
         class="soluciones-titulo text-3xl md:text-4xl md:text-5xl font-bold text-dark mb-6"
       >
@@ -47,7 +47,7 @@
 
       <!-- SVG para líneas de conexión -->
       <svg
-        class="connection-svg absolute inset-0 w-full h-full pointer-events-none z-10"
+        class="hidden md:flex connection-svg absolute inset-0 w-full h-full pointer-events-none z-10"
         viewBox="0 0 800 600"
       >
         <defs>
@@ -184,15 +184,15 @@
 
       <!-- Card central con logo - Diseño profesional -->
       <div
-        class="center-card absolute w-48 h-48 bg-[#050835]/90 backdrop-blur-md rounded-full flex items-center justify-center z-20 shadow-lg border border-white/30"
-        style="top: 42%; left: 50%; transform: translate(-50%, -50%);"
+        class="center-card absolute md:top-[42%] md:left-[50%] top-[50%] left-[50%] w-44 h-44 md:w-48 md:h-48 bg-[#050835]/90 backdrop-blur-md rounded-full flex items-center justify-center z-20 shadow-lg border border-white/30"
+        style="transform: translate(-50%, -50%);"
       >
         <div class="text-center">
           <!-- Logo Imperia -->
           <img
             src="/images/logo-hero.png"
             alt="Imperia"
-            class="w-32 h-16 mx-auto object-contain"
+            class="w-24 h-12 md:w-32 md:h-16 mx-auto object-contain"
           />
         </div>
       </div>
@@ -200,8 +200,8 @@
       <!-- Tarjetas de soluciones - Mejor alineamiento del texto -->
       <!-- 1. Seguridad (arriba centro) -->
       <div
-        class="solution-card card-1 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="top: -100px; left: 41.5%; transform: translateX(-50%);"
+        class="solution-card card-1 absolute md:top-[-100px] md:left-[41.5%] top-[-120px] left-[41.5%] w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-40 flex items-center justify-center"
+        style="transform: translateX(-50%);"
         data-connection="1"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -288,7 +288,7 @@
 
       <!-- 4. DevOps (abajo centro) -->
       <div
-        class="solution-card card-4 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
+        class="solution-card card-4 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-40 flex items-center justify-center"
         style="bottom: -20px; left: 41.5%; transform: translateX(-50%);"
         data-connection="4"
       >
@@ -375,8 +375,8 @@
 
       <!-- 7. Protección Avanzada Contra Amenazas (nueva posición) -->
       <div
-        class="solution-card card-7 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="top: 250px; right: -80px;"
+        class="solution-card card-7 absolute md:top-[250px] md:right-[-80px] top-[255px] right-[-20px] w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
+        style=""
         data-connection="7"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -405,8 +405,8 @@
 
       <!-- 8. Tecnologías de Nueva Generación (nueva posición) -->
       <div
-        class="solution-card card-8 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="top: 250px; left: -60px;"
+        class="solution-card card-8 absolute md:top-[250px] md:left-[-60px] top-[255px] left-[-20px] w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
+        style=""
         data-connection="8"
       >
         <div class="flex flex-col items-center text-center px-4">
