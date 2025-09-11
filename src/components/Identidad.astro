@@ -549,16 +549,24 @@
     }
   }
 
-  // Función para rotación automática
+  // Función para detectar si es mobile
+  function isMobile(): boolean {
+    return window.innerWidth <= 768;
+  }
+
+  // Función para rotación automática (solo en desktop)
   function startAutoRotate(): void {
     if (autoRotateInterval) clearInterval(autoRotateInterval);
     
-    autoRotateInterval = setInterval(() => {
-      if (!isUserInteracting) {
-        const nextIndex = (currentTabIndex + 1) % tabData.length;
-        switchTab(nextIndex);
-      }
-    }, 4000); // Cambiar cada 4 segundos
+    // Solo iniciar rotación automática en desktop
+    if (!isMobile()) {
+      autoRotateInterval = setInterval(() => {
+        if (!isUserInteracting) {
+          const nextIndex = (currentTabIndex + 1) % tabData.length;
+          switchTab(nextIndex);
+        }
+      }, 4000); // Cambiar cada 4 segundos
+    }
   }
 
   // Función para detener rotación automática
@@ -606,10 +614,12 @@
         stopAutoRotate();
         switchTab(index);
         
-        // Reiniciar auto-rotación después de 10 segundos de inactividad
+        // Reiniciar auto-rotación después de 10 segundos de inactividad (solo en desktop)
         setTimeout(() => {
           isUserInteracting = false;
-          startAutoRotate();
+          if (!isMobile()) {
+            startAutoRotate();
+          }
         }, 10000);
       });
 
@@ -647,10 +657,12 @@
           centerActiveTab();
         }, 100);
         
-        // Reiniciar auto-rotación después de 10 segundos de inactividad
+        // Reiniciar auto-rotación después de 10 segundos de inactividad (solo en desktop)
         setTimeout(() => {
           isUserInteracting = false;
-          startAutoRotate();
+          if (!isMobile()) {
+            startAutoRotate();
+          }
         }, 10000);
       });
 
@@ -683,6 +695,15 @@
     setTimeout(() => {
       centerActiveTab();
     }, 500);
+
+    // Listener para cambios de tamaño de ventana
+    window.addEventListener('resize', () => {
+      // Reiniciar rotación automática cuando cambie el tamaño de ventana
+      stopAutoRotate();
+      setTimeout(() => {
+        startAutoRotate();
+      }, 100);
+    });
 
     // Agregar soporte para swipe en mobile
     let startX = 0;
