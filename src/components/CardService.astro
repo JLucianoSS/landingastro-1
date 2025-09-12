@@ -23,7 +23,7 @@ const bgClass = `bg-${colorClass}`;
   <div class="item_content">
     <h2 class="item_number">{index}</h2>
     <h2 class={`font-bold text-[28px] lg:text-[45px] mb-4 ${textClass}`}>{title}</h2>
-    <p class="mb-6 text-white text-base lg:text-[18px] lg:pr-4">
+    <p class="mb-6 text-white text-base lg:text-[20px] lg:pr-4">
       {description}
     </p>
     
@@ -32,7 +32,7 @@ const bgClass = `bg-${colorClass}`;
       {features.map((feature) => (
         <div class="feature-item">
           <div class="feature-icon">
-            <svg class={`w-6 h-6 ${textClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class={`w-8 h-8 ${textClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
             </svg>
           </div>
@@ -44,8 +44,8 @@ const bgClass = `bg-${colorClass}`;
       ))}
     </div>
   </div>
-  <div class=" flex justify-center md:w-1/2 md:h-full bg-[#0a0f57] pb-10 md:pb-0">
-    <img class=" object-cover w-[150px] h-[150px] bg-[#0a0f57] md:w-full md:h-full rounded-full md:rounded-none " src={imageUrl} class="item_media" />
+  <div class=" flex justify-center md:w-1/2 md:h-full bg-[#0a0f57] pb-8 md:pb-0">
+    <img class=" object-cover w-[120px] h-[120px] bg-[#0a0f57] md:w-full md:h-full rounded-full md:rounded-none " src={imageUrl} class="item_media" />
   </div>
 </div>
 
@@ -112,8 +112,8 @@ const bgClass = `bg-${colorClass}`;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     background-color: #062bed;
     color: white;
@@ -130,16 +130,17 @@ const bgClass = `bg-${colorClass}`;
 
   .feature-title {
     color: rgba(255, 255, 255, 0.95);
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     line-height: 1.25rem;
   }
 
   .feature-description {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.875rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    line-height: 1.125rem;
+    line-height: 1.35rem;
+    max-width: 500px;
   }
 
   @media (max-width: 768px) {
@@ -152,7 +153,7 @@ const bgClass = `bg-${colorClass}`;
     }
 
     .item_content {
-      height: 75%; /* El contenido ocupa el 90% de la altura */
+      height: 80%; /* El contenido ocupa el 90% de la altura */
       width: 100%;
       padding: 1.5rem 1.25rem;
       justify-content: flex-start;
@@ -161,7 +162,7 @@ const bgClass = `bg-${colorClass}`;
     }
 
     .item_media {
-      height: 15%; /* La imagen ocupa el 10% de la altura */
+      height: 10%; /* La imagen ocupa el 10% de la altura */
       width: 100%;
       object-fit: cover;
       object-position: center;
@@ -199,7 +200,7 @@ const bgClass = `bg-${colorClass}`;
 
     .feature-item {
       gap: 0.625rem;
-      align-items: center;
+      /* align-items: center; */
     }
 
     .feature-icon {
@@ -263,26 +264,26 @@ const bgClass = `bg-${colorClass}`;
     }
 
     .features-list {
-      max-width: 280px;
+      /* max-width: 280px; */
       gap: 0.5rem;
     }
 
     .feature-icon {
-      width: 1.75rem;
-      height: 1.75rem;
+      width: 2.5em;
+      height: 2.5rem;
     }
 
     .feature-icon svg {
-      width: 1rem;
-      height: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
 
     .feature-title {
-      font-size: 0.85rem;
+      font-size: 1.2rem;
     }
 
     .feature-description {
-      font-size: 0.75rem;
+      font-size: 0.9rem;
     }
 
     /* Estilos específicos para el contenedor de imagen en pantallas muy pequeñas */
