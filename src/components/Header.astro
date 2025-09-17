@@ -7,7 +7,8 @@
   style="opacity: 0; transform: translateY(-100px);"
 >
   <div
-    class="container mx-auto px-8 pt-6 pb-3 flex justify-between items-center"
+    class="container mx-auto px-8 flex justify-between items-center"
+    style="height: 115px;"
   >
     <!-- Logo -->
     <div
@@ -19,49 +20,60 @@
         <img
           src="/images/logo-hero.png"
           alt="LandingAstro"
-          class="logo-hero w-60 h-auto transition-all duration-500"
+          class="logo-hero w-52 h-auto transition-all duration-500"
         />
         <!-- Logo después del scroll - Se muestra después del hero -->
         <img
           src="/images/logo-scroll.png"
           alt="LandingAstro"
-          class="logo-scroll w-60 h-auto transition-all duration-500 opacity-0 absolute top-0 left-0"
+          class="logo-scroll w-44 h-auto transition-all duration-500 opacity-0 absolute top-0 left-0"
         />
       </a>
     </div>
 
     <!-- Menú desplegable para desktop -->
-    <div class="hidden md:block flex items-center space-x-4">
+    <div class="hidden md:flex items-center space-x-4">
       <!-- Botón Únete -->
-      <a
-        href="#"
-        class="btn-unete inline-flex items-center px-6 py-3 bg-white text-dark rounded-full font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg"
-        style="opacity: 0; transform: translateY(-20px);"
-      >
-        <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-        </svg>
-        <span class="font-stolzl">Centro de atención</span>
-      </a>
+      <div>
+        <a
+          href="#"
+          target="dsadsad"
+          class="relative group btn-unete inline-flex items-center justify-center w-12 h-12 bg-white text-dark rounded-full font-semibold text-xs transition-all duration-300 transform hover:scale-105 shadow-lg"
+          style="opacity: 0; transform: translateY(-20px);"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+
+          <!-- Tooltip abajo -->
+          <span
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-2
+                  hidden group-hover:block 
+                  bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap"
+          >
+            Centro de atención
+          </span>
+        </a>
+      </div>
       
       <button
         class="menu-trigger relative group"
         style="opacity: 0; transform: translateY(-20px);"
       >
         <div
-          class="font-stolzl menu-circle w-28 h-28 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+          class="font-stolzl menu-circle w-24 h-24 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
           style="background-color: #062BED;"
         >
-          <span class="menu-text text-white font-medium text-base tracking-wide"
+          <span class="menu-text text-white font-medium text-[16px] tracking-wide"
             >Menú</span
           >
         </div>
@@ -127,11 +139,11 @@
         aria-label="Abrir menú"
       >
         <div
-          class="font-stolzl menu-circle-mobile w-16 h-16 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+          class="font-stolzl menu-circle-mobile w-14 h-14 bg-secondary rounded-full opacity-0 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
           style="background-color: #062BED;"
         >
           <span
-            class="menu-text-mobile text-white font-medium text-sm tracking-wide"
+            class="menu-text-mobile text-white font-medium text-base tracking-wide"
             >Menú</span
           >
         </div>
@@ -160,7 +172,7 @@
       <img
         src="/images/logo-scroll.png"
         alt="LandingAstro"
-        class="w-48 h-auto"
+        class="w-40 h-auto"
       />
       <button
         class="mobile-menu-close w-16 h-16 bg-secondary rounded-full flex items-center justify-center transform rotate-12"
@@ -328,7 +340,7 @@
       <img
         src="/images/logo-scroll.png"
         alt="LandingAstro"
-        class="w-48 h-auto"
+        class="w-40 h-auto"
       />
       <button
         class="desktop-menu-close w-20 h-20 bg-secondary rounded-full flex items-center justify-center transform rotate-12 transition-all duration-300 hover:scale-110 hover:rotate-0 hover:bg-dark hover:shadow-lg group"
@@ -595,9 +607,11 @@
       });
 
       // Asegurar que el círculo del menú también sea visible
+      const currentScrollY = window.scrollY;
+      const initialScale = currentScrollY > 50 ? 0.6 : 1;
       gsap.to(".menu-circle", {
         opacity: 1,
-        scale: 1,
+        scale: initialScale,
         duration: 0.15,
         delay: 0.95,
         ease: "power2.out",
@@ -628,7 +642,7 @@
       // También animar el círculo del menú móvil
       gsap.to(".menu-circle-mobile", {
         opacity: 1,
-        scale: 1,
+        scale: initialScale,
         duration: 0.15,
         delay: 0.95,
         ease: "power2.out",
@@ -692,7 +706,13 @@
         if (menuCircleElement) {
           menuCircleElement.style.transition = "all 0.15s ease-out";
           menuCircleElement.style.opacity = "1";
-          menuCircleElement.style.transform = "scale(1)";
+          // Verificar la posición de scroll para establecer el tamaño correcto
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > 50) {
+            menuCircleElement.style.transform = "scale(0.6)";
+          } else {
+            menuCircleElement.style.transform = "scale(1)";
+          }
 
           // ESPERAR que termine toda la animación del header y LUEGO hacer la animación elegante
           setTimeout(() => {
@@ -817,7 +837,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             // Calcular la posición del elemento considerando el header fijo
-            const headerHeight = 60; // Altura aproximada del header
+            const headerHeight = 115; // Altura máxima del header
             const elementPosition = targetElement.offsetTop - headerHeight;
 
             // Scroll suave personalizado con easing
@@ -893,7 +913,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             // Calcular la posición del elemento considerando el header fijo
-            const headerHeight = 60; // Altura aproximada del header
+            const headerHeight = 115; // Altura máxima del header
             const elementPosition = targetElement.offsetTop - headerHeight;
 
             // Scroll suave personalizado con easing
@@ -917,7 +937,13 @@
   function updateHeaderOnScroll() {
     const currentScrollY = window.scrollY;
     const header = document.querySelector("header");
-    const headerContainer = document.querySelector(".container");
+    const headerContainer = document.querySelector("header .container");
+    
+    // Debug: verificar que los elementos existen
+    if (!header || !headerContainer) {
+      console.log("Header elements not found");
+      return;
+    }
     const logoHero = document.querySelector(".logo-hero");
     const logoScroll = document.querySelector(".logo-scroll");
     const menuCircle = document.querySelector(".menu-circle");
@@ -925,29 +951,30 @@
     const btnUnete = document.querySelector(".btn-unete");
 
     if (header && headerContainer) {
-      if (currentScrollY > 100) {
+      console.log("Scroll Y:", currentScrollY, "Header height:", header.style.height);
+      if (currentScrollY > 50) {
         // Cuando se hace scroll, hacer el header más visible y compacto
         header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
         header.style.backdropFilter = "blur(10px)";
         header.style.borderBottom = "none";
 
-        // Reducir la altura del header
-        headerContainer.style.paddingTop = "0.75rem";
-        headerContainer.style.paddingBottom = "0.75rem";
+        // Reducir la altura del header a 60px cuando se hace scroll
+        header.style.height = "60px";
+        headerContainer.style.height = "60px";
 
-        // Cambiar a logo de scroll y hacer más pequeño
+        // Cambiar a logo de scroll y hacer más grande
         if (logoHero && logoScroll) {
           logoHero.style.opacity = "0";
           logoScroll.style.opacity = "1";
-          logoScroll.style.transform = "scale(0.8)";
+          logoScroll.style.transform = "scale(0.9)";
         }
 
         // Hacer el botón del menú más pequeño
         if (menuCircle) {
-          menuCircle.style.transform = "scale(0.8)";
+          menuCircle.style.transform = "scale(0.6)";
         }
         if (menuCircleMobile) {
-          menuCircleMobile.style.transform = "scale(0.8)";
+          menuCircleMobile.style.transform = "scale(0.6)";
         }
 
         // Cambiar el color del botón Únete cuando se hace scroll
@@ -964,9 +991,9 @@
         header.style.backdropFilter = "blur(4px)";
         header.style.borderBottom = "none";
 
-        // Restaurar altura normal del header
-        headerContainer.style.paddingTop = "1.5rem";
-        headerContainer.style.paddingBottom = "0.75rem";
+        // Restaurar la altura del header a 115px cuando está en el top
+        header.style.height = "115px";
+        headerContainer.style.height = "115px";
 
         // Mostrar logo del hero y tamaño normal
         if (logoHero && logoScroll) {
@@ -975,7 +1002,7 @@
           logoScroll.style.transform = "scale(1)";
         }
 
-        // Botón del menú tamaño normal
+        // Botón del menú tamaño normal solo si estamos en el top
         if (menuCircle) {
           menuCircle.style.transform = "scale(1)";
         }
@@ -1002,11 +1029,18 @@
 
   // Verificar la posición inicial del scroll al cargar la página
   function checkInitialScrollPosition() {
-    updateHeaderOnScroll();
+    // Pequeño delay para asegurar que todos los elementos estén cargados
+    setTimeout(() => {
+      updateHeaderOnScroll();
+    }, 100);
   }
 
   // Ejecutar al cargar la página
-  checkInitialScrollPosition();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkInitialScrollPosition);
+  } else {
+    checkInitialScrollPosition();
+  }
 
   // Iniciar la animación del loader INMEDIATAMENTE
   const pageLoader = document.querySelector(".page-loader");
@@ -1059,7 +1093,13 @@
               if (menuCircle) {
                 menuCircle.style.transition = "all 0.3s ease-out";
                 menuCircle.style.opacity = "1";
-                menuCircle.style.transform = "scale(1)";
+                // Verificar la posición de scroll para establecer el tamaño correcto
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 50) {
+                  menuCircle.style.transform = "scale(0.6)";
+                } else {
+                  menuCircle.style.transform = "scale(1)";
+                }
                 menuCircle.style.background = "#062BED";
               }
 
@@ -1070,7 +1110,13 @@
               if (menuCircleMobile) {
                 menuCircleMobile.style.transition = "all 0.3s ease-out";
                 menuCircleMobile.style.opacity = "1";
-                menuCircleMobile.style.transform = "scale(1)";
+                // Verificar la posición de scroll para establecer el tamaño correcto
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 50) {
+                  menuCircleMobile.style.transform = "scale(0.6)";
+                } else {
+                  menuCircleMobile.style.transform = "scale(1)";
+                }
                 menuCircleMobile.style.background = "#062BED";
 
                 // Animación elegante final - pulso que indica que está listo
@@ -1171,11 +1217,13 @@
   /* Estilos para el header transparente */
   header {
     transition: all 0.3s ease;
+    height: 115px;
   }
 
   /* Transición suave para el contenedor del header */
   .container {
-    transition: padding 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out;
+    height: 115px;
   }
 
   /* Estilos para los logos */
@@ -1245,7 +1293,7 @@
 
   /* Asegurar que las secciones tengan un offset para el header fijo */
   section[id] {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 115px;
   }
 
   .menu-dropdown {
