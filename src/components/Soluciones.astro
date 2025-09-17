@@ -58,8 +58,8 @@
           </linearGradient>
         </defs>
 
-        <!-- Líneas que llegan EXACTAMENTE a cada card -->
-        <!-- Seguridad -> Centro -->
+        <!-- Líneas que llegan EXACTAMENTE a cada card - SIMÉTRICAS -->
+        <!-- Seguridad -> Centro (arriba) -->
         <path
           class="connection-line line-1"
           d="M400 80 L400 250"
@@ -67,23 +67,23 @@
           stroke-width="2"
           fill="none"></path>
 
-        <!-- Cloud -> Centro -->
+        <!-- Cloud -> Centro (arriba derecha) - 45 grados -->
         <path
           class="connection-line line-2"
-          d="M850 140 L400 250"
+          d="M520 140 L400 250"
           stroke="#e2e8f0"
           stroke-width="2"
           fill="none"></path>
 
-        <!-- IA/ML -> Centro -->
+        <!-- IA/ML -> Centro (abajo derecha) - 45 grados -->
         <path
           class="connection-line line-3"
-          d="M700 450 L400 250"
+          d="M520 360 L400 250"
           stroke="#e2e8f0"
           stroke-width="2"
           fill="none"></path>
 
-        <!-- DevOps -> Centro -->
+        <!-- DevOps -> Centro (abajo) -->
         <path
           class="connection-line line-4"
           d="M400 480 L400 250"
@@ -91,34 +91,34 @@
           stroke-width="2"
           fill="none"></path>
 
-        <!-- Data -> Centro -->
+        <!-- Data -> Centro (abajo izquierda) - 45 grados -->
         <path
           class="connection-line line-5"
-          d="M100 440 L400 250"
+          d="M280 360 L400 250"
           stroke="#e2e8f0"
           stroke-width="2"
           fill="none"></path>
 
-        <!-- IoT -> Centro -->
+        <!-- IoT -> Centro (arriba izquierda) - 45 grados -->
         <path
           class="connection-line line-6"
-          d="M100 170 L400 250"
+          d="M280 140 L400 250"
           stroke="#e2e8f0"
           stroke-width="2"
           fill="none"></path>
 
-        <!-- Protección Avanzada -> Centro -->
+        <!-- Protección Avanzada -> Centro (derecha) -->
         <path
           class="connection-line line-7"
-          d="M800 290 L400 250"
+          d="M580 250 L400 250"
           stroke="#e2e8f0"
           stroke-width="2"
           fill="none"></path>
 
-        <!-- Tecnologías Nueva Generación -> Centro -->
+        <!-- Tecnologías Nueva Generación -> Centro (izquierda) -->
         <path
           class="connection-line line-8"
-          d="M10 280 L400 250"
+          d="M220 250 L400 250"
           stroke="#e2e8f0"
           stroke-width="2"
           fill="none"></path>
@@ -200,8 +200,7 @@
       <!-- Tarjetas de soluciones - Mejor alineamiento del texto -->
       <!-- 1. Seguridad (arriba centro) -->
       <div
-        class="solution-card card-1 absolute md:top-[-100px] md:left-[41.5%] top-[-120px] left-[41.5%] w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-40 flex items-center justify-center"
-        style="transform: translateX(-50%);"
+        class="solution-card card-1"
         data-connection="1"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -230,8 +229,7 @@
 
       <!-- 2. Cloud (arriba derecha) -->
       <div
-        class="solution-card card-2 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="top: 60px; right: 20px;"
+        class="solution-card card-2"
         data-connection="2"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -258,8 +256,7 @@
 
       <!-- 3. IA/ML (abajo derecha) -->
       <div
-        class="solution-card card-3 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="bottom: 60px; right: 60px;"
+        class="solution-card card-3"
         data-connection="3"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -288,8 +285,7 @@
 
       <!-- 4. DevOps (abajo centro) -->
       <div
-        class="solution-card card-4 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-40 flex items-center justify-center"
-        style="bottom: -20px; left: 41.5%; transform: translateX(-50%);"
+        class="solution-card card-4"
         data-connection="4"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -315,8 +311,7 @@
 
       <!-- 5. Data (abajo izquierda) -->
       <div
-        class="solution-card card-5 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="bottom: 60px; left: 60px;"
+        class="solution-card card-5"
         data-connection="5"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -345,8 +340,7 @@
 
       <!-- 6. IoT (arriba izquierda) -->
       <div
-        class="solution-card card-6 absolute w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style="top: 60px; left: 60px;"
+        class="solution-card card-6"
         data-connection="6"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -375,8 +369,7 @@
 
       <!-- 7. Protección Avanzada Contra Amenazas (nueva posición) -->
       <div
-        class="solution-card card-7 absolute md:top-[250px] md:right-[-80px] top-[255px] right-[-20px] w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style=""
+        class="solution-card card-7"
         data-connection="7"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -405,8 +398,7 @@
 
       <!-- 8. Tecnologías de Nueva Generación (nueva posición) -->
       <div
-        class="solution-card card-8 absolute md:top-[250px] md:left-[-60px] top-[255px] left-[-20px] w-48 h-48 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 z-30 flex items-center justify-center"
-        style=""
+        class="solution-card card-8"
         data-connection="8"
       >
         <div class="flex flex-col items-center text-center px-4">
@@ -979,13 +971,78 @@
 
   /* Mejoras en las cards de soluciones - Efectos de marca */
   .solution-card {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .solution-card:hover {
     background: rgba(255, 255, 255, 0.95);
     transform: translateY(-6px) scale(1.03);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  /* CARD 1: Protección de la Experiencia Digital (arriba centro) */
+  .card-1 {
+    top: -4.5rem;
+    left: 41.5%;
+    transform: translateX(-50%);
+    z-index: 40;
+  }
+
+  /* CARD 2: Conectividad Avanzada (arriba derecha) */
+  .card-2 {
+    top: 1rem;
+    right: 18rem;
+  }
+
+  /* CARD 3: Cloud & Plataformas Digitales (abajo derecha) */
+  .card-3 {
+    bottom: 8.5rem;
+    right: 18rem;
+  }
+
+  /* CARD 4: Data Center (abajo centro) */
+  .card-4 {
+    bottom: 3rem;
+    left: 41.5%;
+    transform: translateX(-50%);
+    z-index: 40;
+  }
+
+  /* CARD 5: Gobierno, Riesgo y Cumplimiento (abajo izquierda) */
+  .card-5 {
+    bottom: 8.5rem;
+    left: 18rem;
+  }
+
+  /* CARD 6: Confianza Digital y Protección de Identidades (arriba izquierda) */
+  .card-6 {
+    top: 1rem;
+    left: 18rem;
+  }
+
+  /* CARD 7: Protección Avanzada Contra Amenazas (derecha centro) */
+  .card-7 {
+    top: 12rem;
+    right: 11rem;
+  }
+
+  /* CARD 8: Tecnologías de Nueva Generación (izquierda centro) */
+  .card-8 {
+    top: 12rem;
+    left: 11rem;
   }
 
   /* Responsive mejorado */
