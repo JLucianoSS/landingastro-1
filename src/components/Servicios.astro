@@ -17,7 +17,7 @@ export const services: Service[] = [
     {
       title: "Estrategia y Consultoría",
       description: "Dirección estratégica para la operación segura y eficiente de tu infraestructura tecnológica.",
-      image: "/images/servicios/1.png",
+      image: "/images/servicios/estrategia.jpeg",
       colorClass: "white",
       features: [
         {
@@ -40,7 +40,7 @@ export const services: Service[] = [
     {
       title: "Arquitectura e Integración",
       description: "Ingeniería aplicada en tecnología que evoluciona constantemente para adaptarse a tus necesidades.",
-      image: "/images/servicios/2.png",
+      image: "/images/servicios/arquitectura.jpeg",
       colorClass: "white",
       features: [
         {
@@ -63,7 +63,7 @@ export const services: Service[] = [
     {
       title: "Servicios Gestionados",
       description: "Protección activa y soporte continuo para mantener tu infraestructura funcionando sin interrupciones.",
-      image: "/images/servicios/3.png",
+      image: "/images/servicios/serv-gestionados.jpeg",
       colorClass: "white",
       features: [
         {
@@ -86,7 +86,7 @@ export const services: Service[] = [
     {
       title: "Formación",
       description: "Competencias y conocimientos para la evolución continua de tu equipo y organización.",
-      image: "/images/servicios/4.png",
+      image: "/images/servicios/formacion.jpeg",
       colorClass: "white",
       features: [
         {
@@ -112,7 +112,7 @@ export const services: Service[] = [
 ---
 
 <section id="servicios" class="py-24 relative overflow-hidden">
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="w-full relative z-10">
     <div
       data-aos="fade-up" 
       data-aos-duration="1200" 
@@ -159,6 +159,8 @@ export const services: Service[] = [
     justify-content: center;
     align-items: flex-start;
     padding-top: 120px; /* Añade espacio arriba para el header */
+    width: 100vw; /* Ocupar todo el ancho del viewport */
+    margin: 0; /* Eliminar márgenes */
   }
 
   .list {
@@ -167,8 +169,9 @@ export const services: Service[] = [
     height: 100%;
     display: flex;
     position: relative;
-    padding: 0.2rem;
-    width: 100%;
+    padding: 0; /* Eliminar padding */
+    width: 100vw; /* Ocupar todo el ancho del viewport */
+    margin: 0; /* Eliminar márgenes */
   }
 
   .padding-global {
