@@ -9,7 +9,7 @@
   <div class="max-w-[1440px] mx-auto px-4">
     <!-- Título principal -->
     <div class="text-center mb-10 md:mb-20">
-      <h2 class="equipo-titulo font-stolzl text-3xl md:text-6xl font-bold text-dark mb-6">
+      <h2 class="equipo-titulo font-stolzl text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#050835] to-[#3b4ef7] bg-clip-text text-transparent mb-6">
         Sé talento Imperia
       </h2>
       <p
@@ -60,7 +60,7 @@
                 </svg>
               </div>
               <div class="flex flex-col gap-2">
-                <h4 class="font-semibold text-dark text-center md:text-left">Enfoque en el cliente</h4>
+                <h4 class="font-semibold text-dark text-center md:text-[17px] md:text-left">Enfoque en el cliente</h4>
                 <!-- <p class="text-sm text-dark/60 text-center md:text-left">Clientes primero</p> -->
               </div>
 
@@ -88,7 +88,7 @@
                 </svg>
               </div>
               <div class="flex flex-col gap-2">
-                <h4 class="font-semibold text-dark text-center md:text-left">Respeto</h4>
+                <h4 class="font-semibold text-dark text-center md:text-[17px] md:text-left">Respeto</h4>
                 <!-- <p class="text-sm text-dark/60 text-center md:text-left">Valor y empatía</p> -->
               </div>
             </div>
@@ -115,7 +115,7 @@
                 </svg>
               </div>
               <div class="flex flex-col gap-2">
-                <h4 class="font-semibold text-dark text-center md:text-left">Mejora continua</h4>
+                <h4 class="font-semibold text-dark text-center md:text-[17px] md:text-left">Mejora continua</h4>
                 <!-- <p class="text-sm text-dark/60 text-center md:text-left">Siempre mejorando</p> -->
               </div>
 
@@ -143,7 +143,7 @@
                 </svg>
               </div>
               <div class="flex flex-col gap-2">
-                <h4 class="font-semibold text-dark text-center md:text-left">Compromiso con la excelencia</h4>
+                <h4 class="font-semibold text-dark text-center md:text-[17px] md:text-left">Compromiso con la excelencia</h4>
                 <!-- <p class="text-sm text-dark/60 text-center md:text-left">Calidad total</p> -->
               </div>
             </div>
@@ -160,11 +160,11 @@
         </div> -->
 
         <!-- Botón CTA mejorado -->
-        <div class="pt-2 flex justify-center md:justify-start">
+        <div class="pt-2 flex justify-center ">
           <a
             href="https://setalentoimperia.fillout.com/t/7mnGNMW5rkus"
             target="_blank"
-            class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-[#062BED] text-white font-semibold rounded-full hover:bg-[#050835] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            class="inline-flex items-center justify-center w-full md:w-auto px-10 py-4 bg-[#062BED] text-white font-semibold rounded-full hover:bg-[#050835] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105  md:text-[20px]"
           >
             <span>Únete al equipo</span>
             <svg
@@ -541,6 +541,8 @@
   .equipo-titulo {
     opacity: 0;
     transform: translateY(50px) scale(0.9);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
   }
 
   .equipo-subtitulo {
@@ -563,6 +565,13 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Efecto de gradiente animado para el título */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .equipo-subtitulo.animate {

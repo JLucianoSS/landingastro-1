@@ -7,7 +7,7 @@
     <!-- Título de la sección -->
     <div class="text-center md:mb-10">
       <h2
-        class="identidad-titulo font-stolzl text-3xl md:text-5xl font-bold text-dark mb-4 tracking-tight"
+        class="identidad-titulo font-stolzl text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#050835] to-[#3b4ef7] bg-clip-text text-transparent mb-4 tracking-tight"
       >
         Nuestra Identidad
       </h2>
@@ -237,9 +237,9 @@
       <!-- Content 3: Valores -->
       <div class="identidad-content content-valores" data-content="valores">
         <div class="max-w-5xl mx-auto">
-          <div class="bg-dark rounded-3xl shadow-xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
             <div class="px-7 md:px-12 py-7 md:py-10 flex flex-col justify-center text-center">
-              <h3 class="text-2xl xl:text-3xl font-bold text-white mb-8 tracking-wide">
+              <h3 class="text-2xl xl:text-3xl font-bold mb-8 tracking-wide">
                 Valores
               </h3>
               <div class="flex justify-center">
@@ -922,6 +922,8 @@
   .identidad-titulo {
     opacity: 0;
     transform: translateY(50px) scale(0.9);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
   }
 
   .identidad-subtitulo {
@@ -944,6 +946,13 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Efecto de gradiente animado para el título */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .identidad-subtitulo.animate {

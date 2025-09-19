@@ -10,7 +10,7 @@
     <!-- Título y subtítulo de la sección -->
     <div class="text-center md:mb-40">
       <h2
-        class="soluciones-titulo font-stolzl text-3xl md:text-4xl md:text-5xl font-bold text-dark mb-6"
+        class="soluciones-titulo font-stolzl text-3xl md:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#050835] to-[#3b4ef7] bg-clip-text text-transparent mb-6"
       >
         Ecosistema de Soluciones
       </h2>
@@ -628,6 +628,8 @@
   .soluciones-titulo {
     opacity: 0;
     transform: translateY(50px) scale(0.9);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
   }
 
   .soluciones-subtitulo {
@@ -640,6 +642,13 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Efecto de gradiente animado para el título */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .soluciones-subtitulo.animate {

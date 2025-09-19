@@ -10,7 +10,7 @@
     <!-- Título y subtítulo de la sección -->
     <div class="text-center md:mb-40">
       <h2
-        class="soluciones-titulo font-stolzl text-3xl md:text-4xl md:text-5xl font-bold text-dark mb-6"
+        class="soluciones-titulo font-stolzl text-3xl md:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#050835] to-[#3b4ef7] bg-clip-text text-transparent mb-6"
         data-aos="fade-down"
         data-aos-delay="100"
         data-aos-duration="600"
@@ -412,6 +412,18 @@
   /* 🌐 ECOSISTEMA DE SOLUCIONES MOBILE - ESTILOS SIMPLES SIN ANIMACIONES COMPLEJAS */
 
   /* AOS manejará las animaciones de entrada */
+
+  /* Efecto de gradiente animado para el título */
+  .soluciones-titulo {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
   /* Efectos hover removidos */
 
