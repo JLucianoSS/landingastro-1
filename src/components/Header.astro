@@ -35,7 +35,7 @@ import { Icon } from 'astro-icon/components'
     <!-- Menú desplegable para desktop -->
     <div class="hidden md:flex items-center space-x-4">
       <!-- Botón Únete -->
-      <div class="px-6 flex justify-center">
+      <div class="px-6 flex justify-center hidden md:block">
         <a
           href="#"
           class="btn-unete inline-flex items-center px-5 py-[8px] border border-[#072FFF] bg-[#072FFF] text-white rounded-full font-semibold text-base transition-all duration-300 transform hover:bg-transparent hover:text-[#072FFF] hover:border-[#072FFF] shadow-lg"
@@ -114,7 +114,17 @@ import { Icon } from 'astro-icon/components'
     </div>
 
     <!-- Botón de menú móvil -->
-    <div class="md:hidden flex items-center space-x-4">
+    <div class="md:hidden flex items-center space-x-1">
+      
+      <!-- Botón Centro de atención móvil -->
+      <div class="px-2 flex justify-center">
+        <a
+          href="#"
+          class="btn-centro-atencion-mobile inline-flex items-center justify-center w-14 h-14 bg-[#072FFF] text-white rounded-full transition-all duration-300 transform hover:scale-105 hover:brightness-110 shadow-lg opacity-0"
+        >
+          <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M24 45c14.5 0 20-3 20-14M6.803 35.783C5.119 35.362 4 33.825 4 32.09v-6.178c0-1.736 1.119-3.274 2.803-3.695c1.626-.407 3.762-.864 5.862-1.084c1.438-.151 2.704.692 2.943 2.117c.21 1.244.392 3.091.392 5.75c0 2.66-.183 4.507-.392 5.75c-.24 1.425-1.505 2.268-2.943 2.118c-2.1-.22-4.236-.678-5.862-1.085"/><path d="M41.197 35.783C42.881 35.362 44 33.825 44 32.09v-6.178c0-1.736-1.119-3.274-2.803-3.695c-1.626-.407-3.762-.864-5.862-1.084c-1.438-.151-2.704.692-2.943 2.117C32.182 24.494 32 26.341 32 29c0 2.66.183 4.507.392 5.75c.24 1.425 1.505 2.268 2.943 2.118c2.1-.22 4.236-.678 5.862-1.085"/><path d="M44 25.911V23c0-11.046-8.954-20-20-20S4 11.954 4 23v2.911m33.956-4.398C37.386 14.51 31.356 9 24 9s-13.386 5.51-13.956 12.513"/></g></svg>
+        </a>
+      </div>
       
       <button
         class="menu-trigger-mobile relative group"
@@ -197,7 +207,7 @@ import { Icon } from 'astro-icon/components'
         </a>
 
         <a
-          href="#soluciones"
+          href="#soluciones-mobile"
           class="mobile-menu-link flex items-center space-x-4 group"
         >
           <div
@@ -619,6 +629,15 @@ import { Icon } from 'astro-icon/components'
         ease: "power2.out",
       });
 
+      // Animar el botón Centro de atención móvil
+      gsap.to(".btn-centro-atencion-mobile", {
+        opacity: 1,
+        scale: initialScale,
+        duration: 0.15,
+        delay: 0.9,
+        ease: "power2.out",
+      });
+
     } else {
       console.log("🎨 Usando CSS puro para animaciones del header");
 
@@ -654,6 +673,12 @@ import { Icon } from 'astro-icon/components'
         menuCircleElement.style.transform = "scale(0)";
       }
 
+      const btnCentroAtencionMobileElement = document.querySelector(".btn-centro-atencion-mobile");
+      if (btnCentroAtencionMobileElement) {
+        btnCentroAtencionMobileElement.style.opacity = "0";
+        btnCentroAtencionMobileElement.style.transform = "scale(0)";
+      }
+
       // Solo animar el header - MÁXIMA VELOCIDAD
       setTimeout(animateHeader, 800);
 
@@ -663,6 +688,15 @@ import { Icon } from 'astro-icon/components'
           btnUnete.style.transition = "all 0.15s ease-out";
           btnUnete.style.opacity = "1";
           btnUnete.style.transform = "translateY(0)";
+        }
+      }, 900);
+
+      // Animar el botón Centro de atención móvil - MÁXIMA VELOCIDAD
+      setTimeout(() => {
+        if (btnCentroAtencionMobileElement) {
+          btnCentroAtencionMobileElement.style.transition = "all 0.15s ease-out";
+          btnCentroAtencionMobileElement.style.opacity = "1";
+          btnCentroAtencionMobileElement.style.transform = "scale(1)";
         }
       }, 900);
 
@@ -884,7 +918,9 @@ import { Icon } from 'astro-icon/components'
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             // Calcular la posición del elemento considerando el header fijo
-            const headerHeight = 115; // Altura máxima del header
+            // En móvil, usar una altura más pequeña del header
+            const isMobile = window.innerWidth <= 768;
+            const headerHeight = isMobile ? 70 : 115; // Altura del header en móvil vs desktop
             const elementPosition = targetElement.offsetTop - headerHeight;
 
             // Scroll suave personalizado con easing
@@ -920,6 +956,8 @@ import { Icon } from 'astro-icon/components'
     const menuCircle = document.querySelector(".menu-circle");
     const menuCircleMobile = document.querySelector(".menu-circle-mobile");
     const btnUnete = document.querySelector(".btn-unete");
+    const btnUneteContainer = document.querySelector(".btn-unete").closest("div");
+    const btnCentroAtencionMobile = document.querySelector(".btn-centro-atencion-mobile");
 
     if (header && headerContainer) {
       console.log("Scroll Y:", currentScrollY, "Header height:", header.style.height);
@@ -948,6 +986,12 @@ import { Icon } from 'astro-icon/components'
           menuCircleMobile.style.transform = "scale(0.6)";
         }
 
+        // Hacer el botón Centro de atención móvil más pequeño y moverlo más a la derecha
+        if (btnCentroAtencionMobile) {
+          btnCentroAtencionMobile.style.transform = "scale(0.6)";
+          btnCentroAtencionMobile.style.marginRight = "-1.7rem"; // Moverlo más a la derecha al hacer scroll
+        }
+
         // Cambiar el botón Únete a modo compacto cuando se hace scroll
         if (btnUnete) {
           btnUnete.style.backgroundColor = "#062BED";
@@ -955,6 +999,11 @@ import { Icon } from 'astro-icon/components'
           // Agregar clase para hover oscuro y modo compacto
           btnUnete.classList.add("btn-unete-scrolled", "btn-unete-compact");
           btnUnete.classList.remove("btn-unete-normal");
+        }
+
+        // Aplicar clase al contenedor para mover el botón a la derecha
+        if (btnUneteContainer) {
+          btnUneteContainer.classList.add("btn-unete-container-scrolled");
         }
       } else {
         // En la parte superior, mantener transparente y altura normal
@@ -981,6 +1030,12 @@ import { Icon } from 'astro-icon/components'
           menuCircleMobile.style.transform = "scale(1)";
         }
 
+        // Restaurar tamaño normal del botón Centro de atención móvil y quitar margin
+        if (btnCentroAtencionMobile) {
+          btnCentroAtencionMobile.style.transform = "scale(1)";
+          btnCentroAtencionMobile.style.marginRight = "0"; // Quitar margin cuando está en el top
+        }
+
         // Restaurar el color original del botón Únete cuando está en la parte superior
         if (btnUnete) {
           btnUnete.style.backgroundColor = "#072FFF";
@@ -990,6 +1045,11 @@ import { Icon } from 'astro-icon/components'
           btnUnete.classList.remove("btn-unete-scrolled", "btn-unete-compact");
           // Aplicar animación de expansión
           btnUnete.style.animation = "buttonExpand 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+        }
+
+        // Quitar clase del contenedor para restaurar posición original
+        if (btnUneteContainer) {
+          btnUneteContainer.classList.remove("btn-unete-container-scrolled");
         }
       }
     }
@@ -1091,6 +1151,22 @@ import { Icon } from 'astro-icon/components'
                   menuCircleMobile.style.transform = "scale(1)";
                 }
                 menuCircleMobile.style.background = "#062BED";
+              }
+
+              // Mostrar el botón Centro de atención móvil
+              const btnCentroAtencionMobileLoader = document.querySelector(
+                ".btn-centro-atencion-mobile"
+              );
+              if (btnCentroAtencionMobileLoader) {
+                btnCentroAtencionMobileLoader.style.transition = "all 0.3s ease-out";
+                btnCentroAtencionMobileLoader.style.opacity = "1";
+                // Verificar la posición de scroll para establecer el tamaño correcto
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 50) {
+                  btnCentroAtencionMobileLoader.style.transform = "scale(0.6)";
+                } else {
+                  btnCentroAtencionMobileLoader.style.transform = "scale(1)";
+                }
 
                 // Animación elegante final - pulso que indica que está listo
                 setTimeout(() => {
@@ -1239,8 +1315,8 @@ import { Icon } from 'astro-icon/components'
 
   /* Estado compacto del botón (solo icono) */
   .btn-unete-compact {
-    width: 48px !important;
-    height: 48px !important;
+    width: 58px !important;
+    height: 58px !important;
     border-radius: 50% !important;
     padding: 0 !important;
     display: flex !important;
@@ -1261,6 +1337,12 @@ import { Icon } from 'astro-icon/components'
     margin-right: 0 !important;
     transform: scale(1.1) !important;
     transition: all 0.3s ease !important;
+  }
+
+  /* Posición del contenedor del botón redondeado cuando se hace scroll */
+  .btn-unete-container-scrolled {
+    margin-right: -2.8em !important;
+    transition: margin-right 0.3s ease-in-out !important;
   }
 
   /* Animación suave para el cambio de estado */
@@ -1330,6 +1412,13 @@ import { Icon } from 'astro-icon/components'
     scroll-margin-top: 115px;
   }
 
+  /* En móvil, usar un offset más pequeño */
+  @media (max-width: 768px) {
+    section[id] {
+      scroll-margin-top: 70px;
+    }
+  }
+
   .menu-dropdown {
     top: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -1388,6 +1477,18 @@ import { Icon } from 'astro-icon/components'
   }
 
   .menu-trigger-mobile:hover .menu-circle-mobile {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  /* Estilos para el botón Centro de atención móvil */
+  .btn-centro-atencion-mobile {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-right: 0; /* Estado inicial sin margin */
+  }
+
+  .btn-centro-atencion-mobile:hover {
     transform: scale(1.05);
     filter: brightness(1.1);
   }

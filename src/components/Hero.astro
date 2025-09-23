@@ -8,28 +8,28 @@
   <!-- Carrusel de imágenes de fondo -->
   <div class="absolute inset-0 w-full h-full">
     <div class="hero-carousel w-full h-full relative overflow-hidden">
-      <!-- Imagen 1 - Comentada -->
-      <!-- <div class="hero-slide slide-1 absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 ease-in-out">
+      <!-- Imagen 1 - Primera imagen activa (hero3) -->
+      <div class="hero-slide slide-1 absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 ease-in-out">
         <img
-          src="/images/Hero/hero1.webp"
+          src="/images/Hero/hero3.webp"
           alt="Hero background 1"
           class="w-full h-full object-cover"
         />
-      </div> -->
+      </div>
       
-      <!-- Imagen 2 - Comentada -->
-      <!-- <div class="hero-slide slide-2 absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+      <!-- Imagen 2 - Segunda imagen (home1) -->
+      <div class="hero-slide slide-2 absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
         <img
-          src="/images/Hero/hero2.webp"
+          src="/images/Hero/home1.jpeg"
           alt="Hero background 2"
           class="w-full h-full object-cover"
         />
-      </div> -->
+      </div>
       
-      <!-- Imagen 3 - Imagen principal fija -->
-      <div class="hero-slide slide-3 absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 ease-in-out">
+      <!-- Imagen 3 - Tercera imagen (home2) -->
+      <div class="hero-slide slide-3 absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
         <img
-          src="/images/Hero/hero3.webp"
+          src="/images/Hero/home2.jpeg"
           alt="Hero background 3"
           class="w-full h-full object-cover"
         />
@@ -47,37 +47,9 @@
         class="rotating-title-container relative h-24 md:h-32 md:overflow-hidden"
       >
         <div class="rotating-titles absolute inset-0">
-          <!-- Título 1 -->
+          <!-- Título 1 (Innovación segura) -->
           <div
             class="font-stolzl rotating-title title-1 absolute inset-0 flex items-center justify-center lg:gap-4 flex-col lg:flex-row"
-          >
-            <span
-              class="hero-word word-1"
-              style="opacity: 0; transform: translateY(50px);">Protección</span
-            >
-            <span
-              class="hero-word word-2"
-              style="opacity: 0; transform: translateY(50px);">inteligente</span
-            >
-          </div>
-
-          <!-- Título 2 -->
-          <div
-            class="font-stolzl rotating-title title-2 absolute inset-0 flex items-center justify-center lg:gap-4 flex-col lg:flex-row"
-          >
-            <span
-              class="hero-word word-1"
-              style="opacity: 0; transform: translateY(50px);">Excelencia</span
-            >
-            <span
-              class="hero-word word-2"
-              style="opacity: 0; transform: translateY(50px);">tecnológica</span
-            >
-          </div>
-
-          <!-- Título 3 -->
-          <div
-            class="font-stolzl rotating-title title-3 absolute inset-0 flex items-center justify-center lg:gap-4 flex-col lg:flex-row"
           >
             <span
               class="hero-word word-1"
@@ -86,6 +58,42 @@
             <span
               class="hero-word word-2"
               style="opacity: 0; transform: translateY(50px);">segura</span
+            >
+          </div>
+
+          <!-- Título 2 (Cybersecurity Operations Center) -->
+          <div
+            class="font-stolzl rotating-title title-2 absolute inset-0 flex items-center justify-center flex-col"
+          >
+            <span
+              class="hero-word word-1"
+              style="opacity: 0; transform: translateY(50px);">Cybersecurity</span
+            >
+            <span
+              class="hero-word word-2 desktop-only"
+              style="opacity: 0; transform: translateY(50px);">Operations Center</span
+            >
+            <span
+              class="hero-word word-2-mobile mobile-only"
+              style="opacity: 0; transform: translateY(50px);">Operations</span
+            >
+            <span
+              class="hero-word word-3-mobile mobile-only"
+              style="opacity: 0; transform: translateY(50px);">Center</span
+            >
+          </div>
+
+          <!-- Título 3 (Excelencia tecnológica) -->
+          <div
+            class="font-stolzl rotating-title title-3 absolute inset-0 flex items-center justify-center lg:gap-4 flex-col lg:flex-row"
+          >
+            <span
+              class="hero-word word-1"
+              style="opacity: 0; transform: translateY(50px);">Excelencia</span
+            >
+            <span
+              class="hero-word word-2"
+              style="opacity: 0; transform: translateY(50px);">tecnológica</span
             >
           </div>
         </div>
@@ -139,11 +147,21 @@
   // Variables globales para el título rotativo
   let currentTitleIndex = 0;
   let isAnimating = false;
-  const titles = [
-    { words: ["Protección", "inteligente"] },
-    { words: ["Excelencia", "tecnológica"] },
-    { words: ["Innovación", "segura"] },
-  ];
+  // Función para obtener las palabras correctas según el dispositivo
+  function getTitlesForDevice() {
+    const isMobile = window.innerWidth <= 768;
+    return [
+      { words: ["Innovación", "segura"] },
+      { 
+        words: isMobile 
+          ? ["Cybersecurity", "Operations", "Center"] 
+          : ["Cybersecurity", "Operations Center"]
+      },
+      { words: ["Excelencia", "tecnológica"] },
+    ];
+  }
+
+  let titles = getTitlesForDevice();
 
   // Variables globales para el carrusel de imágenes
   let currentSlideIndex = 0;
@@ -164,41 +182,82 @@
     const nextTitle = document.querySelector(`.title-${nextTitleIndex + 1}`);
 
     if (currentTitle && nextTitle) {
-      // Animar salida del título actual
-      const currentWords = currentTitle.querySelectorAll(".hero-word");
-      currentWords.forEach((word, index) => {
-        setTimeout(() => {
-          word.style.transform = "translateY(-50px)";
-          word.style.opacity = "0";
-        }, index * 100);
-      });
-
-      // Después de la animación de salida, cambiar al siguiente título
-      setTimeout(() => {
-        // Ocultar título actual
-        currentTitle.style.display = "none";
-
-        // Mostrar y animar siguiente título
-        nextTitle.style.display = "flex";
+      // Usar GSAP si está disponible para mejor rendimiento
+      if (typeof gsap !== "undefined") {
+        const currentWords = currentTitle.querySelectorAll(".hero-word");
         const nextWords = nextTitle.querySelectorAll(".hero-word");
 
-        // Resetear estado inicial
-        nextWords.forEach((word) => {
-          word.style.transform = "translateY(50px)";
-          word.style.opacity = "0";
-        });
+        // Animar salida con GSAP (restaurado a velocidad original)
+        gsap.to(currentWords, {
+          y: -50,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.in",
+          onComplete: () => {
+            // Ocultar título actual
+            currentTitle.style.display = "none";
 
-        // Animar entrada
-        nextWords.forEach((word, index) => {
+            // Mostrar siguiente título
+            nextTitle.style.display = "flex";
+
+            // Resetear estado inicial
+            nextWords.forEach((word) => {
+              word.style.transform = "translateY(50px)";
+              word.style.opacity = "0";
+            });
+
+            // Animar entrada con GSAP (restaurado a velocidad original)
+            gsap.to(nextWords, {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: "power2.out",
+              onComplete: () => {
+                currentTitleIndex = nextTitleIndex;
+                isAnimating = false;
+              }
+            });
+          }
+        });
+      } else {
+        // Fallback con CSS puro (restaurado a velocidad original)
+        const currentWords = currentTitle.querySelectorAll(".hero-word");
+        currentWords.forEach((word, index) => {
           setTimeout(() => {
-            word.style.transform = "translateY(0)";
-            word.style.opacity = "1";
-          }, index * 150);
+            word.style.transform = "translateY(-50px)";
+            word.style.opacity = "0";
+          }, index * 100);
         });
 
-        currentTitleIndex = nextTitleIndex;
-        isAnimating = false;
-      }, 500);
+        // Después de la animación de salida, cambiar al siguiente título (restaurado)
+        setTimeout(() => {
+          // Ocultar título actual
+          currentTitle.style.display = "none";
+
+          // Mostrar y animar siguiente título
+          nextTitle.style.display = "flex";
+          const nextWords = nextTitle.querySelectorAll(".hero-word");
+
+          // Resetear estado inicial
+          nextWords.forEach((word) => {
+            word.style.transform = "translateY(50px)";
+            word.style.opacity = "0";
+          });
+
+          // Animar entrada (restaurado)
+          nextWords.forEach((word, index) => {
+            setTimeout(() => {
+              word.style.transform = "translateY(0)";
+              word.style.opacity = "1";
+            }, index * 150);
+          });
+
+          currentTitleIndex = nextTitleIndex;
+          isAnimating = false;
+        }, 500);
+      }
     }
   }
 
@@ -248,6 +307,20 @@
     }
   }
 
+
+  // Función sincronizada para cambiar fondo y frase al mismo tiempo
+  function animateCarouselAndTitlesSync() {
+    if (isSlideAnimating || isAnimating) return;
+    
+    // Animar carrusel de imágenes PRIMERO
+    animateImageCarousel();
+    
+    // Animar título rotativo después de 0.9ms para dar tiempo al fondo
+    setTimeout(() => {
+      animateRotatingTitle();
+    }, 0.9);
+  }
+
   // Función para reiniciar el temporizador del carrusel
   function resetImageCarouselTimer() {
     // Limpiar el intervalo anterior si existe
@@ -255,8 +328,8 @@
       clearInterval(imageCarouselInterval);
     }
     
-    // Crear un nuevo intervalo
-    imageCarouselInterval = setInterval(animateImageCarousel, 5000); // 5 segundos
+    // Crear un nuevo intervalo que anime fondo y frase juntos
+    imageCarouselInterval = setInterval(animateCarouselAndTitlesSync, 5000); // 5 segundos
   }
 
   // Función para manejar el click en el hero
@@ -265,9 +338,9 @@
     const clickedElement = event.target;
     const isTextElement = clickedElement.closest('.hero-title, .hero-subtitle, .hero-buttons, .scroll-indicator');
     
-    // Si no es un elemento de texto o botón, cambiar imagen y reiniciar temporizador
+    // Si no es un elemento de texto o botón, cambiar imagen y frase, y reiniciar temporizador
     if (!isTextElement) {
-      animateImageCarousel();
+      animateCarouselAndTitlesSync();
       resetImageCarouselTimer(); // Reiniciar el temporizador después del click
     }
   }
@@ -278,19 +351,24 @@
     const buttons = document.querySelector(".hero-buttons");
     const scrollIndicator = document.querySelector(".scroll-indicator");
 
-    // Animar primer título
+    // Animar primer título con animación de entrada (igual que cuando cambian)
     const firstTitle = document.querySelector(".title-1");
     if (firstTitle) {
       firstTitle.style.display = "flex";
       const words = firstTitle.querySelectorAll(".hero-word");
+      
+      // Resetear estado inicial (igual que en animateRotatingTitle)
+      words.forEach((word) => {
+        word.style.transform = "translateY(50px)";
+        word.style.opacity = "0";
+      });
+      
+      // Animar entrada con stagger (igual que en animateRotatingTitle)
       words.forEach((word, index) => {
-        setTimeout(
-          () => {
-            word.style.transform = "translateY(0)";
-            word.style.opacity = "1";
-          },
-          300 + index * 250
-        );
+        setTimeout(() => {
+          word.style.transform = "translateY(0)";
+          word.style.opacity = "1";
+        }, index * 150);
       });
     }
 
@@ -342,18 +420,14 @@
       }
     }, 2200);
 
-    // Iniciar rotación de títulos después de 4 segundos
-    setTimeout(() => {
-      setInterval(animateRotatingTitle, 4000);
-    }, 4000);
-
-    // Iniciar carrusel de imágenes después de 3 segundos
+    // Iniciar carrusel sincronizado después de 1.5 segundos (más rápido)
     setTimeout(() => {
       resetImageCarouselTimer(); // Usar la función para inicializar el temporizador
-    }, 3000);
+    }, 1500);
   }
 
   // Formas flotantes eliminadas
+
 
   // Función principal de inicialización
   function initHeroAnimations() {
@@ -361,9 +435,17 @@
     slides = document.querySelectorAll('.hero-slide');
     totalSlides = slides.length;
 
-    // Asegurar que la primera imagen tenga el z-index correcto (por debajo del overlay)
-    if (slides.length > 0) {
+    // Configurar el estado inicial correcto del carrusel
+    if (slides.length >= 3) {
+      // Primera imagen activa
+      slides[0].style.opacity = '1';
       slides[0].style.zIndex = '1';
+      
+      // Segunda y tercera imagen inactivas
+      slides[1].style.opacity = '0';
+      slides[1].style.zIndex = '0';
+      slides[2].style.opacity = '0';
+      slides[2].style.zIndex = '0';
     }
 
     // Añadir event listener para click en el hero
@@ -371,6 +453,7 @@
     if (heroSection) {
       heroSection.addEventListener('click', handleHeroClick);
     }
+
 
     // Intentar usar GSAP si está disponible
     if (typeof gsap !== "undefined" && window.gsapReady) {
@@ -438,15 +521,10 @@
           "-=0.4"
         );
 
-      // Iniciar rotación de títulos después de 4 segundos
-      setTimeout(() => {
-        setInterval(animateRotatingTitle, 4000);
-      }, 4000);
-
-      // Iniciar carrusel de imágenes después de 3 segundos
+      // Iniciar carrusel sincronizado después de 1.5 segundos (más rápido)
       setTimeout(() => {
         resetImageCarouselTimer(); // Usar la función para inicializar el temporizador
-      }, 3000);
+      }, 1500);
 
       // Parallax eliminado - formas flotantes removidas
 
@@ -534,10 +612,44 @@
     margin-right: 1rem;
   }
 
+  /* Clases para mostrar/ocultar según dispositivo */
+  .desktop-only {
+    display: block;
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .rotating-title .hero-word:not(:last-child) {
       margin-right: 0;
       margin-bottom: 0.5rem;
+    }
+    
+    /* Asegurar que el título 2 (Cybersecurity Operations Center) se muestre en columna en mobile */
+    .title-2 {
+      flex-direction: column !important;
+    }
+    
+    .title-2 .hero-word:not(:last-child) {
+      margin-right: 0 !important;
+      margin-bottom: 0.3rem !important;
+    }
+    
+    /* Font-size menor y line-height ajustado en mobile para el título 2 */
+    .title-2 .hero-word {
+      font-size: 0.85em !important;
+      line-height: 0.9 !important;
+    }
+    
+    /* Mostrar/ocultar elementos según dispositivo */
+    .desktop-only {
+      display: none !important;
+    }
+    
+    .mobile-only {
+      display: block !important;
     }
   }
 
