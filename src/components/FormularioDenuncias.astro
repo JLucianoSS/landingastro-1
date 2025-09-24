@@ -1,0 +1,683 @@
+---
+// Formulario de denuncias con múltiples pasos
+---
+
+<div class="formulario-denuncias bg-white rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden">
+  <!-- Header del formulario -->
+  <div class="bg-gradient-to-r from-[#062bed] to-[#3b4ef7] px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="text-white">
+        <h3 class="text-lg font-bold">CANAL DE DENUNCIAS</h3>
+        <!-- <h4 class="text-sm opacity-90">IMPERIA</h4> -->
+      </div>
+      <div class="text-white/70 text-sm">
+        <span id="currentStep">1</span> de 4
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="bg-gray-200 h-2">
+    <div id="progressBar" class="bg-gradient-to-r from-[#062bed] to-[#3b4ef7] h-2 transition-all duration-500" style="width: 25%"></div>
+  </div>
+
+  <!-- Formulario -->
+  <form id="denunciasForm" class="p-6 lg:p-8">
+    
+    <!-- Paso 1: Registro de Denuncia -->
+    <div class="form-step active" data-step="1">
+      <div class="mb-8 pb-6 border-b border-gray-200">
+        <h2 class="text-2xl font-bold text-[#062bed] mb-6">I. REGISTRO DE DENUNCIA</h2>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div>
+          <label class="block text-lg font-semibold mb-3">
+            1. ¿DESEAS QUE TU DENUNCIA SEA ANÓNIMA? <span style="color: red;">*</span>
+          </label>
+          <div class="space-y-3 mb-10">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input 
+                type="radio" 
+                name="anonima" 
+                value="si" 
+                class="w-5 h-5 text-[#062bed] focus:ring-[#062bed] focus:ring-2"
+                required
+              />
+              <span class="text-gray-700 group-hover:text-[#062bed] transition-colors">SÍ (Saltar a la pregunta 4)</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input 
+                type="radio" 
+                name="anonima" 
+                value="no" 
+                class="w-5 h-5 text-[#062bed] focus:ring-[#062bed] focus:ring-2"
+                required
+              />
+              <span class="text-gray-700 group-hover:text-[#062bed] transition-colors">NO</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 2: Identificación del Denunciante -->
+    <div class="form-step" data-step="2">
+      <div class="mb-8 pb-6 border-b border-gray-200">
+        <h2 class="text-2xl font-bold text-[#062bed] mb-6">II. IDENTIFICACIÓN DEL DENUNCIANTE</h2>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            2. Nombres y Apellidos
+          </label>
+          <input 
+            type="text" 
+            name="nombres"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#062bed] focus:ring-4 focus:ring-[#062bed]/20 transition-all duration-300"
+            placeholder="Escriba su respuesta"
+          />
+        </div>
+
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            3. ¿Usted trabaja en Imperia Soluciones Tecnológicas? <span style="color: red;">*</span>
+          </label>
+          <div class="space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input 
+                type="radio" 
+                name="trabaja_imperia" 
+                value="si" 
+                class="w-5 h-5 text-[#062bed] focus:ring-[#062bed] focus:ring-2"
+                required
+              />
+              <span class="text-gray-700 group-hover:text-[#062bed] transition-colors">Sí</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input 
+                type="radio" 
+                name="trabaja_imperia" 
+                value="no" 
+                class="w-5 h-5 text-[#062bed] focus:ring-[#062bed] focus:ring-2"
+                required
+              />
+              <span class="text-gray-700 group-hover:text-[#062bed] transition-colors">No</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 3: Datos de la Denuncia -->
+    <div class="form-step" data-step="3">
+      <div class="mb-8 pb-6 border-b border-gray-200">
+        <h2 class="text-2xl font-bold text-[#062bed] mb-6">III. DATOS DE LA DENUNCIA</h2>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            4. Mencione quienes son las personas involucradas <span style="color: red;">*</span>
+          </label>
+          <input 
+            type="text" 
+            name="personas_involucradas"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#062bed] focus:ring-4 focus:ring-[#062bed]/20 transition-all duration-300"
+            placeholder="Escriba su respuesta"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            5. Señale Monto/Incentivo/Recompensa (Aproximación más cercana de la cuantía del soborno detectado o presunto, de ser el caso puede ser en soles u otra moneda) <span style="color: red;">*</span>
+          </label>
+          <input 
+            type="text" 
+            name="monto"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#062bed] focus:ring-4 focus:ring-[#062bed]/20 transition-all duration-300"
+            placeholder="Escriba su respuesta"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            6. Descripción detallada del hecho <span style="color: red;">*</span>
+          </label>
+          <textarea 
+            name="descripcion"
+            rows="4"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#062bed] focus:ring-4 focus:ring-[#062bed]/20 transition-all duration-300 resize-none"
+            placeholder="Proporcione una descripción detallada de los hechos que desea denunciar..."
+            required
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 4: Pruebas Sustentatorias -->
+    <div class="form-step" data-step="4">
+      <div class="mb-8 pb-6 border-b border-gray-200">
+        <h2 class="text-2xl font-bold text-[#062bed] mb-6">IV. PRUEBAS SUSTENTATORIAS</h2>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            7. Evidencia adicional (opcional)
+          </label>
+          <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#062bed] transition-colors duration-300">
+            <input 
+              type="file" 
+              name="evidencia"
+              multiple
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif"
+              class="hidden"
+              id="fileInput"
+            />
+            <label for="fileInput" class="cursor-pointer">
+              <div class="flex flex-col items-center space-y-2">
+                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+                <span class="text-gray-600">Arrastra archivos aquí o haz clic para seleccionar</span>
+                <span class="text-sm text-gray-500">PDF, DOC, DOCX, JPG, PNG (máx. 10MB por archivo)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-lg font-semibold text-gray-900 mb-3">
+            8. Información de contacto (opcional)
+          </label>
+          <input 
+            type="email" 
+            name="email_contacto"
+            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#062bed] focus:ring-4 focus:ring-[#062bed]/20 transition-all duration-300"
+            placeholder="correo@ejemplo.com"
+          />
+          <p class="text-sm text-gray-500 mt-2">Solo si desea recibir actualizaciones sobre su denuncia</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="flex justify-between items-center pt-8 border-t border-gray-200">
+      <button 
+        type="button" 
+        id="btnAtras"
+        class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-[#062bed] hover:text-[#062bed] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled
+      >
+        Atrás
+      </button>
+      
+      <button 
+        type="button" 
+        id="btnSiguiente"
+        class="px-8 py-3 bg-gradient-to-r from-[#062bed] to-[#3b4ef7] text-white rounded-lg hover:shadow-lg hover:shadow-[#062bed]/25 transition-all duration-300 transform hover:scale-105"
+      >
+        Siguiente
+      </button>
+      
+      <button 
+        type="submit" 
+        id="btnEnviar"
+        class="px-8 py-3 bg-gradient-to-r from-[#062bed] to-[#3b4ef7] text-white rounded-lg hover:shadow-lg hover:shadow-[#062bed]/25 transition-all duration-300 transform hover:scale-105 hidden"
+      >
+        Enviar
+      </button>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div id="errorMessage" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+      <div class="flex items-center space-x-3">
+        <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+        <span class="text-red-700 font-medium">Por favor, complete todos los campos obligatorios antes de continuar.</span>
+      </div>
+    </div>
+  </form>
+
+  <!-- Mensaje de confirmación -->
+  <div id="mensajeConfirmacion" class="hidden p-6 bg-green-50 border-t border-green-200">
+    <div class="flex items-center space-x-3">
+      <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-green-800">¡Denuncia enviada exitosamente!</h3>
+        <p class="text-green-700">Hemos recibido tu denuncia y la procesaremos de acuerdo a nuestros protocolos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  class FormularioDenuncias {
+    currentStep: number;
+    totalSteps: number;
+    formData: Record<string, any>;
+
+    constructor() {
+      this.currentStep = 1;
+      this.totalSteps = 4;
+      this.formData = {};
+      this.init();
+    }
+
+    init() {
+      this.bindEvents();
+      this.updateStepDisplay();
+    }
+
+    bindEvents() {
+      // Botones de navegación
+      document.getElementById('btnSiguiente')?.addEventListener('click', () => this.nextStep());
+      document.getElementById('btnAtras')?.addEventListener('click', () => this.prevStep());
+      
+      // Envío del formulario
+      document.getElementById('denunciasForm')?.addEventListener('submit', (e) => this.handleSubmit(e));
+      
+      // Lógica para denuncia anónima
+      document.querySelectorAll('input[name="anonima"]')?.forEach(input => {
+        input.addEventListener('change', (e) => {
+          this.handleAnonimaChange((e.target as HTMLInputElement).value);
+          this.clearRadioErrors('anonima');
+          this.hideErrorMessage();
+        });
+      });
+      
+      // Limpiar errores de radio buttons cuando se seleccionan
+      document.querySelectorAll('input[name="trabaja_imperia"]')?.forEach(input => {
+        input.addEventListener('change', () => {
+          this.clearRadioErrors('trabaja_imperia');
+          this.hideErrorMessage();
+        });
+      });
+      
+      // Limpiar errores de campos de texto cuando se escriben
+      document.querySelectorAll('input[type="text"], textarea')?.forEach(field => {
+        field.addEventListener('input', () => {
+          field.classList.remove('border-red-500');
+          this.hideErrorMessage();
+        });
+      });
+      
+      // Guardar datos al cambiar campos
+      document.querySelectorAll('input, textarea, select')?.forEach(field => {
+        field.addEventListener('change', () => this.saveFormData());
+      });
+    }
+
+    handleAnonimaChange(value: string) {
+      // Solo guardar la selección, no cambiar de paso automáticamente
+      this.formData.anonima = value;
+    }
+
+    nextStep() {
+      if (this.validateCurrentStep()) {
+        this.saveFormData();
+        
+        // Si estamos en el paso 1 y seleccionaron "anónima", saltar al paso 3
+        if (this.currentStep === 1 && this.formData.anonima === 'si') {
+          this.currentStep = 3; // Saltar al paso 3 (datos de la denuncia)
+        } else if (this.currentStep < this.totalSteps) {
+          this.currentStep++;
+        }
+        
+        this.updateStepDisplay();
+      }
+    }
+
+    prevStep() {
+      if (this.currentStep > 1) {
+        this.currentStep--;
+        this.updateStepDisplay();
+      }
+    }
+
+    validateCurrentStep() {
+      const currentStepElement = document.querySelector(`[data-step="${this.currentStep}"]`);
+      if (!currentStepElement) return false;
+      
+      let isValid = true;
+      let firstInvalidField: HTMLElement | null = null;
+      
+      // Validar campos de texto y textarea
+      const requiredFields = currentStepElement.querySelectorAll('input[required], textarea[required]') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+      
+      for (let field of requiredFields) {
+        // Remover clases de error previas
+        field.classList.remove('border-red-500');
+        
+        // Validar campo de texto/textarea
+        if (!field.value.trim()) {
+          field.classList.add('border-red-500');
+          if (!firstInvalidField) {
+            firstInvalidField = field;
+          }
+          isValid = false;
+        }
+      }
+      
+      // Validar campos de radio button
+      const requiredRadioGroups = currentStepElement.querySelectorAll('[data-required-group]');
+      for (let group of requiredRadioGroups) {
+        const groupName = group.getAttribute('data-required-group');
+        if (!groupName) continue;
+        
+        const radioButtons = currentStepElement.querySelectorAll(`input[name="${groupName}"]`) as NodeListOf<HTMLInputElement>;
+        const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+        
+        if (!isSelected) {
+          // Marcar todos los radio buttons del grupo como error
+          radioButtons.forEach(radio => {
+            const label = radio.closest('label');
+            if (label) {
+              label.classList.add('border-red-500', 'border-2', 'rounded-lg', 'p-2');
+            }
+          });
+          
+          if (!firstInvalidField) {
+            firstInvalidField = radioButtons[0];
+          }
+          isValid = false;
+        } else {
+          // Remover clases de error si está seleccionado
+          radioButtons.forEach(radio => {
+            const label = radio.closest('label');
+            if (label) {
+              label.classList.remove('border-red-500', 'border-2', 'rounded-lg', 'p-2');
+            }
+          });
+        }
+      }
+      
+      // Validación específica para cada paso
+      if (this.currentStep === 1) {
+        const anonimaSelected = currentStepElement.querySelector('input[name="anonima"]:checked');
+        if (!anonimaSelected) {
+          const radioButtons = currentStepElement.querySelectorAll('input[name="anonima"]');
+          radioButtons.forEach(radio => {
+            const label = radio.closest('label');
+            if (label) {
+              label.classList.add('border-red-500', 'border-2', 'rounded-lg', 'p-2');
+            }
+          });
+          if (!firstInvalidField) {
+            firstInvalidField = radioButtons[0] as HTMLElement;
+          }
+          isValid = false;
+        }
+      }
+      
+      if (this.currentStep === 2) {
+        const trabajaImperiaSelected = currentStepElement.querySelector('input[name="trabaja_imperia"]:checked');
+        if (!trabajaImperiaSelected) {
+          const radioButtons = currentStepElement.querySelectorAll('input[name="trabaja_imperia"]');
+          radioButtons.forEach(radio => {
+            const label = radio.closest('label');
+            if (label) {
+              label.classList.add('border-red-500', 'border-2', 'rounded-lg', 'p-2');
+            }
+          });
+          if (!firstInvalidField) {
+            firstInvalidField = radioButtons[0] as HTMLElement;
+          }
+          isValid = false;
+        }
+      }
+      
+      // Si hay campos inválidos, mostrar mensaje y enfocar el primero
+      if (!isValid && firstInvalidField) {
+        firstInvalidField.focus();
+        firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Mostrar mensaje de error
+        this.showErrorMessage('Por favor, complete todos los campos obligatorios antes de continuar.');
+        
+        // Remover clases de error después de 5 segundos
+        setTimeout(() => {
+          // Limpiar errores de campos de texto
+          requiredFields.forEach(field => {
+            field.classList.remove('border-red-500');
+          });
+          
+          // Limpiar errores de radio buttons
+          const allRadioButtons = currentStepElement.querySelectorAll('input[type="radio"]');
+          allRadioButtons.forEach(radio => {
+            const label = radio.closest('label');
+            if (label) {
+              label.classList.remove('border-red-500', 'border-2', 'rounded-lg', 'p-2');
+            }
+          });
+        }, 5000);
+      }
+      
+      return isValid;
+    }
+
+    clearRadioErrors(groupName: string) {
+      const radioButtons = document.querySelectorAll(`input[name="${groupName}"]`);
+      radioButtons.forEach(radio => {
+        const label = radio.closest('label');
+        if (label) {
+          label.classList.remove('border-red-500', 'border-2', 'rounded-lg', 'p-2');
+        }
+      });
+    }
+
+    showErrorMessage(message: string) {
+      const errorDiv = document.getElementById('errorMessage');
+      if (errorDiv) {
+        errorDiv.classList.remove('hidden');
+        
+        // Ocultar mensaje después de 4 segundos
+        setTimeout(() => {
+          errorDiv.classList.add('hidden');
+        }, 4000);
+      }
+    }
+
+    hideErrorMessage() {
+      const errorDiv = document.getElementById('errorMessage');
+      if (errorDiv) {
+        errorDiv.classList.add('hidden');
+      }
+    }
+
+    updateStepDisplay() {
+      // Ocultar todos los pasos
+      document.querySelectorAll('.form-step').forEach(step => {
+        step.classList.remove('active');
+        (step as HTMLElement).style.display = 'none';
+      });
+
+      // Mostrar paso actual
+      const currentStepElement = document.querySelector(`[data-step="${this.currentStep}"]`) as HTMLElement;
+      if (currentStepElement) {
+        currentStepElement.classList.add('active');
+        currentStepElement.style.display = 'block';
+      }
+
+      // Actualizar indicador de paso
+      const currentStepElement_ = document.getElementById('currentStep');
+      if (currentStepElement_) {
+        currentStepElement_.textContent = this.currentStep.toString();
+      }
+      
+      // Actualizar barra de progreso
+      const progress = (this.currentStep / this.totalSteps) * 100;
+      const progressBar = document.getElementById('progressBar') as HTMLElement;
+      if (progressBar) {
+        progressBar.style.width = `${progress}%`;
+      }
+
+      // Actualizar botones
+      const btnAtras = document.getElementById('btnAtras') as HTMLButtonElement;
+      const btnSiguiente = document.getElementById('btnSiguiente') as HTMLButtonElement;
+      const btnEnviar = document.getElementById('btnEnviar') as HTMLButtonElement;
+
+      if (btnAtras) {
+        btnAtras.disabled = this.currentStep === 1;
+      }
+      
+      if (this.currentStep === this.totalSteps) {
+        if (btnSiguiente) btnSiguiente.classList.add('hidden');
+        if (btnEnviar) btnEnviar.classList.remove('hidden');
+      } else {
+        if (btnSiguiente) btnSiguiente.classList.remove('hidden');
+        if (btnEnviar) btnEnviar.classList.add('hidden');
+      }
+    }
+
+    saveFormData() {
+      const form = document.getElementById('denunciasForm') as HTMLFormElement;
+      if (!form) return;
+      
+      const formData = new FormData(form);
+      
+      for (let [key, value] of formData.entries()) {
+        this.formData[key] = value;
+      }
+    }
+
+    async handleSubmit(e: Event) {
+      e.preventDefault();
+      
+      if (!this.validateCurrentStep()) {
+        return;
+      }
+
+      this.saveFormData();
+
+      // Mostrar estado de carga
+      const btnEnviar = document.getElementById('btnEnviar') as HTMLButtonElement;
+      if (!btnEnviar) return;
+      
+      const originalText = btnEnviar.textContent || '';
+      btnEnviar.textContent = 'Enviando...';
+      btnEnviar.disabled = true;
+
+      try {
+        // Simular envío (aquí iría la lógica real de envío)
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Mostrar mensaje de confirmación
+        const mensajeConfirmacion = document.getElementById('mensajeConfirmacion');
+        const denunciasForm = document.getElementById('denunciasForm');
+        
+        if (mensajeConfirmacion) {
+          mensajeConfirmacion.classList.remove('hidden');
+        }
+        if (denunciasForm) {
+          denunciasForm.classList.add('hidden');
+        }
+        
+        // Scroll al mensaje de confirmación
+        if (mensajeConfirmacion) {
+          mensajeConfirmacion.scrollIntoView({ 
+            behavior: 'smooth' 
+          });
+        }
+
+        // Enviar datos reales (implementar según backend)
+        console.log('Datos del formulario:', this.formData);
+        
+      } catch (error) {
+        console.error('Error al enviar formulario:', error);
+        alert('Hubo un error al enviar la denuncia. Por favor, inténtalo de nuevo.');
+        
+        btnEnviar.textContent = originalText;
+        btnEnviar.disabled = false;
+      }
+    }
+  }
+
+  // Inicializar formulario cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    new FormularioDenuncias();
+  });
+</script>
+
+<style>
+  .formulario-denuncias {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .form-step {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .form-step.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Estilos para campos de entrada */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(6, 43, 237, 0.15);
+  }
+
+  /* Estilos para radio buttons */
+  input[type="radio"] {
+    accent-color: #062bed;
+  }
+
+  /* Estilos para botones */
+  button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  /* Estilos para el área de archivos */
+  #fileInput + label:hover {
+    background-color: rgba(6, 43, 237, 0.05);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .formulario-denuncias {
+      margin: 1rem;
+      border-radius: 1rem;
+    }
+    
+    .formulario-denuncias .p-6 {
+      padding: 1.5rem;
+    }
+  }
+</style>

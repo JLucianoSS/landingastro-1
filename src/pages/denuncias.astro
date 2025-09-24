@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormularioDenuncias from "../components/FormularioDenuncias.astro";
+---
+
+<Layout title="Canal de Denuncias - Imperia">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="denuncias-hero relative overflow-hidden py-24 md:py-32" style="background: linear-gradient(to bottom, #050835, #0A1A7A);">
+  
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center" style="padding-top: 8rem;">
+        
+        <!-- Título principal -->
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 font-stolzl">
+          CANAL DE DENUNCIAS
+        </h1>
+
+        <!-- Descripción -->
+        <p class="text-white leading-relaxed max-w-3xl mx-auto mb-12" style="font-size: 17px;">
+          A través de este formulario podrás hacernos llegar tus inquietudes, dudas, sugerencias y quejas o denunciar hechos o sospechas que infrinjan nuestros valores y políticas.
+        </p>
+
+        <!-- Botón de acción -->
+        <div class="inline-block">
+          <button 
+            id="startFormBtn"
+            class="bg-white text-[#062bed] px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+          >
+            Empezar ahora
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario -->
+  <section id="formulario" class="py-16 bg-gradient-to-br from-slate-50 via-white to-[#062bed]/5">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <FormularioDenuncias />
+      </div>
+    </div>
+  </section>
+
+
+  <Footer />
+</Layout>
+
+<script>
+  // Scroll suave al formulario
+  document.getElementById('startFormBtn')?.addEventListener('click', () => {
+    const formSection = document.getElementById('formulario');
+    if (formSection) {
+      formSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+
+  // Animaciones con GSAP si está disponible
+  if (typeof window !== 'undefined' && (window as any).gsap) {
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
+    
+    if (ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Animación del hero
+    gsap.fromTo(".denuncias-hero h1, .denuncias-hero h2",
+      { opacity: 0, y: 50, scale: 0.9 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out"
+      }
+    );
+
+    gsap.fromTo(".denuncias-hero p",
+      { opacity: 0, y: 30 },
+      { 
+        opacity: 1, 
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        stagger: 0.1,
+        ease: "power2.out"
+      }
+    );
+
+    gsap.fromTo("#startFormBtn",
+      { opacity: 0, scale: 0.8 },
+      { 
+        opacity: 1, 
+        scale: 1,
+        duration: 0.8,
+        delay: 1,
+        ease: "back.out(1.7)"
+      }
+    );
+  }
+</script>
+
+<style>
+  .denuncias-hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Efectos de glassmorphism */
+  .denuncias-hero .inline-flex {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Animaciones suaves */
+  #startFormBtn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #startFormBtn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(6, 43, 237, 0.25);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .denuncias-hero h1 {
+      font-size: 3rem;
+    }
+    
+    .denuncias-hero h2 {
+      font-size: 2.5rem;
+    }
+  }
+</style>
