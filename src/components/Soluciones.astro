@@ -1,5 +1,18 @@
 ---
-// Soluciones component
+import SolucionModal from './SolucionModal.astro';
+import { solucionesData } from '../data/soluciones';
+
+// Mapeo de IDs de las cards a los datos
+const cardDataMap = {
+  'conectividad-avanzada': solucionesData[0],
+  'cloud-plataformas-digitales': solucionesData[1], 
+  'data-center': solucionesData[2],
+  'gobierno-riesgo-cumplimiento': solucionesData[3],
+  'confianza-digital-identidades': solucionesData[4],
+  'proteccion-avanzada-amenazas': solucionesData[5],
+  'tecnologias-nueva-generacion': solucionesData[6],
+  'proteccion-experiencia-digital': solucionesData[7]
+};
 ---
 
 <section
@@ -22,7 +35,7 @@
         tu organización
       </p>
     </div>
-    <div class="ecosystem-wrapper relative w-full max-w-6xl mx-auto h-[700px] mt-[-80px]">
+    <div class="ecosystem-wrapper relative w-full max-w-6xl mx-auto h-[700px] mt-[-30px] lg:mt-[-80px]">
       <!-- Partículas de fondo -->
       <div
         class="bg-particle absolute w-1 h-1 bg-secondary/20 rounded-full"
@@ -212,7 +225,7 @@
           <img
             src="/images/logo-hero.png"
             alt="Imperia"
-            class="w-16 h-8 md:w-32 md:h-16 mx-auto object-contain"
+            class="w-20 h-8 md:w-32 md:h-16 mx-auto object-contain"
           />
         </div>
       </div>
@@ -222,6 +235,8 @@
       <div
         class="solution-card card-1 bg-[#062BED]"
         data-connection="1"
+        data-solucion-id="proteccion-experiencia-digital"
+        onclick="openModal('proteccion-experiencia-digital')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -241,6 +256,8 @@
       <div
         class="solution-card card-2 bg-[#062BED]"
         data-connection="2"
+        data-solucion-id="conectividad-avanzada"
+        onclick="openModal('conectividad-avanzada')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -258,6 +275,8 @@
       <div
         class="solution-card card-3 bg-[#062BED]"
         data-connection="3"
+        data-solucion-id="cloud-plataformas-digitales"
+        onclick="openModal('cloud-plataformas-digitales')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -277,6 +296,8 @@
       <div
         class="solution-card card-4 bg-[#062BED]"
         data-connection="4"
+        data-solucion-id="data-center"
+        onclick="openModal('data-center')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -294,6 +315,8 @@
       <div
         class="solution-card card-5 bg-[#062BED]"
         data-connection="5"
+        data-solucion-id="gobierno-riesgo-cumplimiento"
+        onclick="openModal('gobierno-riesgo-cumplimiento')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -313,6 +336,8 @@
       <div
         class="solution-card card-6 bg-[#062BED]"
         data-connection="6"
+        data-solucion-id="confianza-digital-identidades"
+        onclick="openModal('confianza-digital-identidades')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -332,6 +357,8 @@
       <div
         class="solution-card card-7 bg-[#062BED]"
         data-connection="7"
+        data-solucion-id="proteccion-avanzada-amenazas"
+        onclick="openModal('proteccion-avanzada-amenazas')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -351,6 +378,8 @@
       <div
         class="solution-card card-8 bg-[#062BED]"
         data-connection="8"
+        data-solucion-id="tecnologias-nueva-generacion"
+        onclick="openModal('tecnologias-nueva-generacion')"
       >
         <div class="flex flex-col items-center text-center px-4">
           <div class="mb-2">
@@ -367,6 +396,19 @@
       </div>
     </div>
   </div>
+
+  <!-- Modales para cada solución -->
+  {Object.entries(cardDataMap).map(([id, data]) => (
+    <SolucionModal
+      id={data.id}
+      title={data.title}
+      description={data.description}
+      features={data.features}
+      highlightedFeatures={data.highlightedFeatures}
+      icon={data.icon}
+      isOpen={false}
+    />
+  ))}
 </section>
 
 <script>
@@ -375,9 +417,9 @@
     console.log("🌐 Ecosistema de Soluciones iniciado");
 
     // Animaciones de entrada para título y subtítulo
-    if (typeof window.gsap !== "undefined" && (window as any).gsapReady) {
+    if (typeof (window as any).gsap !== "undefined" && (window as any).gsapReady) {
       // Animación del título
-      window.gsap.fromTo(
+      (window as any).gsap.fromTo(
         ".soluciones-titulo",
         {
           opacity: 0,
@@ -401,7 +443,7 @@
       );
 
       // Animación del subtítulo
-      window.gsap.fromTo(
+      (window as any).gsap.fromTo(
         ".soluciones-subtitulo",
         {
           opacity: 0,
@@ -582,28 +624,28 @@
     checkAndAnimateTitles();
 
     // Efectos hover con GSAP (si está disponible)
-    if (typeof window.gsap !== "undefined") {
+    if (typeof (window as any).gsap !== "undefined") {
       // Efectos hover para las tarjetas
       cards.forEach((card, index) => {
         const connectionIndex = index + 1;
 
         card.addEventListener("mouseenter", () => {
           // Escalar tarjeta
-          window.gsap.to(card, {
+          (window as any).gsap.to(card, {
             scale: 1.08,
             duration: 0.4,
             ease: "power2.out",
           });
 
           // Efecto de electricidad en la línea de esta card
-          window.gsap.to(`.line-${connectionIndex}`, {
+          (window as any).gsap.to(`.line-${connectionIndex}`, {
             stroke: "#062BED",
             strokeWidth: 4,
             duration: 0.3,
           });
 
           // Efecto en el punto de conexión
-          window.gsap.to(`.dot-${connectionIndex}`, {
+          (window as any).gsap.to(`.dot-${connectionIndex}`, {
             fill: "#062BED",
             r: 8,
             duration: 0.3,
@@ -612,21 +654,21 @@
 
         card.addEventListener("mouseleave", () => {
           // Restaurar tarjeta
-          window.gsap.to(card, {
+          (window as any).gsap.to(card, {
             scale: 1,
             duration: 0.4,
             ease: "power2.out",
           });
 
           // Restaurar la línea de esta card
-          window.gsap.to(`.line-${connectionIndex}`, {
+          (window as any).gsap.to(`.line-${connectionIndex}`, {
             stroke: "#e2e8f0",
             strokeWidth: 2,
             duration: 0.3,
           });
 
           // Restaurar punto
-          window.gsap.to(`.dot-${connectionIndex}`, {
+          (window as any).gsap.to(`.dot-${connectionIndex}`, {
             fill: "#e2e8f0",
             r: 4,
             duration: 0.3,
@@ -935,6 +977,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 
   /* Fondo azul para las tarjetas con clase bg-[#062BED] */
@@ -951,12 +994,21 @@
     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
   }
 
+  .solution-card:active {
+    transform: translateY(-3px) scale(1.01);
+  }
+
   /* Hover específico para tarjetas azules */
   .solution-card.bg-\[\#062BED\]:hover {
     background: #0519c7 !important;
     transform: translateY(-6px) scale(1.03);
     border-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 20px 40px rgba(6, 43, 237, 0.4);
+  }
+
+  .solution-card.bg-\[\#062BED\]:active {
+    background: #0414a3 !important;
+    transform: translateY(-3px) scale(1.01);
   }
 
   /* CARD 1: Protección de la Experiencia Digital (arriba centro) */
@@ -1086,70 +1138,70 @@
     }
 
     .solution-card {
-      width: 120px !important;
-      height: 120px !important;
+      width: 140px !important;
+      height: 140px !important;
       padding: 0.5rem !important;
     }
 
     .solution-card .w-12 {
-      width: 1.5rem !important;
-      height: 1.5rem !important;
-      margin-bottom: 0.25rem !important;
+      width: 2.75rem !important;
+      height: 2.75rem !important;
+      margin-bottom: 0.5rem !important;
     }
 
     .solution-card h4 {
-      font-size: 0.7rem !important;
-      line-height: 1.1 !important;
+      font-size: 0.8rem !important;
+      line-height: 1.2 !important;
     }
 
     /* CARD 1: Protección de la Experiencia Digital (arriba centro) */
     .card-1 {
-      top: -2.5rem !important;
+      top: 7rem !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
     }
 
     /* CARD 2: Conectividad Avanzada (arriba derecha) */
     .card-2 {
-      top: 0.5rem !important;
-      right: 8rem !important;
+      top: 8rem !important;
+      right: 4.5rem !important;
     }
 
     /* CARD 3: Cloud & Plataformas Digitales (abajo derecha) */
     .card-3 {
-      bottom: 4rem !important;
-      right: 8rem !important;
+      bottom: 9rem !important;
+      right: 4.5rem !important;
     }
 
     /* CARD 4: Data Center (abajo centro) */
     .card-4 {
-      bottom: 1.5rem !important;
+      bottom: 7rem !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
     }
 
     /* CARD 5: Gobierno, Riesgo y Cumplimiento (abajo izquierda) */
     .card-5 {
-      bottom: 4rem !important;
-      left: 8rem !important;
+      bottom: 9rem !important;
+      left: 4.5rem !important;
     }
 
     /* CARD 6: Confianza Digital y Protección de Identidades (arriba izquierda) */
     .card-6 {
-      top: 0.5rem !important;
-      left: 8rem !important;
+      top: 8rem !important;
+      left: 4.5rem !important;
     }
 
     /* CARD 7: Protección Avanzada Contra Amenazas (derecha centro) */
     .card-7 {
-      top: 6rem !important;
-      right: 5rem !important;
+      top: 17rem !important;
+      right: 0rem !important;
     }
 
     /* CARD 8: Tecnologías de Nueva Generación (izquierda centro) */
     .card-8 {
-      top: 6rem !important;
-      left: 5rem !important;
+      top: 17rem !important;
+      left: 0rem !important;
     }
   }
 
@@ -1160,70 +1212,70 @@
     }
 
     .solution-card {
-      width: 100px !important;
-      height: 100px !important;
+      width: 140px !important;
+      height: 140px !important;
       padding: 0.25rem !important;
     }
 
     .solution-card .w-12 {
-      width: 1.25rem !important;
-      height: 1.25rem !important;
-      margin-bottom: 0.125rem !important;
+      width: 2.25rem !important;
+      height: 2.25rem !important;
+      margin-bottom: 0.25rem !important;
     }
 
     .solution-card h4 {
-      font-size: 0.6rem !important;
-      line-height: 1 !important;
+      font-size: 0.75rem !important;
+      line-height: 1.15 !important;
     }
 
     /* CARD 1: Protección de la Experiencia Digital (arriba centro) */
     .card-1 {
-      top: -2rem !important;
+      top: 4rem !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
     }
 
     /* CARD 2: Conectividad Avanzada (arriba derecha) */
     .card-2 {
-      top: 0.25rem !important;
-      right: 6rem !important;
+      top: 6.8rem !important;
+      right: 0rem !important;
     }
 
     /* CARD 3: Cloud & Plataformas Digitales (abajo derecha) */
     .card-3 {
-      bottom: 3rem !important;
-      right: 6rem !important;
+      bottom: 6.5rem !important;
+      right: 0rem !important;
     }
 
     /* CARD 4: Data Center (abajo centro) */
     .card-4 {
-      bottom: 1rem !important;
+      bottom: 4rem !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
     }
 
     /* CARD 5: Gobierno, Riesgo y Cumplimiento (abajo izquierda) */
     .card-5 {
-      bottom: 3rem !important;
-      left: 6rem !important;
+      bottom: 6.5rem !important;
+      left: 0rem !important;
     }
 
     /* CARD 6: Confianza Digital y Protección de Identidades (arriba izquierda) */
     .card-6 {
-      top: 0.25rem !important;
-      left: 6rem !important;
+      top: 14.8rem !important;
+      left: 0rem !important;
     }
 
     /* CARD 7: Protección Avanzada Contra Amenazas (derecha centro) */
     .card-7 {
-      top: 4rem !important;
-      right: 3rem !important;
+      top: 14.8rem !important;
+      right: 0rem !important;
     }
 
     /* CARD 8: Tecnologías de Nueva Generación (izquierda centro) */
     .card-8 {
-      top: 4rem !important;
-      left: 3rem !important;
+      top: 6.8rem !important;
+      left: 0rem !important;
     }
   }
 </style>
