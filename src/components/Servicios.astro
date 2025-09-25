@@ -7,102 +7,111 @@ interface Service {
   description: string;
   image: string;
   colorClass: string; // Clase de Tailwind para el color
+  center?: boolean;
   features: {
     title: string;
-    description: string;
+    description?: string;
     icon: string;
   }[];
 }
 export const services: Service[] = [
     {
       title: "Estrategia y Consultoría",
-      description: "Dirección estratégica para la operación segura y eficiente de tu infraestructura tecnológica.",
+      description: "Acompañamos a nuestros clientes en el diseño de modelos de ciberseguridad, resiliencia y cumplimiento.",
       image: "/images/servicios/estrategia.jpeg",
       colorClass: "white",
+      center:true,
       features: [
         {
-          title: "Análisis de riesgos",
-          description: "Evaluación completa de vulnerabilidades y amenazas potenciales en tu infraestructura",
+          title: "Diseño de estrategias de continuidad de negocio",
+          // description: "Desarrollamos planes integrales para garantizar la operación continua de tu organización ante cualquier contingencia",
           icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
         },
         {
-          title: "Planificación estratégica",
-          description: "Roadmap personalizado para tu transformación digital con objetivos claros y medibles",
+          title: "Obtención y mantenimiento de certificaciones",
+          // description: "Te acompañamos en el proceso de certificación y mantenimiento de estándares internacionales de calidad y seguridad",
           icon: "M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
         },
         {
-          title: "Optimización de procesos",
-          description: "Mejora continua de workflows y eficiencia operativa para maximizar resultados",
+          title: "Consultoría de arquitectura",
+          // description: "Diseñamos arquitecturas robustas y escalables que se adaptan a las necesidades actuales y futuras de tu organización",
           icon: "M13 10V3L4 14h7v7l9-11h-7z"
         }
       ]
     },
     {
       title: "Arquitectura e Integración",
-      description: "Ingeniería aplicada en tecnología que evoluciona constantemente para adaptarse a tus necesidades.",
+      description: "Traducimos la estrategia en soluciones tangibles con tecnología de punta.",
       image: "/images/servicios/arquitectura.jpeg",
       colorClass: "white",
+      center:true,
       features: [
         {
-          title: "Diseño de sistemas",
-          description: "Arquitecturas escalables y robustas diseñadas para crecer con tu negocio",
+          title: "Diseño e implementación de arquitecturas",
+          // description: "Desarrollamos arquitecturas robustas y escalables que se adaptan a las necesidades específicas de tu organización",
           icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
         },
         {
-          title: "Integración de plataformas",
-          description: "Conectividad entre sistemas heterogéneos para unificar tu ecosistema tecnológico",
+          title: "Integración de soluciones de ciberseguridad",
+          // description: "Implementamos y configuramos herramientas de ciberseguridad avanzadas para proteger tu infraestructura",
           icon: "M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
         },
         {
-          title: "Migración de datos",
-          description: "Transferencia segura y sin pérdidas de información crítica entre sistemas",
+          title: "Diseño e integración de redes seguras",
+          // description: "Construimos redes seguras y optimizadas que garantizan la conectividad y protección de tus datos",
           icon: "M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+        },
+        {
+          title: "Arquitectura e integración de data center",
+          // description: "Diseñamos y optimizamos centros de datos para maximizar eficiencia, seguridad y disponibilidad",
+          icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
         }
       ]
     },
     {
       title: "Servicios Gestionados",
-      description: "Protección activa y soporte continuo para mantener tu infraestructura funcionando sin interrupciones.",
+      description: "Brindamos continuidad, visibilidad y control mediante la gestión proactiva.",
       image: "/images/servicios/serv-gestionados.jpeg",
       colorClass: "white",
+      center:true,
       features: [
         {
-          title: "Monitoreo 24/7",
-          description: "Vigilancia continua de infraestructura con alertas proactivas y reportes detallados",
+          title: "CYBERSOC",
+          // description: "Centro de operaciones de seguridad cibernética para monitoreo y respuesta 24/7",
           icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
         },
         {
-          title: "Respuesta a incidentes",
-          description: "Solución rápida y efectiva de problemas con tiempo de respuesta garantizado",
+          title: "Gestión de incidentes de ciberseguridad",
+          // description: "Respuesta rápida y efectiva ante amenazas y incidentes de seguridad con protocolos especializados",
           icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
         },
         {
-          title: "Backup y recuperación",
-          description: "Protección completa de datos críticos con planes de contingencia personalizados",
+          title: "Service Desk",
+          // description: "Soporte técnico especializado para resolver incidencias y consultas de manera eficiente",
+          icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        },
+        {
+          title: "Monitoreo gestionado de amenazas",
+          // description: "Vigilancia continua y análisis proactivo de amenazas para proteger tu infraestructura",
           icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
         }
       ]
     },
     {
       title: "Formación",
-      description: "Competencias y conocimientos para la evolución continua de tu equipo y organización.",
+      description: "Competencias para la evolución.",
       image: "/images/servicios/formacion.jpeg",
       colorClass: "white",
       features: [
         {
-          title: "Capacitación técnica",
-          description: "Formación especializada en tecnologías emergentes y mejores prácticas del sector",
+          title: "Capacitación",
+          description: "Capacitar a los clientes para que usen, gestionen y aprovechen al máximo las soluciones implementadas o de su entorno de TI y seguridad",
           icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
         },
         {
-          title: "Certificaciones",
-          description: "Validación profesional de competencias con certificaciones reconocidas internacionalmente",
+          title: "Presentación",
+          description: "Atraer, educar e interesar a potenciales clientes a través de experiencias formativas que les muestre el valor de las soluciones y el conocimiento asociado",
           icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-        },
-        {
-          title: "Workshops intensivos",
-          description: "Sesiones prácticas y hands-on para aplicar conocimientos en escenarios reales",
-          icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
         }
       ]
     }
@@ -139,6 +148,7 @@ export const services: Service[] = [
                 imageUrl={service.image}
                 colorClass={service.colorClass}
                 features={service.features}
+                center={service.center}
               />
             ))
           }
