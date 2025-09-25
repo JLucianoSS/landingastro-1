@@ -1,5 +1,6 @@
 ---
 // Equipo component - Diseño exacto de Aerleum
+import { Image } from 'astro:assets';
 ---
 
 <section
@@ -150,7 +151,7 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/foto_rebeca.jpg" alt="Rebeca" class="w-full h-full object-cover rounded-full">
+                <Image src="/images/team/foto_rebeca.jpg" alt="Rebeca" width={160} height={160} class="w-full h-full object-cover rounded-full" />
               </div>
 
               <!-- Información del miembro -->
@@ -166,7 +167,7 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/foto_andres.jpg" alt="Andrés" class="w-full h-full object-cover rounded-full">
+                <Image src="/images/team/foto_andres.jpg" alt="Andrés" width={160} height={160} class="w-full h-full object-cover rounded-full" />
               </div>
 
               <!-- Información del miembro -->
@@ -182,7 +183,7 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/foto_andrea.jpg" alt="Andrea" class="w-full h-full object-cover rounded-full">
+                <Image src="/images/team/foto_andrea.jpg" alt="Andrea" width={160} height={160} class="w-full h-full object-cover rounded-full" />
               </div>
 
               <!-- Información del miembro -->
@@ -194,37 +195,6 @@
             </div>
           </div>
 
-          <div class="team-card" data-member="3">
-            <div class="card-content">
-              <!-- Imagen del miembro -->
-              <div class="member-photo">
-                <img src="/images/team/foto_jorge.jpg" alt="Jorge" class="w-full h-full object-cover rounded-full">
-              </div>
-
-              <!-- Información del miembro -->
-              <div class="member-info">
-                <div class="member-role">UX Designer</div>
-                <h3 class="member-name">Jorge</h3>
-                <div class="member-line"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="team-card" data-member="4">
-            <div class="card-content">
-              <!-- Imagen del miembro -->
-              <div class="member-photo">
-                <img src="/images/team/foto_luis.jpg" alt="Luis" class="w-full h-full object-cover rounded-full">
-              </div>
-
-              <!-- Información del miembro -->
-              <div class="member-info">
-                <div class="member-role">Project Manager</div>
-                <h3 class="member-name">Luis</h3>
-                <div class="member-line"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Controles del carousel - a los costados -->
@@ -415,7 +385,7 @@
 
   // Variables del carousel
   let currentMember = 0;
-  const totalMembers = 5;
+  const totalMembers = 3;
   let carouselInterval;
 
   // Función para cambiar miembro
@@ -605,19 +575,10 @@
   }
 
   .team-card:nth-child(3) {
-    transform: translateX(70px) rotateY(12deg) rotateZ(1.5deg) translateZ(-60px);
-    opacity: 0.92;
-  }
-
-  .team-card:nth-child(4) {
-    transform: translateX(70px) rotateY(12deg) rotateZ(1.5deg) translateZ(-60px);
-    opacity: 0.92;
-  }
-
-  .team-card:nth-child(5) {
     transform: translateX(140px) rotateY(25deg) rotateZ(3deg) translateZ(-120px);
     opacity: 0.9;
   }
+
 
   .team-card.active {
     opacity: 1 !important;
@@ -650,14 +611,6 @@
   }
 
   .team-card:nth-child(3) .card-content {
-    background: #062bed !important; /* Azul brillante */
-  }
-
-  .team-card:nth-child(4) .card-content {
-    background: #062bed !important; /* Azul brillante */
-  }
-
-  .team-card:nth-child(5) .card-content {
     background: #050835 !important; /* Azul oscuro */
   }
 
@@ -674,9 +627,9 @@
     overflow: hidden;
   }
 
-  /* Ajuste específico para la imagen de Jorge */
-  .team-card[data-member="3"] .member-photo img {
-    transform: translateY(8px) scale(1.1);
+  /* Zoom general para todas las imágenes */
+  .member-photo img {
+    transform: scale(1.5);
   }
 
   .member-info {
@@ -771,10 +724,6 @@
       height: 120px;
     }
 
-    /* Ajuste específico para Jorge en tablet */
-    .team-card[data-member="3"] .member-photo img {
-      transform: translateY(6px) scale(1.1);
-    }
 
     .member-name {
       font-size: 1.8rem;
@@ -802,20 +751,10 @@
     }
 
     .team-card:nth-child(3) {
-      transform: translateX(50px) rotateY(10deg) rotateZ(1deg) translateZ(-45px);
-      opacity: 0.9;
-    }
-
-    .team-card:nth-child(4) {
-      transform: translateX(50px) rotateY(10deg) rotateZ(1deg) translateZ(-45px);
-      opacity: 0.9;
-    }
-
-    .team-card:nth-child(5) {
-      transform: translateX(100px) rotateY(20deg) rotateZ(2deg)
-        translateZ(-90px);
+      transform: translateX(100px) rotateY(20deg) rotateZ(2deg) translateZ(-90px);
       opacity: 0.88;
     }
+
   }
 
   @media (max-width: 480px) {
@@ -846,10 +785,6 @@
       height: 100px;
     }
 
-    /* Ajuste específico para Jorge en móvil */
-    .team-card[data-member="3"] .member-photo img {
-      transform: translateY(5px) scale(1.1);
-    }
 
     .member-name {
       font-size: 1.5rem;
@@ -882,18 +817,9 @@
     }
 
     .team-card:nth-child(3) {
-      transform: translateX(40px) rotateY(9deg) rotateZ(1deg) translateZ(-35px);
-      opacity: 0.88;
-    }
-
-    .team-card:nth-child(4) {
-      transform: translateX(40px) rotateY(9deg) rotateZ(1deg) translateZ(-35px);
-      opacity: 0.88;
-    }
-
-    .team-card:nth-child(5) {
       transform: translateX(80px) rotateY(18deg) rotateZ(2deg) translateZ(-70px);
       opacity: 0.85;
     }
+
   }
 </style>
