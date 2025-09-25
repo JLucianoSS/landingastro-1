@@ -150,13 +150,13 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/Carlos.jpg" alt="Carlos" class="w-full h-full object-cover rounded-full">
+                <img src="/images/team/foto_rebeca.jpg" alt="Rebeca" class="w-full h-full object-cover rounded-full">
               </div>
 
               <!-- Información del miembro -->
               <div class="member-info">
                 <div class="member-role">Co-founder & CEO</div>
-                <h3 class="member-name">Carlos</h3>
+                <h3 class="member-name">Rebeca</h3>
                 <div class="member-line"></div>
               </div>
             </div>
@@ -166,13 +166,13 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/Ana.jpg" alt="Ana" class="w-full h-full object-cover rounded-full">
+                <img src="/images/team/foto_andres.jpg" alt="Andrés" class="w-full h-full object-cover rounded-full">
               </div>
 
               <!-- Información del miembro -->
               <div class="member-info">
                 <div class="member-role">Co-founder & CTO</div>
-                <h3 class="member-name">Ana</h3>
+                <h3 class="member-name">Andrés</h3>
                 <div class="member-line"></div>
               </div>
             </div>
@@ -182,13 +182,13 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/Miguel.jpg" alt="Miguel" class="w-full h-full object-cover rounded-full">
+                <img src="/images/team/foto_andrea.jpg" alt="Andrea" class="w-full h-full object-cover rounded-full">
               </div>
 
               <!-- Información del miembro -->
               <div class="member-info">
                 <div class="member-role">Lead Developer</div>
-                <h3 class="member-name">Miguel</h3>
+                <h3 class="member-name">Andrea</h3>
                 <div class="member-line"></div>
               </div>
             </div>
@@ -198,13 +198,29 @@
             <div class="card-content">
               <!-- Imagen del miembro -->
               <div class="member-photo">
-                <img src="/images/team/Sofia.jpg" alt="Sofia" class="w-full h-full object-cover rounded-full">
+                <img src="/images/team/foto_jorge.jpg" alt="Jorge" class="w-full h-full object-cover rounded-full">
               </div>
 
               <!-- Información del miembro -->
               <div class="member-info">
                 <div class="member-role">UX Designer</div>
-                <h3 class="member-name">Sofia</h3>
+                <h3 class="member-name">Jorge</h3>
+                <div class="member-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-card" data-member="4">
+            <div class="card-content">
+              <!-- Imagen del miembro -->
+              <div class="member-photo">
+                <img src="/images/team/foto_luis.jpg" alt="Luis" class="w-full h-full object-cover rounded-full">
+              </div>
+
+              <!-- Información del miembro -->
+              <div class="member-info">
+                <div class="member-role">Project Manager</div>
+                <h3 class="member-name">Luis</h3>
                 <div class="member-line"></div>
               </div>
             </div>
@@ -399,7 +415,7 @@
 
   // Variables del carousel
   let currentMember = 0;
-  const totalMembers = 4;
+  const totalMembers = 5;
   let carouselInterval;
 
   // Función para cambiar miembro
@@ -594,6 +610,11 @@
   }
 
   .team-card:nth-child(4) {
+    transform: translateX(70px) rotateY(12deg) rotateZ(1.5deg) translateZ(-60px);
+    opacity: 0.92;
+  }
+
+  .team-card:nth-child(5) {
     transform: translateX(140px) rotateY(25deg) rotateZ(3deg) translateZ(-120px);
     opacity: 0.9;
   }
@@ -633,6 +654,10 @@
   }
 
   .team-card:nth-child(4) .card-content {
+    background: #062bed !important; /* Azul brillante */
+  }
+
+  .team-card:nth-child(5) .card-content {
     background: #050835 !important; /* Azul oscuro */
   }
 
@@ -646,6 +671,12 @@
     justify-content: center;
     margin-bottom: 2rem;
     backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+
+  /* Ajuste específico para la imagen de Jorge */
+  .team-card[data-member="3"] .member-photo img {
+    transform: translateY(8px) scale(1.1);
   }
 
   .member-info {
@@ -740,6 +771,11 @@
       height: 120px;
     }
 
+    /* Ajuste específico para Jorge en tablet */
+    .team-card[data-member="3"] .member-photo img {
+      transform: translateY(6px) scale(1.1);
+    }
+
     .member-name {
       font-size: 1.8rem;
     }
@@ -771,6 +807,11 @@
     }
 
     .team-card:nth-child(4) {
+      transform: translateX(50px) rotateY(10deg) rotateZ(1deg) translateZ(-45px);
+      opacity: 0.9;
+    }
+
+    .team-card:nth-child(5) {
       transform: translateX(100px) rotateY(20deg) rotateZ(2deg)
         translateZ(-90px);
       opacity: 0.88;
@@ -803,6 +844,11 @@
     .member-photo {
       width: 100px;
       height: 100px;
+    }
+
+    /* Ajuste específico para Jorge en móvil */
+    .team-card[data-member="3"] .member-photo img {
+      transform: translateY(5px) scale(1.1);
     }
 
     .member-name {
@@ -841,6 +887,11 @@
     }
 
     .team-card:nth-child(4) {
+      transform: translateX(40px) rotateY(9deg) rotateZ(1deg) translateZ(-35px);
+      opacity: 0.88;
+    }
+
+    .team-card:nth-child(5) {
       transform: translateX(80px) rotateY(18deg) rotateZ(2deg) translateZ(-70px);
       opacity: 0.85;
     }
