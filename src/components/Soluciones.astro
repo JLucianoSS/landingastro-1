@@ -416,6 +416,46 @@ const cardDataMap = {
   document.addEventListener("DOMContentLoaded", function () {
     console.log("🌐 Ecosistema de Soluciones iniciado");
 
+    // Función para abrir modal - Disponible globalmente
+    (window as any).openModal = function(modalId: string) {
+      const modal = document.getElementById('modal-' + modalId);
+      if (modal) {
+        modal.classList.add('modal-open');
+        document.body.style.overflow = 'hidden';
+        
+        // Animación de entrada
+        const modalContent = modal.querySelector('.modal-container') as HTMLElement;
+        if (modalContent) {
+          modalContent.style.transform = 'scale(0.8) translateY(50px)';
+          modalContent.style.opacity = '0';
+          
+          setTimeout(function() {
+            modalContent.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            modalContent.style.transform = 'scale(1) translateY(0)';
+            modalContent.style.opacity = '1';
+          }, 10);
+        }
+      }
+    };
+
+    // Función para cerrar modal - Disponible globalmente
+    (window as any).closeModal = function(modalId: string) {
+      const modal = document.getElementById('modal-' + modalId);
+      if (modal) {
+        const modalContent = modal.querySelector('.modal-container') as HTMLElement;
+        if (modalContent) {
+          modalContent.style.transition = 'all 0.2s ease-in';
+          modalContent.style.transform = 'scale(0.8) translateY(50px)';
+          modalContent.style.opacity = '0';
+        }
+        
+        setTimeout(function() {
+          modal.classList.remove('modal-open');
+          document.body.style.overflow = '';
+        }, 200);
+      }
+    };
+
     // Animaciones de entrada para título y subtítulo
     if (typeof (window as any).gsap !== "undefined" && (window as any).gsapReady) {
       // Animación del título
@@ -676,6 +716,40 @@ const cardDataMap = {
         });
       });
     }
+
+    // Event listeners para cerrar modal
+    document.addEventListener('click', function(e) {
+      const target = e.target as HTMLElement;
+      if (target) {
+        const modalClose = target.closest('[data-modal-close]');
+        
+        if (modalClose) {
+          const modalId = modalClose.getAttribute('data-modal-close');
+          if (modalId) {
+            (window as any).closeModal(modalId);
+          }
+        }
+      }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const openModal = document.querySelector('.modal-overlay.modal-open');
+        if (openModal) {
+          const modalId = openModal.getAttribute('data-modal-id');
+          if (modalId) {
+            (window as any).closeModal(modalId);
+          }
+        }
+      }
+    });
+
+    // Verificar que las funciones estén disponibles
+    console.log("🔧 Funciones de modal disponibles:", {
+      openModal: typeof (window as any).openModal,
+      closeModal: typeof (window as any).closeModal
+    });
 
     console.log(
       "🎉 Ecosistema de Soluciones configurado - Animaciones de entrada listas"
