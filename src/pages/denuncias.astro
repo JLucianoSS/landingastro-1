@@ -9,10 +9,12 @@ import FormularioDenuncias from "../components/FormularioDenuncias.astro";
   <Header />
   
   <!-- Hero Section -->
-  <section class="denuncias-hero relative overflow-hidden py-24 md:py-32" style="background: linear-gradient(to bottom, #050835, #0A1A7A);">
+  <section class="denuncias-hero relative overflow-hidden py-24 md:py-32" style="background-image: url('/images/canal-de-denuncias.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- Overlay oscuro para mejorar legibilidad del texto -->
+    <div class="absolute inset-0 bg-black/50"></div>
   
 
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="container mx-auto px-4 relative z-20">
       <div class="max-w-4xl mx-auto text-center" style="padding-top: 8rem;">
         
         <!-- Título principal -->
@@ -26,14 +28,14 @@ import FormularioDenuncias from "../components/FormularioDenuncias.astro";
         </p>
 
         <!-- Botón de acción -->
-        <div class="inline-block">
+        <!-- <div class="inline-block">
           <button 
             id="startFormBtn"
             class="bg-white text-[#062bed] px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Empezar ahora
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

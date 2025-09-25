@@ -11,7 +11,7 @@
       <!-- Imagen 1 - Primera imagen activa (hero3) -->
       <div class="hero-slide slide-1 absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 ease-in-out">
         <img
-          src="/images/Hero/hero3.webp"
+          src="/images/Hero/home1.jpeg"
           alt="Hero background 1"
           class="w-full h-full object-cover"
         />
@@ -20,7 +20,7 @@
       <!-- Imagen 2 - Segunda imagen (home1) -->
       <div class="hero-slide slide-2 absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
         <img
-          src="/images/Hero/home1.jpeg"
+          src="/images/Hero/hero3.webp"
           alt="Hero background 2"
           class="w-full h-full object-cover"
         />
@@ -47,9 +47,41 @@
         class="rotating-title-container relative h-24 md:h-32 md:overflow-hidden"
       >
         <div class="rotating-titles absolute inset-0">
-          <!-- Título 1 (Innovación segura) -->
+          <!-- Título 1 (Centro de Operaciones de Ciberseguridad) -->
           <div
-            class="font-stolzl rotating-title title-1 absolute inset-0 flex items-center justify-center lg:gap-4 flex-col lg:flex-row"
+            class="font-stolzl rotating-title title-1 absolute inset-0 flex items-center justify-center flex-col"
+          >
+            <!-- Desktop: Centro de Operaciones (primera línea) -->
+            <span
+              class="hero-word word-1 desktop-only"
+              style="opacity: 0; transform: translateY(50px);">Centro de Operaciones</span
+            >
+            <!-- Desktop: de Ciberseguridad (segunda línea) -->
+            <span
+              class="hero-word word-2 desktop-only"
+              style="opacity: 0; transform: translateY(50px);">de Ciberseguridad</span
+            >
+            
+            <!-- Mobile: Centro de (primera línea) -->
+            <span
+              class="hero-word word-1-mobile mobile-only"
+              style="opacity: 0; transform: translateY(50px);">Centro de</span
+            >
+            <!-- Mobile: Operaciones de (segunda línea) -->
+            <span
+              class="hero-word word-2-mobile mobile-only"
+              style="opacity: 0; transform: translateY(50px);">Operaciones de</span
+            >
+            <!-- Mobile: Ciberseguridad (tercera línea) -->
+            <span
+              class="hero-word word-3-mobile mobile-only"
+              style="opacity: 0; transform: translateY(50px);">Ciberseguridad</span
+            >
+          </div>
+
+          <!-- Título 2 (Innovación segura) -->
+          <div
+            class="font-stolzl rotating-title title-2 absolute inset-0 flex items-center justify-center lg:gap-4 flex-col lg:flex-row"
           >
             <span
               class="hero-word word-1"
@@ -58,28 +90,6 @@
             <span
               class="hero-word word-2"
               style="opacity: 0; transform: translateY(50px);">segura</span
-            >
-          </div>
-
-          <!-- Título 2 (Cybersecurity Operations Center) -->
-          <div
-            class="font-stolzl rotating-title title-2 absolute inset-0 flex items-center justify-center flex-col"
-          >
-            <span
-              class="hero-word word-1"
-              style="opacity: 0; transform: translateY(50px);">Cybersecurity</span
-            >
-            <span
-              class="hero-word word-2 desktop-only"
-              style="opacity: 0; transform: translateY(50px);">Operations Center</span
-            >
-            <span
-              class="hero-word word-2-mobile mobile-only"
-              style="opacity: 0; transform: translateY(50px);">Operations</span
-            >
-            <span
-              class="hero-word word-3-mobile mobile-only"
-              style="opacity: 0; transform: translateY(50px);">Center</span
             >
           </div>
 
@@ -151,12 +161,12 @@
   function getTitlesForDevice() {
     const isMobile = window.innerWidth <= 768;
     return [
-      { words: ["Innovación", "segura"] },
       { 
         words: isMobile 
-          ? ["Cybersecurity", "Operations", "Center"] 
-          : ["Cybersecurity", "Operations Center"]
+          ? ["Centro de", "Operaciones de", "Ciberseguridad"] 
+          : ["Centro de Operaciones", "de Ciberseguridad"]
       },
+      { words: ["Innovación", "segura"] },
       { words: ["Excelencia", "tecnológica"] },
     ];
   }
@@ -627,7 +637,7 @@
       margin-bottom: 0.5rem;
     }
     
-    /* Asegurar que el título 2 (Cybersecurity Operations Center) se muestre en columna en mobile */
+    /* Asegurar que el título 2 se muestre en columna en mobile */
     .title-2 {
       flex-direction: column !important;
     }
@@ -651,6 +661,16 @@
     .mobile-only {
       display: block !important;
     }
+  }
+
+  /* Estilos específicos para el título 2 en desktop */
+  .title-2.desktop-only .hero-word {
+    margin-bottom: 0.2rem;
+  }
+
+  /* Estilos específicos para el título 2 en mobile */
+  .title-2.mobile-only .hero-word {
+    margin-bottom: 0.2rem;
   }
 
   /* Formas flotantes eliminadas */

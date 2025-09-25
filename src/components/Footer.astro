@@ -1,5 +1,70 @@
 ---
 // Footer component
+import DocumentModal from './DocumentModal.astro';
+
+// Datos de los documentos por categoría
+const documentCategories = {
+  'sistemas-integrados': {
+    title: 'Sistemas Integrados de Gestión',
+    documents: [
+      {
+        name: 'Política Antisoborno',
+        path: 'sistemas-integrados/POLÍTICA ANTISOBORNO.pdf',
+        description: 'Política para prevenir y combatir el soborno y la corrupción'
+      },
+      {
+        name: 'Política de Calidad',
+        path: 'sistemas-integrados/POLÍTICA DE CALIDAD.pdf',
+        description: 'Compromiso con la excelencia y mejora continua en nuestros procesos'
+      },
+      {
+        name: 'Política de SGSI',
+        path: 'sistemas-integrados/POLÍTICA DE SGSI.pdf',
+        description: 'Sistema de Gestión de Seguridad de la Información'
+      },
+      {
+        name: 'Política del SIG',
+        path: 'sistemas-integrados/POLÍTICA DEL SIG.pdf',
+        description: 'Sistema Integrado de Gestión - Marco general'
+      }
+    ]
+  },
+  'sst': {
+    title: 'Seguridad y Salud en el Trabajo (SST)',
+    documents: [
+      {
+        name: 'Política de SST',
+        path: 'sst/POLÍTICA DE SST.pdf',
+        description: 'Compromiso con la seguridad y salud de nuestros colaboradores'
+      },
+      {
+        name: 'Reglamento Interno de SST',
+        path: 'sst/REGLAMENTO INTERNO DE SST.pdf',
+        description: 'Normas y procedimientos internos de seguridad y salud'
+      }
+    ]
+  },
+  'privacidad': {
+    title: 'Privacidad y Datos Personales',
+    documents: [
+      {
+        name: 'Política de Privacidad y Datos Personales',
+        path: 'privacidad/POLÍTICA DE PRIVACIDAD Y DATOS PERSONALES.pdf',
+        description: 'Protección y tratamiento responsable de datos personales'
+      }
+    ]
+  },
+  'derechos-humanos': {
+    title: 'Derechos Humanos',
+    documents: [
+      {
+        name: 'Política de Derechos Humanos',
+        path: 'derechos-humanos/POLÍTICA DE DERECHOS HUMANOS.pdf',
+        description: 'Compromiso con el respeto y promoción de los derechos humanos'
+      }
+    ]
+  }
+};
 ---
 
 <footer class="bg-dark text-white py-16">
@@ -14,18 +79,7 @@
           comprometida con la excelencia y el crecimiento sostenible de nuestros clientes.
         </p>
         <div class="flex md:space-x-4 xl:ml-4 justify-center md:justify-start w-[150px] mx-auto md:w-auto">
-          <!-- Facebook -->
-          <!-- <a href="#" class="social-link w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a> -->
-          <!-- Instagram -->
-          <!-- <a href="#" class="social-link w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a> -->
+         
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/company/imperia-soluciones-tecnol%C3%B3gicas/" target="_blank" class="social-link w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +102,7 @@
               <a href="#servicios" class="text-white/70 hover:text-white transition-colors duration-300 text-sm">Servicios</a>
             </li>
             <li>
-              <a href="#soluciones" class="text-white/70 hover:text-white transition-colors duration-300 text-sm">Soluciones</a>
+              <a href="#soluciones-mobile" class="text-white/70 hover:text-white transition-colors duration-300 text-sm">Soluciones</a>
             </li>
             <li>
               <a href="#alianzas" class="text-white/70 hover:text-white transition-colors duration-300 text-sm">Alianzas</a>
@@ -67,22 +121,19 @@
           <h4 class="text-sm font-semibold mb-4">Políticas y Sistemas</h4>
           <ul class="space-y-2">
             <li>
-              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Sistemas de Gestión (3 ISOs)</a>
+              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs" data-modal="sistemas-integrados">Sistemas integrados de gestión</a>
             </li>
             <li>
-              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Políticas + SST</a>
+              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs" data-modal="sst">SST</a>
             </li>
             <li>
-              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Canal de Denuncias</a>
+              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs" data-modal="privacidad">Privacidad y datos personales</a>
             </li>
             <li>
-              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Política de Derechos Humanos</a>
+              <a href="/denuncias" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Canal de Denuncias</a>
             </li>
             <li>
-              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Protección de Datos Personales</a>
-            </li>
-            <li>
-              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs">Derechos ARCO</a>
+              <a href="#" class="text-white/70 hover:text-white transition-colors duration-300 text-xs" data-modal="derechos-humanos">Derechos Humanos</a>
             </li>
           </ul>
         </div>
@@ -118,22 +169,19 @@
         <h4 class="text-lg font-semibold mb-6">Políticas y Sistemas</h4>
         <ul class="space-y-3">
           <li>
-            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300">Sistemas de Gestión (3 ISOs)</a>
+            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300" data-modal="sistemas-integrados">Sistemas integrados de gestión</a>
           </li>
           <li>
-            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300">Políticas + SST</a>
+            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300" data-modal="sst">SST</a>
+          </li>
+          <li>
+            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300" data-modal="privacidad">Privacidad y datos personales</a>
           </li>
           <li>
             <a href="/denuncias" class="text-white/70 hover:text-white transition-colors duration-300">Canal de Denuncias</a>
           </li>
           <li>
-            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300">Política de Derechos Humanos</a>
-          </li>
-          <li>
-            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300">Protección de Datos Personales</a>
-          </li>
-          <li>
-            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300">Derechos ARCO</a>
+            <a href="#" class="text-white/70 hover:text-white transition-colors duration-300" data-modal="derechos-humanos">Derechos Humanos</a>
           </li>
         </ul>
       </div>
@@ -162,100 +210,14 @@
   </div>
 </footer>
 
-<!-- <script>
-  // Animación del footer
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Animación de entrada del footer
-  gsap.from('footer', {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: 'footer',
-      start: 'top 90%',
-      end: 'bottom 10%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  // Animación de los enlaces con stagger
-  gsap.from('footer ul li', {
-    y: 20,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: 'footer',
-      start: 'top 90%',
-      end: 'bottom 10%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  // Animación de los iconos sociales
-  gsap.from('.social-link', {
-    scale: 0,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: 'footer',
-      start: 'top 90%',
-      end: 'bottom 10%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  // Efecto hover en enlaces
-  const footerLinks = document.querySelectorAll('footer a');
-  
-  footerLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      gsap.to(link, {
-        x: 5,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-    
-    link.addEventListener('mouseleave', () => {
-      gsap.to(link, {
-        x: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-  });
-  
-  // Efecto hover en iconos sociales
-  const socialLinks = document.querySelectorAll('.social-link');
-  
-  socialLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      gsap.to(link, {
-        scale: 1.1,
-        rotation: 5,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-    
-    link.addEventListener('mouseleave', () => {
-      gsap.to(link, {
-        scale: 1,
-        rotation: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-  });
-</script> -->
+<!-- Modales de documentos -->
+{Object.entries(documentCategories).map(([id, category]) => (
+  <DocumentModal 
+    id={id} 
+    title={category.title} 
+    documents={category.documents} 
+  />
+))}
 
 <style>
   .social-link {
@@ -286,3 +248,24 @@
     }
   }
 </style>
+
+<script>
+  // Script para manejar los clicks en los enlaces de políticas
+  document.addEventListener('DOMContentLoaded', function() {
+    // Agregar event listeners a todos los enlaces con data-modal
+    const modalLinks = document.querySelectorAll('a[data-modal]');
+    
+    modalLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const modalType = this.getAttribute('data-modal');
+        
+        // Usar la API nativa del dialog directamente
+        const dialog = document.getElementById(`modal-${modalType}`) as HTMLDialogElement;
+        if (dialog) {
+          dialog.showModal();
+        }
+      });
+    });
+  });
+</script>
